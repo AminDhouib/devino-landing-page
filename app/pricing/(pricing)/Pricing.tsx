@@ -131,7 +131,8 @@ const PriceCard = ({
                     <motion.div className="h-[25px] flex">
                     {plan.deal1 && plan.deal2 &&
                         <motion.div className="text-[17px] my-auto text-start">
-                            {plan.deal1} <span className="font-bold ml-2">{plan.deal2}</span>
+                            {/*{plan.deal1}*/}
+                            <span className="font-bold">{plan.deal2}</span>
                         </motion.div>
                     }
                     </motion.div>
