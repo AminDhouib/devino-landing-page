@@ -128,14 +128,14 @@ const PriceCard = ({
                     {/*    </motion.div>*/}
                     {/*    <motion.div className="text-[17px] text-start mt-auto mb-2">/{plan.unit}</motion.div>*/}
                     {/*</motion.div>*/}
-                    <motion.div className="h-[25px] flex">
-                    {plan.deal1 && plan.deal2 &&
-                        <motion.div className="text-[17px] my-auto text-start">
-                            {/*{plan.deal1}*/}
-                            <span className="font-bold">{plan.deal2}</span>
-                        </motion.div>
-                    }
-                    </motion.div>
+                    {/*<motion.div className="h-[25px] flex">*/}
+                    {/*{plan.deal1 && plan.deal2 &&*/}
+                    {/*    <motion.div className="text-[17px] my-auto text-start">*/}
+                    {/*        {plan.deal1}*/}
+                    {/*        <span className="font-bold ml-2">{plan.deal2}</span>*/}
+                    {/*    </motion.div>*/}
+                    {/*}*/}
+                    {/*</motion.div>*/}
                     <motion.div className="uppercase text-[28px] text-start font-bold">
                         {plan.title}
                     </motion.div>
