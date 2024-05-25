@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import {event} from '../../lib/gtag'
 type Plan = {
     active: boolean;
     popular: boolean;
@@ -101,7 +102,13 @@ const PriceCard = ({
 }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { amount: 0.5, once: true });
-
+    const triggerEvent = () => {
+        event({
+            action: 'schedule_call',
+            value: "pricing_page",
+            event_label: plan.title,
+        })
+    }
     return (
         <>
             <motion.div className={`${className} w-full flex justify-center`}>
@@ -160,9 +167,10 @@ const PriceCard = ({
                         className={`rounded-[24px] hover:opacity-80 disabled:opacity-60 mt-auto py-[10px] w-full px-[30px] text-[17px] font-bold uppercase ${plan.popular ? 'text-lightbluedark  bg-white' : 'text-white bg-lightbg'}`}
                     >
                         <Link
+                            onClick={triggerEvent}
                             target="_blank"
                             href="https://calendly.com/amin-dhouib">
-                        Schedule a call
+                            Schedule a call
                         </Link>
                     </motion.button>
                 </motion.div>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "../_ui/Button";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import {event} from "~/app/lib/gtag";
 
 const cases = [
   {
@@ -66,7 +67,12 @@ const Case = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: true });
-
+  const triggerEvent = () => {
+    event({
+      action: 'in_house_project',
+      value: example.title,
+    })
+  }
   return (
     <motion.div
       ref={ref}
@@ -100,6 +106,7 @@ const Case = ({
           </p>
         </div>
         <a
+            onClick={triggerEvent}
           href={info.url}
           target="_blank"
           rel="noopener noreferrer"

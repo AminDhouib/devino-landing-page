@@ -9,6 +9,7 @@ import {
 
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa6";
+import {event} from "~/app/lib/gtag";
 const links = [
   {
     name: "Company",
@@ -88,7 +89,14 @@ const socials = [
   },
 ];
 
+
 export default function Footer() {
+    const triggerEvent = (social: string) => {
+        event({
+            action: 'social_media',
+            value: social
+        })
+    }
     const currentYear = new Date().getFullYear();
   return (
     <footer className="max-w-[min(75rem,96svw)] mx-auto bg-darkbg p-[3rem] pb-8 rounded-2xl lg:flex flex-col grid grid-cols-[auto,minmax(0,1fr)] text-white text-sm gap-16 sm:gap-8 font-medium mb-4">
@@ -175,6 +183,7 @@ export default function Footer() {
         <div className="flex gap-6 text-lg sm:w-full sm:justify-between">
           {socials.map(social => (
               <Link
+                  onClick={() => {triggerEvent(social.name)}}
                   href={social.url}
                   key={social.name}
                   target="_blank"

@@ -4,11 +4,17 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import Button from "~/app/_ui/Button";
+import {event} from "~/app/lib/gtag";
 
 export default function GetStarted() {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: true });
-
+  const triggerEvent = () => {
+    event({
+      action: 'contact us',
+      value: "pricing_page",
+    })
+  }
   return (
     <section
       ref={ref}
@@ -38,6 +44,7 @@ export default function GetStarted() {
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
         >
           <a
+              onClick={triggerEvent}
             href={"https://calendly.com/amin-dhouib"}
             target="_blank"
             rel="noopener noreferrer"
