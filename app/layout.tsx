@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -9,6 +8,7 @@ import Footer from "./(main)/Footer";
 import { ReactNode, useEffect } from "react";
 
 import Hotjar from "@hotjar/browser";
+import AppHeader from "~/app/AppHeader";
 
 const siteId = 3891462;
 const hotjarVersion = 6;
@@ -28,12 +28,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang="en">
-      <body
+    <AppHeader/>
+    <body
         className={
           inter.className +
           " relative bg-white text-[#1d1e22] overflow-x-hidden"
         }
       >
+
         <Header />
         {children}
         <Footer />
