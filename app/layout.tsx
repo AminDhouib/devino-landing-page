@@ -11,7 +11,6 @@ import React, { ReactNode, useEffect } from "react";
 
 import Hotjar from "@hotjar/browser";
 import AppHeader from "~/app/AppHeader";
-import {useRouter} from "next/router";
 
 const siteId = 3891462;
 const hotjarVersion = 6;
@@ -24,20 +23,10 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const { pathname, events } = useRouter()
   useEffect(() => {
     if (process.env.NODE_ENV === "development") return;
     Hotjar.init(siteId, hotjarVersion);
   }, []);
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageView(url)
-    }
-    events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [events])
   return (
     <html lang="en">
     <AppHeader/>
