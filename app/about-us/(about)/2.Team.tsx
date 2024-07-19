@@ -1,18 +1,10 @@
 "use client";
 
+//TODO: This file seems to do nothing. Needs to be removed.
+
 import MemberCard from "./MemberCard";
 
 const team = [
-  {
-    name: "Mohamed Bechir Mejri",
-    position: "CTO",
-    image: "bechir.png",
-    linkedin: "",
-    github: "",
-    email: "",
-    bio: "",
-    skills: [],
-  },
   {
     name: "Amin Dhouib",
     position: "CEO",
@@ -24,9 +16,9 @@ const team = [
     skills: [],
   },
   {
-    name: "Dhia Dahmeni",
-    position: "Techical Lead",
-    image: "dhia.jpeg",
+    name: "Sofien Hafdhi",
+    position: "Engineer",
+    image: "sofien.jpeg",
     linkedin: "",
     github: "",
     email: "",
@@ -64,16 +56,6 @@ const team = [
     skills: [],
   },
   {
-    name: "Dali Khrifa",
-    position: "UX/UI Designer",
-    image: "dali.jpg",
-    linkedin: "",
-    github: "",
-    email: "",
-    bio: "",
-    skills: [],
-  },
-  {
     name: "Mohamed Amine",
     position: "Software Engineer",
     image: "MedAmine.jpeg",
@@ -87,16 +69,6 @@ const team = [
     name: "Mery",
     position: "Graphic Designer",
     image: "mery.jpg",
-    linkedin: "",
-    github: "",
-    email: "",
-    bio: "",
-    skills: [],
-  },
-  {
-    name: "Ahmed",
-    position: "Software Engineer",
-    image: "ahmed.jpg",
     linkedin: "",
     github: "",
     email: "",
