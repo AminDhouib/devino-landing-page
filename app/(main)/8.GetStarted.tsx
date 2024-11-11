@@ -81,7 +81,7 @@ const OptionCard = ({
     <motion.div
       key={title}
       className={` ${
-        isFirst ? "bg-dimlightblue" : "bg-cream"
+        isFirst ? "bg-dimlightblue" : "bg-white"
       } flex flex-col rounded-[20px] p-12 lg:p-8 ${
         isFirst ? "gap-12" : "gap-4"
       } h-auto ${isFirst ? "w-8/12" : "w-4/12"} lg:w-full `}
@@ -98,7 +98,7 @@ const OptionCard = ({
           >
             <motion.div
                 className={`${
-                    isFirst ? "bg-orange text-white" : "bg-dimlightblue text-orange"
+                    isFirst ? "bg-lightblueactive text-white" : "bg-lightblueactive text-white"
                 } whitespace-nowrap py-3 px-10 md:px-8 items-center hover:scale-105 uppercase font-mono w-max tracking-wide transition-all duration-300 rounded-[40px] font-semibold text-xl md:text-lg`}
                 whileHover={{scale: 1.1}}>
               {button.name}

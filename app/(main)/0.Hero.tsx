@@ -27,7 +27,7 @@ export default function Hero() {
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.05}}
               className="text-5xl sm:text-4xl text-darkblue xs:text-3xl font-bold mb-5"
           >
-                  <span className="text-orange inline-block relative ml-2">
+                  <span className="text-lightblueactive inline-block relative ml-2">
                   <Image height={"40"} width={"40"} src="/arrow-left.svg" alt="Arrow Right"
                          className="-ml-8 mt-5 -mb-3 sm:w-8"/>
                       Anticipating

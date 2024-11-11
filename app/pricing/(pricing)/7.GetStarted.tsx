@@ -48,7 +48,7 @@ export default function GetStarted() {
             href={"https://calendly.com/amin-dhouib"}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl sm:text-lg font-bold flex items-center gap-3 text-orange"
+            className="text-3xl sm:text-lg font-bold flex items-center gap-3 text-lightblueactive"
           >
             Contact us
             <Image

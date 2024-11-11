@@ -11,7 +11,7 @@ export function FAQHero() {
           width={100}
           className="h-11 w-11 absolute top-[-2.5rem] left-[-4rem] lg:h-9 lg:w-9 lg:top-[-1.5rem] lg:left-[-3rem] "
         />
-        <span className="text-orange">Frequently</span> Asked Questions
+        <span className="text-lightblueactive">Frequently</span> Asked Questions
       </h1>
     </section>
   );

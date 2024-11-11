@@ -64,7 +64,7 @@ export default function FreeTrial() {
             href={"https://calendly.com/amin-dhouib"}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl sm:text-lg font-medium mt-4 flex items-center gap-1 text-orange"
+            className="text-xl sm:text-lg font-medium mt-4 flex items-center gap-1 text-lightblueactive"
           >
             Let&#39;s start your trial
             <Image
