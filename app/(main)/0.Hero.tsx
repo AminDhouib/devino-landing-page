@@ -24,14 +24,6 @@ export default function Hero() {
           <motion.div
               initial={{opacity: 0, y: 20}}
               animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
-              transition={{duration: 0.6, ease: "easeInOut"}}
-              className="text-skybg text-3xl sm:text-xl md:text-2xl font-normal mb-1 sm:-mb-5"
-          >
-              Develop with innovation
-          </motion.div>
-          <motion.div
-              initial={{opacity: 0, y: 20}}
-              animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.05}}
               className="text-5xl sm:text-4xl text-darkblue xs:text-3xl font-bold mb-5"
           >
@@ -40,7 +32,7 @@ export default function Hero() {
                          className="-ml-8 mt-5 -mb-3 sm:w-8"/>
                       Anticipating
                   </span>{" "}
-                  tomorrow <div
+                  Tomorrow’s <div
                   className="hidden md:flex mb-5"></div> challenges, <div
                   className="md:hidden mb-7"></div> Innovating <div
                   className="hidden md:flex mb-5"></div> Beyond
@@ -58,10 +50,10 @@ export default function Hero() {
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.2}}
               className="text-skybg text-3xl sm:text-xl font-semibold"
           >
-              We build and scale softwares delivering business values,
+              We build and scale software.
               <br/>
-              Empowering clients to <div
-              className="hidden sm:flex"></div> accomplish their goals.
+              Empowering you to <div
+              className="hidden sm:flex"></div> accomplish your goals.
           </motion.div>
           <Link
               href="https://calendly.com/amin-dhouib"

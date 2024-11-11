@@ -9,11 +9,11 @@ import {event} from "~/app/lib/gtag";
 const cases = [
   {
     info: {
-      title: "Our in-House Project: uNotes",
+      title: "uNotes",
       description:
-        "uNotes, our free app, embodies our dedication to using tech for good. It offers students access to 30,000+ university docs, fostering learning and collaboration. With sharing, interaction, and personal upload features, UNotes transforms how students access and share educational resources.",
+        "With 200% year-over-year growth, uNotes is a note-sharing system that offers students access to 30,000+ user-uploaded university docs.",
       url: "https://unotes.net/",
-      buttonText: "Take a Look",
+      buttonText: "Check it out",
     },
     example: {
       image: "/unotes.png",
@@ -23,9 +23,9 @@ const cases = [
   },
   {
     info: {
-      title: "Cloud Storage Integration: upup",
+      title: "Upup",
       description:
-        "UPUP is a versatile NPM component simplifying file uploads for web apps. It's open-source, free, and seamlessly integrates with cloud storage services like Google Drive and OneDrive. Developers get an efficient solution for adding file upload functionality to their projects.",
+        "A versatile NPM component simplifying file uploads for web apps. It's open-source, free, secure, and seamlessly integrates with cloud storage services like Google Drive and OneDrive.",
       url: "https://github.com/DevinoSolutions/upup",
       buttonText: "Check it out",
     },
@@ -89,7 +89,7 @@ const Case = ({
         }`}
       >
         <Image
-          className="w-fit h-fit rounded-bl-[28px] sm:w-3/4 sm:h-3/4"
+          className="w-fit h-fit sm:w-3/4 sm:h-3/4"
           src={example.image}
           alt={example.title}
           width={400}

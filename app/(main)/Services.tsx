@@ -20,39 +20,39 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "DevOps",
+    title: "DevOps & Cloud",
     description:
-      "Accelerating software delivery through seamless integration, collaboration, and automated processes.",
+      "Optimizing software development with cloud-based solutions, automation, and continuous integration for faster, more reliable deployments.",
     icon: "devops.svg",
   },
   {
     title: "Machine Learning",
     description:
-      "Unlock the power of data with our machine learning solutions tailored to your business needs.",
+      "Turning your data into strategic insights with custom machine learning models designed to solve specific business challenges.",
     icon: "machine_learning.svg",
   },
   {
     title: "API Development",
     description:
-      "Crafting seamless bridges between software systems for enhanced connectivity and functionality.",
+      "Creating secure and efficient APIs that connect your applications, improve functionality, and enable smooth data exchange.",
     icon: "api.svg",
   },
   {
     title: "Web Development",
     description:
-      "Crafting digital experiences through code, design, and innovation for online success.",
+      "Building dynamic, responsive websites that deliver seamless user experiences and drive online growth.",
     icon: "code.svg",
   },
   {
     title: "Web Automation",
     description:
-      "Empowering efficiency through automated processes for seamless online operations.",
+      "Automating repetitive tasks to save time, reduce errors, and optimize your online workflows and operations.",
     icon: "automation.svg",
   },
   {
     title: "Digital Design",
     description:
-      "Crafting captivating visual experiences that resonate and engage across digital platforms.",
+      "Designing impactful digital visuals that enhance user engagement and create memorable brand experiences.",
     icon: "ui.svg",
   },
 ];

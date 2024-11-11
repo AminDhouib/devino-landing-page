@@ -15,7 +15,7 @@ const AppHeader: FC<Props> = ({
     ogUrl,
     metaDescription,
 }) => {
-    const title = `Devino | ${capitalizeFirst(description || "Develop with innovation")}`
+    const title = `Devino | ${capitalizeFirst(description || "Software Development Company")}`
     const fullOgUrl = ogUrl ? ogUrl : 'https://devino.ca'
     const fullOgImage = `${fullOgUrl}/brand/full_logo.png`
     return (
@@ -23,7 +23,7 @@ const AppHeader: FC<Props> = ({
             <Head>
                 <link rel="shortcut icon" href="/brand/logo.png"/>
                 <title>{title}</title>
-                <meta name="description" content={description || "Develop with innovation"}/>
+                <meta name="description" content={description || "Software Development Company"}/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:title" content={ogTitle ? ogTitle : title}/>
                 <meta property="og:description" content={description}/>
@@ -49,7 +49,7 @@ const AppHeader: FC<Props> = ({
                     content={
                         metaDescription
                             ? metaDescription
-                            : 'Develop with innovation'
+                            : 'Software Development Company'
                     }
                 />
 
@@ -62,7 +62,7 @@ const AppHeader: FC<Props> = ({
                 <meta name="apple-mobile-web-app-title" content="Devino"/>
                 <meta
                     name="description"
-                    content="Develop with innovation"
+                    content="Software Development Company"
                 />
                 <meta name="format-detection" content="telephone=no"/>
                 <meta name="mobile-web-app-capable" content="yes"/>

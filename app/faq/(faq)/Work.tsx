@@ -11,19 +11,19 @@ const cards: ICard[] = [
   {
     title: "Good research is key to great products",
     description:
-      "At the start of any new project, Devino does comprehensive research to find out the tools, technologies, and techniques that will solve your problem the best. The aim of our research is to create a blueprint for the optimal custom solution.",
+      "We start each project with targeted research to select the exact tools, technologies, and methodologies that align with your goals, creating a detailed blueprint for a high-impact solution.",
     icon: "/icons/research.svg",
   },
   {
     title: "Create software that doesn’t break down",
     description:
-      "We use functional programming languages to create software that is more reliable and maintainable than regular market offerings. This makes our services indispensable in fields like Full-stack, Data Analytics, Machine Learning, DevOps.",
+      "Our team uses robust functional programming languages to build highly reliable, scalable, and maintainable software, ideal for complex needs in Full-stack, Data Analytics, Machine Learning, and DevOps.",
     icon: "/icons/software.svg",
   },
   {
     title: "Build business relationships that last",
     description:
-      "From the start, our goal is to build valuable relationships and partnerships that last. We make sure that you and your projects receive the care and support they deserve before, during, and after the release.",
+      "We prioritize long-term partnerships, providing consistent support through every phase—from planning and development to deployment and beyond—ensuring your project’s lasting success.",
     icon: "/icons/business.svg",
   },
 ];

@@ -30,7 +30,7 @@ const members: IMember[] = [
   {
     id: 3,
     name: "Aladdin Bensalah",
-    role: "Full Stack + UI/UX Engineer",
+    role: "Full Stack & UI/UX Engineer",
     description:
       "Aladdin has three ‘wishes’: to code, to design, and to craft unforgettable web experiences. With each project, he works his magic to deliver captivating, seamless digital journeys. When it comes to web wizardry, Aladdin’s spells are second to none.",
     picture: "aladdin",

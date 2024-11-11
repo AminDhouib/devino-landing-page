@@ -14,22 +14,22 @@ type Methodology = {
 const methodologies: Methodology[] = [
     {
         title: "Innovation and Creativity",
-        description: "Cutting edge-soltuions that drive success",
+        description: "Over 200 solutions delivered with the latest tech for real results.",
         icon: "/Light.svg"
     },
     {
         title: "Client-Centric Collaboration",
-        description: "We work hand-in-hand, Your vision is our mission",
+        description: "100+ clients, 98% satisfaction rate across 15 industries.",
         icon: "/collaboration.svg"
     },
     {
-        title: "Dedication to Excellence",
-        description: "Committed to excellence in every project we undertake",
+        title: "Commitment to Quality and Excellence",
+        description: "95% on-time rate across 300+ projects.",
         icon: "/Star.svg"
     },
     {
         title: "Flexibility and Transparency",
-        description: "Flexible team structure and transparent pricing model",
+        description: "Flexible scalability, transparent pricing.",
         icon: "/Loop.svg"
     },
 ]
