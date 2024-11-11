@@ -27,12 +27,12 @@ const questions: IQuestion[] = [
   {
     title: "How much does it cost to hire a software engineer?",
     description:
-      "",
+      "The cost of hiring a software engineer varies based on their level of expertise, specialization, and the scope of your project. At Devino, we offer flexible pricing models to meet different budget requirements, from hourly rates to project-based fees. We work with you to find the best approach, balancing quality and cost-effectiveness. This allows us to bring the right talent to your project while maintaining transparency and alignment with your financial goals.",
   },
   {
     title: "Can I cancel my project at any time?",
     description:
-      "",
+      "Yes, we understand that business needs and priorities can change. At Devino, we offer a flexible project engagement model that allows clients to adjust, pause, or cancel projects if necessary. We’re committed to open communication, so you’ll always have a clear understanding of the project status, costs incurred, and any potential impacts. Our goal is to ensure a positive experience, whether you choose to continue, pause, or end a project, and we’re here to support you in making the best decision for your business.",
   },
 ];
 

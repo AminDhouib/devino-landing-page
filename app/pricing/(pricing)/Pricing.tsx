@@ -33,7 +33,7 @@ const plans: Plan[] = [
             "Part-time Developer",
             "Tech-Lead Guidance",
             "Team Assistance",
-            "Three days free trial",
+            "FREE 3 day trial included!",
         ],
     },
     {
@@ -49,8 +49,7 @@ const plans: Plan[] = [
             "Full-time Dedicated Developer",
             "Tech-Lead Guidance",
             "Team Assistance",
-            "Follow-up",
-            "Three days free trial",
+            "FREE 3 day trial included!",
         ],
     },
     {
@@ -61,9 +60,10 @@ const plans: Plan[] = [
         title: "Custom",
         description: "Hourly services",
         services: [
-            "Dedicated Developer",
-            "Tech-Lead Guidance",
-            "Three days free trial",
+            "Only pay what you need",
+            "Flexible scalability",
+            "Team Assistance",
+            "Tech-Lead Guidance"
         ],
     },
 ]

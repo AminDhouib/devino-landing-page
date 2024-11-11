@@ -16,7 +16,7 @@ const members: IMember[] = [
     name: "Amin Dhouib",
     role: "CEO",
     description:
-      "Founder and CEO of Devino with a bachelor's degree in Software Engineering. In his free time, he is a motivational speaker, plays sports, and loves to spend time networking and connecting with people. His core business philosophy: Bring value to others and hopefully value will eventually come back your way.",
+      "As Devino’s visionary founder, Amin’s motto is simple: create value, and it will come back full circle. With a solid foundation in software engineering, Amin leads with passion, connecting ideas and people. In his free time, he’s a motivional speaker, a sports enthusiast, and an advocate for growth through collaboration.",
     picture: "amin",
   },
   {
@@ -24,51 +24,48 @@ const members: IMember[] = [
     name: "Med Amine K’haili",
     role: "Full Stack Software Engineer",
     description:
-      "Software engineer by day, gaming aficionado by night, and gym rat on weekends. Passionate about coding, conquering challenges, and embracing the occasional craziness. Introverted yet fun-loving, He thrives on getting things done with precision and meeting deadlines like a pro.",
-    picture: "MedAmine",
+      "By day, he’s a full-stack engineer; by night, a gamer and fitness buff. Amine’s drive to conquer challenges and crush deadlines is only matched by his unique flair for innovation.",
+    picture: "amine",
   },
   {
     id: 3,
-    name: "Sofien Hafdhi",
-    role: "Full Stack Software Engineer",
+    name: "Aladdin Bensalah",
+    role: "Full Stack + UI/UX Engineer",
     description:
-      "Software Engineer and a full-time geek. He's a tech enthusiast, a coding wizard, and a problem-solving ninja. When he's not coding, he's probably gaming, reading, or watching anime.",
-    picture: "sofien",
+      "Aladdin has three ‘wishes’: to code, to design, and to craft unforgettable web experiences. With each project, he works his magic to deliver captivating, seamless digital journeys. When it comes to web wizardry, Aladdin’s spells are second to none.",
+    picture: "aladdin",
   },
   {
     id: 4,
-    name: "Chedli Ghorbel",
-    role: "AI & Web Automations Engineer",
+    name: "Jedidiah Amaraegbu",
+    role: "Full Stack Software Engineer",
     description:
-      "A part time chess player when he's not looking for bugs, you'll always find him playing chess. He's also an ai enthusiast so we won't be surprised if he made an AI model to replace his job so he can enjoy playing chess more.",
-    picture: "chedli",
+      "Known for his laser-sharp focus and knack for organization, Jedidiah is the team’s reliability powerhouse. Adaptable and detail-oriented, he’s committed to delivering top-notch results, every time. If precision is key, Jedidiah’s got it covered.",
+    picture: "jedidiah",
   },
   {
     id: 5,
-    name: "Omayma Korbi",
-    role: "UI/UX Designer",
+    name: "Ala Bouali",
+    role: "Cybersecurity Engineer",
     description:
-      "She is the graphic guru by day, coding wizard by moonlight, sales maestro in the afternoon, and social media sorcerer by night. Multitasking is her cardio, and she has more hats than a magician's rabbit. 🎩 Music and singing are her jam, and she's as addicted to nature as a squirrel to acorns. Catch her if you can – she's got a bubbly energy that rivals a shaken soda bottle! ✨",
-    picture: "omayma",
+      "This cybersecurity expert is our digital guardian, known for discovering critical vulnerabilities and building the popular Bane Python library. With a passion for iron-clad security, Ala ensures that every piece of software we create is as secure as it is powerful.",
+    picture: "ala",
   },
   {
     id: 6,
-    name: "Maryem Bouchiba",
-    role: "Marketing & Design Specialist",
+    name: "Chedli Ghorbel",
+    role: "AI & Web Automations Engineer",
     description:
-      "Filmmaker, Advertising Specialist and Video Editor. She spent 48hrs working non-stop for fun.\n" +
-      "She has great cinematography skills, even using her old iPhone -5, Llamas, Critics and Skateboard lover. \n" +
-      "She's a Realism portrait and Mosaic artist.",
-    picture: "mariem",
+      "A part time chess player when he's not looking for bugs, you'll always find him playing chess. As an AI expert, we won't be surprised if he made an AI model to replace his job so he can enjoy playing chess more.",
+    picture: "chedli",
   },
   {
     id: 7,
-    name: "Emaan Shakil",
+    name: "Maryem Bouchiba",
     role: "Marketing & Design Specialist",
     description:
-      "You will catch her behind the scenes making your feed pop by waving her editing wand to turn 'meh' into 'wow'. Your content maestro, composing viral magic with every edit! She is constantly Insta stalking for the next perfect content.\n" +
-      "Meet ups? Sure! Phone calls? Let's just say she has got a built-in 'call aversion' button. Don't give her that look, she can make an exception for you! She loves capturing moments, exploring new places, watching F.R.I.E.N.D.S on repeat and of course chocolate!",
-    picture: "emaan",
+      "A creative powerhouse, Maryem is a filmmaker, advertising expert, and design virtuoso. With her keen eye for detail, she brings cinematic flair to every project, turning even the simplest concepts into visually captivating stories. For Maryem, creativity knows no bounds.",
+    picture: "maryem",
   },
 ];
 export default function Team() {
