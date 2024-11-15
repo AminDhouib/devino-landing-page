@@ -5,9 +5,10 @@ import GetStarted from "./(main)/8.GetStarted";
 import Skills from "~/app/(main)/1.Skills";
 import Methodologies from "~/app/(main)/Methodologies";
 import Services from "./(main)/Services";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import * as gtag from "~/app/lib/gtag";
 import {usePathname} from "next/navigation";
+import AppHeader from "~/app/AppHeader";
 
 export default function Home() {
 
@@ -25,6 +26,7 @@ export default function Home() {
     }, [pathname]);
       return (
         <main className="overflow-hidden">
+            <AppHeader/>
             <Hero />
             <Skills/>
             {/*<Video />*/}

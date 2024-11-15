@@ -3,11 +3,12 @@
 import L from "next/link";
 import { useScrollDirection } from "react-use-scroll-direction";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiCloseFill, RiMenu3Fill } from "react-icons/ri";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {useWindowSize} from "~/app/hooks/useWindowSize";
+import AppHeader from "~/app/AppHeader";
 
 const links = [
   { name: "Home", url: "/" },
@@ -51,6 +52,7 @@ export default function Header() {
           transition={{duration: 0.3}}
           className={`h-[5rem] lg:bg-neutral-50 lg:rounded-[28px] lg:shadow lg:h-[4rem] xs:h-[3rem] w-full max-w-[min(75rem,93svw)] sticky rounded-2xl p-4 px-8 flex items-center justify-between mx-auto top-4 z-50  lg:py-3 py-4`}
       >
+          <AppHeader/>
           <Link
               href="/"
               className="w-[185px] h-full flex absolute ml-5 lg:static lg:ml-0"
