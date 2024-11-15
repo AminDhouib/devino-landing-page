@@ -15,7 +15,7 @@ export default function Hero() {
           width={100}
           className="h-11 w-11 absolute top-[-2.5rem] left-[-4rem] lg:h-9 lg:w-9 lg:top-[-1.5rem] lg:left-[-3rem] "
         />
-        <span className="text-orange">Pay</span> a monthly subscription <br />
+        <span className="text-lightblueactive">Pay</span> a monthly subscription <br />
         for a dedicated software <br />
         engineer
         <Image

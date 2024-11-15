@@ -11,7 +11,7 @@ export default function Hero() {
           width={100}
           className="h-11 w-11 md:w-8 md:top-[-1.5rem] md:left-[-2.5rem] absolute top-[-2.5rem] left-[-4rem]"
         />
-        <span className="text-orange">Meet</span> Our Team
+        <span className="text-lightblueactive">Meet</span> Our Team
         <Image
           src={"/icons/square.svg"}
           alt={"title square"}

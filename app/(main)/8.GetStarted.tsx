@@ -13,13 +13,13 @@ const options = [
   {
     title: `Start with a FREE
 3-day trial`,
-    description: `To reduce your risks and help you get to know us better, we offer the first three days of work at no charge. This way, you can evaluate our skills and decide whether you want to work with us going forward.`,
+    description: `We start with a risk-free trial: the first three days of work are on us. This lets you experience our skills and dedication firsthand, so you can make an informed decision about partnering with us.`,
     button: { name: `Get started`, link: `https://calendly.com/amin-dhouib` },
   },
   {
     title: `Need time
 to think it over?`,
-    description: `Learn more about our process to get a better idea of how we work and lay down your expectations for future projects.`,
+    description: `Discover our process to see how we work and set clear expectations for your future projects with us.`,
     button: {
       name: `learn more`,
       link: `https://calendly.com/amin-dhouib`,
@@ -81,7 +81,7 @@ const OptionCard = ({
     <motion.div
       key={title}
       className={` ${
-        isFirst ? "bg-dimlightblue" : "bg-cream"
+        isFirst ? "bg-dimlightblue" : "bg-white"
       } flex flex-col rounded-[20px] p-12 lg:p-8 ${
         isFirst ? "gap-12" : "gap-4"
       } h-auto ${isFirst ? "w-8/12" : "w-4/12"} lg:w-full `}
@@ -98,7 +98,7 @@ const OptionCard = ({
           >
             <motion.div
                 className={`${
-                    isFirst ? "bg-orange text-white" : "bg-dimlightblue text-orange"
+                    isFirst ? "bg-lightblueactive text-white" : "bg-lightblueactive text-white"
                 } whitespace-nowrap py-3 px-10 md:px-8 items-center hover:scale-105 uppercase font-mono w-max tracking-wide transition-all duration-300 rounded-[40px] font-semibold text-xl md:text-lg`}
                 whileHover={{scale: 1.1}}>
               {button.name}
