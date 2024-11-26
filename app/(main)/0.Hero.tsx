@@ -22,33 +22,52 @@ export default function Hero() {
       <div className="flex flex-col items-center justify-center min-h-screen text-center"
            ref={ref}>
           <motion.div
-              initial={{opacity: 0, y: 20}}
-              animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
-              transition={{duration: 0.6, ease: "easeInOut", delay: 0.05}}
-              className="text-5xl sm:text-4xl text-darkblue xs:text-3xl font-bold mb-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+              transition={{ duration: 0.6, ease: "easeInOut", delay: 0.05 }}
+              className="text-5xl sm:text-4xl text-darkblue dark:text-white xs:text-3xl font-bold mb-5"
           >
-                  <span className="text-lightblueactive inline-block relative ml-2">
-                  <Image height={"40"} width={"40"} src="/arrow-left.svg" alt="Arrow Right"
-                         className="-ml-8 mt-5 -mb-3 sm:w-8"/>
-                      Anticipating
-                  </span>{" "}
-                  Tomorrow’s <div
-                  className="hidden md:flex mb-5"></div> challenges, <div
-                  className="md:hidden mb-7"></div> Innovating <div
-                  className="hidden md:flex mb-5"></div> Beyond
+        <span className="text-lightblueactive dark:text-lightblue-300 inline-block relative ml-2">
+        <Image
+            height={"40"}
+            width={"40"}
+            src="/arrow-left.svg"
+            alt="Arrow Left"
+            className="-ml-8 mt-5 -mb-3 sm:w-8 dark:filter dark:brightness-[4]"
+        />
+        Anticipating
+        </span>{" "}
+                  Tomorrow’s{" "}
+                  <div className="hidden md:flex mb-5"></div>
+                  challenges,{" "}
+                  <div className="md:hidden mb-7"></div>
+                  Innovating{" "}
+                  <div className="hidden md:flex mb-5"></div>
+                  Beyond
                   <span className="inline-block relative ml-2">
-                  Boundaries
-                  <Image height={"32"} width={"300"} src="/rectangle.svg" alt="Rectangle"
-                         className="-mt-16 sm:-mt-14 sm:-ml-1 -ml-10 h-20 sm:w-32"/>
-                </span>
-              <Image height={"40"} width={"40"} src="/arrow-right.svg" alt="Arrow Right"
-                     className="sm:w-8 sm:-ml-5 float-right -ml-10 -mt-3"/>
+            Boundaries
+            <Image
+                height={"32"}
+                width={"300"}
+                src="/rectangle.svg"
+                alt="Rectangle"
+                className="-mt-16 sm:-mt-14 sm:-ml-1 -ml-10 h-20 sm:w-32 dark:opacity-80 dark:filter dark:brightness-[4]"
+            />
+        </span>
+          <Image
+              height={"40"}
+              width={"40"}
+              src="/arrow-right.svg"
+              alt="Arrow Right"
+              className="sm:w-8 sm:-ml-5 float-right -ml-10 -mt-3 dark:filter dark:brightness-[4]"
+          />
           </motion.div>
+
           <motion.div
               initial={{opacity: 0, y: 20}}
               animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.2}}
-              className="text-skybg text-3xl sm:text-xl font-semibold"
+              className="text-skybg text-3xl dark:text-blue-200 sm:text-xl font-semibold"
           >
               We build and scale software.
               <br/>
@@ -57,7 +76,7 @@ export default function Hero() {
           </motion.div>
           <Link
               href="https://calendly.com/amin-dhouib"
-              className="mt-8 bg-skybg rounded-[28px] border border-lightblue text-white px-7 py-3.5 sm:px-5 sm:py-3 md:px-6 md:py-3 inline-flex items-center justify-center text-white text-[22px] sm:text-lg md:text-xl font-semibold "
+              className="mt-8 bg-skybg dark:bg-white dark:border-transparent dark:text-skybg rounded-[28px] border border-lightblue text-white px-7 py-3.5 sm:px-5 sm:py-3 md:px-6 md:py-3 inline-flex items-center justify-center text-white text-[22px] sm:text-lg md:text-xl font-semibold "
               target="_blank"
               initial={{opacity: 0, y: 20}}
               animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}

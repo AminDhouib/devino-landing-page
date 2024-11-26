@@ -9,6 +9,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {useWindowSize} from "~/app/hooks/useWindowSize";
 import AppHeader from "~/app/AppHeader";
+import ThemeToggle from "~/app/_ui/ThemeToggle";
+import {useTheme} from "~/app/lib/context/ThemeContext";
 
 const links = [
   { name: "Home", url: "/" },
@@ -26,6 +28,8 @@ export default function Header() {
     const [isTopOfPage, setIsTopOfPage] = useState(true);
     const { windowSize } = useWindowSize();
     const [isMobile, setIsMobile] = useState(false);
+    const { theme, toggleTheme } = useTheme();
+
     useEffect(() => {
         setIsMobile(windowSize < 1024)
     }, [windowSize]);
@@ -58,7 +62,11 @@ export default function Header() {
               className="w-[185px] h-full flex absolute ml-5 lg:static lg:ml-0"
           >
               <Image
-                  src="/brand/full_logo_blue.png"
+                  src={
+                      theme === "light"
+                          ? '/brand/full_logo_blue.png'
+                          : '/brand/full_logo.png'
+                  }
                   alt="logo"
                   height={56}
                   width={185}
@@ -93,18 +101,17 @@ export default function Header() {
           </motion.div>
           <Link
               href="https://calendly.com/amin-dhouib"
-              className="absolute ml-[80%] xl:ml-[76%] lg:hidden w-fit h-fit px-10 py-3.5 bg-sky-950 rounded-[28px] border border-sky-300 justify-center items-center gap-2.5 inline-flex"
+              className="absolute ml-[80%] xl:ml-[76%] lg:hidden w-fit h-fit px-10 py-3.5 dark:bg-white dark:border-transparent bg-sky-950 rounded-[28px] border border-sky-300 justify-center items-center gap-2.5 inline-flex"
               target="_blank"
           >
               <motion.div
                   whileHover={{scale: 1.05}}
-                  className="text-white text-[18px] font-semibold"
+                  className="text-white dark:text-sky-950 text-[18px] font-semibold"
               >
                   Let’s talk
               </motion.div>
           </Link>
-
-
+          <ThemeToggle/>
           <button
               className="text-darkbg hidden ml-auto lg:block text-2xl"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

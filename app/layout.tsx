@@ -11,6 +11,7 @@ import React, { ReactNode, useEffect } from "react";
 
 import Hotjar from "@hotjar/browser";
 import AppHeader from "~/app/AppHeader";
+import {ThemeProvider} from "~/app/lib/context/ThemeContext";
 
 const siteId = 3891462;
 const hotjarVersion = 6;
@@ -30,10 +31,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
     <AppHeader/>
+    <ThemeProvider>
     <body
         className={
           inter.className +
-          " relative bg-white text-[#1d1e22] overflow-x-hidden"
+          " relative bg-white text-[#1d1e22] dark:bg-darkbg overflow-x-hidden"
         }
       >
     <Script
@@ -54,6 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
 
       </body>
+      </ThemeProvider>
     </html>
   );
 }
