@@ -1,12 +1,17 @@
-import {useTheme} from "~/app/lib/context/ThemeContext";
+import React from "react";
+import { useTheme } from "~/app/lib/context/ThemeContext";
 
-const ThemeToggle = () => {
+interface ThemeToggleProps {
+    className?: string;
+}
+
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
         <button
             id="theme-toggle"
-            className="theme-toggle absolute -right-4 transition-all duration-900 ease-in-out"
+            className={`theme-toggle ${className || ""}`}
             title="Toggle light & dark"
             aria-label={theme}
             aria-live="polite"

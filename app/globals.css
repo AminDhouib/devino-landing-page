@@ -11,7 +11,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1d1e22aa;
+  @apply bg-[#1d1e22aa] dark:bg-lightbg2;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
@@ -19,7 +19,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #1d1e22;
+  @apply bg-[#1d1e22] dark:bg-darkbgDark;
 }
 
 :root {
@@ -99,5 +99,50 @@ html.dark .sun-and-moon > .moon > circle {
   html.dark .sun-and-moon > .moon > circle {
     transition-duration: 0.5s;
     transition-delay: 0.25s;
+  }
+}
+/* Glowing Circle Styling */
+.glowing-circle {
+  @apply rounded-full absolute top-1/2 left-5 lg:left-2;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 70%);
+  animation: glow 3s infinite ease-in-out;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Default Glow Keyframes */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+}
+
+/* Responsive Keyframes for Smaller Shadow */
+@media (max-width: 1024px) {
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 15px 7px rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
+      transform: scale(1);
+    }
+  }
+
+  .glowing-circle {
+    animation: glow 3s infinite ease-in-out;
   }
 }

@@ -11,6 +11,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useWindowSize } from "~/app/hooks/useWindowSize";
+import {useTheme} from "~/app/lib/context/ThemeContext";
 
 type Service = {
   title: string;
@@ -63,7 +64,7 @@ export default function Services() {
 
   return (
     <motion.div className="mt-[12rem] sm:mt-[5rem] max-w-[min(75rem,96svw)] w-full flex flex-col mx-auto">
-      <motion.div className="mb-12 sm:mb-6 w-full text-center text-darkblue text-4xl xs:text-xl sm:text-2xl font-bold">
+      <motion.div className="mb-12 sm:mb-6 w-full text-center text-darkblue dark:text-white text-4xl xs:text-xl sm:text-2xl font-bold">
         Areas Of Expertise
       </motion.div>
       <motion.section
@@ -79,7 +80,7 @@ export default function Services() {
             src={"/service_sketch.png"}
             height={"393"}
             width={"425"}
-            className="xl:w-72"
+            className="xl:w-72 dark:brightness-[0] dark:invert"
           />
         </motion.div>
         <motion.div className="grid grid-cols-3 lg:grid-cols-2 sm:flex sm:flex-col sm:justify-center items-center justify-center text-center w-2/3 mx-auto gap-8 ">
@@ -96,6 +97,8 @@ const ServiceCard = ({ service }: { service: Service }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.15, once: false });
   const [isFlipped, setIsFlipped] = useState(false);
+  const {theme, toggleTheme} = useTheme();
+  const isDark = theme === "dark";
 
   const { windowSize } = useWindowSize();
   const isMobile = windowSize < 1024;
@@ -125,17 +128,17 @@ const ServiceCard = ({ service }: { service: Service }) => {
         animate={{ rotateY: isFlipped ? -180 : 0, perspective: 1000 }}
         transition={{ duration: 0.3 }}
         className={`${
-          isFlipped ? "bg-darkblue text-white" : "bg-[#f1f8fe] text-darkblue"
-        } cursor-pointer sm:mr-auto rounded-[32px] transition-colors duration-300 h-full w-full [backface-visibility:hidden] absolute top-0 left-0 z-10 p-5 flex items-center justify-center flex-col gap-4`}
+          isFlipped ? "bg-darkblue dark:bg-darkbgDark text-white" : "bg-[#f1f8fe] dark:bg-darkbgDark text-darkblue dark:text-white"
+        } cursor-pointer sm:mr-auto rounded-[32px] transition-colors duration-300 h-full w-full [backface-visibility:hidden] dark:border-0 absolute top-0 left-0 z-10 p-5 flex items-center justify-center flex-col gap-4`}
       >
         <Image
           alt={service.icon}
-          src={!isFlipped ? "/blue_" + service.icon : "/" + service.icon}
+          src={!isFlipped && !isDark ? "/blue_" + service.icon : "/" + service.icon}
           height={"70"}
           width={"70"}
           className=""
         />
-        <motion.h2 className="flex justify-start text-center font-bold text-[20px] text-black">
+        <motion.h2 className="flex justify-start text-center font-bold text-[20px] text-black dark:text-white">
           {service.title}
         </motion.h2>
       </motion.div>
@@ -145,7 +148,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
       <motion.div
         animate={{ rotateY: isFlipped ? 0 : 180, perspective: 1000 }}
         transition={{ duration: 0.3 }}
-        className={`h-full w-full flex justify-center items-center text-center text-[16px] absolute top-0 left-0 p-5 bg-darkblue bg-opacity-90 rounded-[32px] transition-colors duration-300 text-white border border-[#f1f8fe] flex-col gap-4`}
+        className={`h-full w-full flex justify-center items-center text-center text-[16px] absolute top-0 left-0 p-5 bg-darkblue bg-opacity-90 rounded-[32px] transition-colors duration-300 text-white border border-[#f1f8fe] flex-col gap-4 dark:border-0`}
       >
         <Image
           alt={service.icon}

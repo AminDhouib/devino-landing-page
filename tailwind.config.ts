@@ -46,6 +46,7 @@ const config: Config = {
         darkblue: "#01204C",
         lightbg: "#02122c",
         darkbg: "#020e21",
+        darkbgDark: "#031531",
         lightbg2: "#193A6A",
         orange: "#fb8b5c",
         orangehover: "#e27d53",

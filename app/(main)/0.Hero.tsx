@@ -27,13 +27,13 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: "easeInOut", delay: 0.05 }}
               className="text-5xl sm:text-4xl text-darkblue dark:text-white xs:text-3xl font-bold mb-5"
           >
-        <span className="text-lightblueactive dark:text-lightblue-300 inline-block relative ml-2">
+        <span className="text-lightblueactive inline-block relative ml-2">
         <Image
             height={"40"}
             width={"40"}
             src="/arrow-left.svg"
             alt="Arrow Left"
-            className="-ml-8 mt-5 -mb-3 sm:w-8 dark:filter dark:brightness-[4]"
+            className="-ml-8 mt-5 -mb-3 sm:w-8 dark:filter dark:brightness-[6]"
         />
         Anticipating
         </span>{" "}
@@ -51,7 +51,7 @@ export default function Hero() {
                 width={"300"}
                 src="/rectangle.svg"
                 alt="Rectangle"
-                className="-mt-16 sm:-mt-14 sm:-ml-1 -ml-10 h-20 sm:w-32 dark:opacity-80 dark:filter dark:brightness-[4]"
+                className="-mt-16 sm:-mt-14 sm:-ml-1 -ml-10 h-20 sm:w-32 dark:opacity-80"
             />
         </span>
           <Image
@@ -59,7 +59,7 @@ export default function Hero() {
               width={"40"}
               src="/arrow-right.svg"
               alt="Arrow Right"
-              className="sm:w-8 sm:-ml-5 float-right -ml-10 -mt-3 dark:filter dark:brightness-[4]"
+              className="sm:w-8 sm:-ml-5 float-right -ml-10 -mt-3 dark:filter dark:brightness-[6]"
           />
           </motion.div>
 
@@ -67,7 +67,7 @@ export default function Hero() {
               initial={{opacity: 0, y: 20}}
               animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.2}}
-              className="text-skybg text-3xl dark:text-blue-200 sm:text-xl font-semibold"
+              className="text-skybg text-3xl dark:text-gray-400 sm:text-xl font-semibold"
           >
               We build and scale software.
               <br/>

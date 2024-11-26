@@ -99,7 +99,7 @@ export default function Footer() {
     }
     const currentYear = new Date().getFullYear();
   return (
-    <footer className="max-w-[min(75rem,96svw)] mx-auto bg-darkbg p-[3rem] pb-8 rounded-2xl lg:flex flex-col grid grid-cols-[auto,minmax(0,1fr)] text-white text-sm gap-16 sm:gap-8 font-medium mb-4">
+    <footer className="max-w-[min(75rem,96svw)] mx-auto bg-darkbg dark:bg-lightbg p-[3rem] pb-8 rounded-2xl lg:flex flex-col grid grid-cols-[auto,minmax(0,1fr)] text-white text-sm gap-16 sm:gap-8 font-medium mb-4">
       <div className="flex flex-col justify-start gap-16 sm:gap-4 text-xs pl-2 pr-8 text-[#5e5f61]">
         <Image
             src="/brand/full_logo.png"
@@ -117,7 +117,7 @@ export default function Footer() {
         >
             <ul
                 className={
-                    "flex w-full flex-col gap-2 text-gray-500 font-medium text-xs transition-all duration-300"
+                    "flex w-full flex-col gap-2 text-gray-500 dark:text-gray-400 font-medium text-xs transition-all duration-300"
                 }
             >
                 <div className="flex items-center gap-2 w-full">
@@ -172,7 +172,7 @@ export default function Footer() {
       </div>
 
       <div
-          className="col-span-2 flex justify-between text-[#77787a] text-xs font-bold pl-2 sm:flex-col-reverse flex-row items-center sm:justify-center gap-2 mt-4">
+          className="col-span-2 flex justify-between text-[#77787a] dark:text-gray-400 text-xs font-bold pl-2 sm:flex-col-reverse flex-row items-center sm:justify-center gap-2 mt-4">
         <div className="opacity-75 flex w-full gap-2">
             <FaRegCopyright className="mt-auto mb-auto" />
             <div className="mt-auto mb-auto pt-[1px]">{currentYear} Copyright Devino. All rights reserved.</div>
@@ -187,7 +187,7 @@ export default function Footer() {
                   href={social.url}
                   key={social.name}
                   target="_blank"
-                  className="font-medium hover:opacity-75 transition-all duration-300"
+                  className="font-medium hover:opacity-75 transition-all duration-300 dark:text-gray-400"
               >
                 {social.icon}
               </Link>

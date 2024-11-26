@@ -29,6 +29,7 @@ export default function Header() {
     const {windowSize} = useWindowSize();
     const [isMobile, setIsMobile] = useState(false);
     const {theme, toggleTheme} = useTheme();
+    const isDark = theme === "dark";
 
     useEffect(() => {
         setIsMobile(windowSize < 1024)
@@ -54,31 +55,37 @@ export default function Header() {
                 scale: isInView ? 1 : 1.05,
             }}
             transition={{duration: 0.3}}
-            className={`h-[5rem] lg:bg-neutral-50 lg:rounded-[28px] lg:shadow lg:h-[4rem] xs:h-[3rem] w-full max-w-[min(75rem,93svw)] sticky rounded-2xl p-4 px-8 flex items-center justify-between mx-auto top-4 z-50  lg:py-3 py-4`}
+            className={`h-[5rem] lg:bg-neutral-50 lg:dark:bg-darkbgDark lg:rounded-[28px] lg:shadow lg:h-[4rem] xs:h-[3rem] w-full max-w-[min(75rem,93svw)] sticky rounded-2xl p-4 px-8 flex items-center justify-between mx-auto top-4 z-50  lg:py-3 py-4`}
         >
             <AppHeader/>
             <Link
                 href="/"
                 className="w-[185px] h-full flex absolute ml-5 lg:static lg:ml-0"
             >
-                <Image
-                    src={
-                        theme === "light"
-                            ? '/brand/full_logo_blue.png'
-                            : '/brand/full_logo.png'
-                    }
+                { !isDark ? ( <Image
+                    src="/brand/full_logo_blue.png"
                     alt="logo"
                     height={56}
                     width={185}
                     className="cursor-pointer w-4/5 sm:w-2/5 mt-auto mb-auto"
-                />
+                />) : (
+                    <div className="relative flex items-center">
+                        <div className="glowing-circle"></div>
+                        <Image
+                            src="/brand/full_logo.png"
+                            alt="logo"
+                            height={56}
+                            width={185}
+                            className="cursor-pointer w-4/5 sm:w-2/5 mt-auto mb-auto"
+                        />
+                    </div>
+                )}
             </Link>
-
             <motion.div
                 initial={!isMobile && {width: "fit-content"}}
                 animate={!isMobile && {width: !isTopOfPage ? "100%" : "fit-content"}}
                 transition={{duration: 0.3}}
-                className={`px-[26px] py-[15px] lg:hidden ${!isTopOfPage && "w-full"} mx-auto bg-neutral-50 rounded-[28px] shadow justify-center flex items-start gap-6`}>
+                className={`px-[26px] py-[15px] lg:hidden ${!isTopOfPage && "w-full"} mx-auto bg-neutral-50 dark:bg-darkbgDark rounded-[28px] shadow justify-center flex items-start gap-6`}>
                 {links.map(link => {
                     const isActive = pathname === link.url;
 
@@ -89,9 +96,9 @@ export default function Header() {
                             className={`px-[30px] py-2.5 ${isActive ? 'bg-slate-200' : ''} rounded-3xl justify-center items-center gap-2.5 inline-flex cursor-pointer`}
                         >
                             <motion.div
-                                initial={{color: "#01204C"}}
-                                animate={{color: isActive ? "#01204C" : "#01204C"}}
-                                whileHover={{color: "#71c0dd", scale: 1.05}}
+                                initial={{ color: isDark ? "#FFFFFF" : "#01204C" }}
+                                animate={{ color: isActive ? (isDark ? "#01204C" : "#01204C") : (isDark ? "#FFFFFF" : "#01204C") }}
+                                whileHover={{ color: isDark ? "#71c0dd" : "#71c0dd", scale: 1.05 }}
                             >
                                 {link.name}
                             </motion.div>
@@ -111,9 +118,9 @@ export default function Header() {
                     Let’s talk
                 </motion.div>
             </Link>
-            <ThemeToggle/>
+            <ThemeToggle className="lg:relative lg:ml-auto absolute lg:right-auto -right-4"/>
             <button
-                className="text-darkbg hidden ml-auto lg:block text-2xl"
+                className="text-darkbg hidden ml-3 lg:block text-2xl dark:text-white"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
                 {isMenuOpen ? <RiCloseFill/> : <RiMenu3Fill/>}
@@ -136,9 +143,9 @@ export default function Header() {
                                     className={`px-[30px] py-2.5 ${isActive ? 'bg-slate-200' : ''} rounded-3xl justify-center items-center gap-2.5 inline-flex cursor-pointer`}
                                 >
                                     <motion.div
-                                        initial={{color: "#01204C"}}
-                                        animate={{color: isActive ? "#01204C" : "#01204C"}}
-                                        whileHover={{color: "#71c0dd", scale: 1.05}}
+                                        initial={{ color: isDark ? "#FFFFFF" : "#01204C" }} // White for dark mode, blue for light mode
+                                        animate={{ color: isActive ? (isDark ? "#01204C" : "#01204C") : (isDark ? "#FFFFFF" : "#01204C") }}
+                                        whileHover={{ color: isDark ? "#71c0dd" : "#71c0dd", scale: 1.05 }} // Same hover color for both modes
                                     >
                                         {link.name}
                                     </motion.div>
@@ -148,7 +155,7 @@ export default function Header() {
                         <div className="h-full"/>
                         <Link
                             href="https://calendly.com/amin-dhouib"
-                            className="bg-lightbg rounded-[20px] py-4 px-12 flex justify-center items-center uppercase text-white font-mono text-sm font-bold mb-4"
+                            className="bg-lightbg rounded-[20px] py-4 px-12 flex justify-center items-center dark:bg-white dark:text-sky-950 uppercase text-white font-mono text-sm font-bold mb-4"
                             target="_blank"
                             onClick={() => setIsMenuOpen(false)}
                         >
