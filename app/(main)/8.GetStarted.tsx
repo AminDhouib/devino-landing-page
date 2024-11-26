@@ -81,7 +81,7 @@ const OptionCard = ({
     <motion.div
       key={title}
       className={` ${
-        isFirst ? "bg-dimlightblue dark:bg-darkbgDark" : "bg-white dark:bg-darkblue"
+        isFirst ? "bg-dimlightblue dark:bg-deepBlue" : "bg-white dark:bg-darkblue"
       } flex flex-col rounded-[20px] p-12 lg:p-8 ${
         isFirst ? "gap-12" : "gap-4"
       } h-auto ${isFirst ? "w-8/12" : "w-4/12"} lg:w-full `}

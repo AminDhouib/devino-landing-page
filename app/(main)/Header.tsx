@@ -55,7 +55,7 @@ export default function Header() {
                 scale: isInView ? 1 : 1.05,
             }}
             transition={{duration: 0.3}}
-            className={`h-[5rem] lg:bg-neutral-50 lg:dark:bg-darkbgDark lg:rounded-[28px] lg:shadow lg:h-[4rem] xs:h-[3rem] w-full max-w-[min(75rem,93svw)] sticky rounded-2xl p-4 px-8 flex items-center justify-between mx-auto top-4 z-50  lg:py-3 py-4`}
+            className={`h-[5rem] lg:bg-neutral-50 lg:dark:bg-deepBlue lg:rounded-[28px] lg:shadow lg:h-[4rem] xs:h-[3rem] w-full max-w-[min(75rem,93svw)] sticky rounded-2xl p-4 px-8 flex items-center justify-between mx-auto top-4 z-50  lg:py-3 py-4`}
         >
             <AppHeader/>
             <Link
@@ -85,7 +85,7 @@ export default function Header() {
                 initial={!isMobile && {width: "fit-content"}}
                 animate={!isMobile && {width: !isTopOfPage ? "100%" : "fit-content"}}
                 transition={{duration: 0.3}}
-                className={`px-[26px] py-[15px] lg:hidden ${!isTopOfPage && "w-full"} mx-auto bg-neutral-50 dark:bg-darkbgDark rounded-[28px] shadow justify-center flex items-start gap-6`}>
+                className={`px-[26px] py-[15px] lg:hidden ${!isTopOfPage && "w-full"} mx-auto bg-neutral-50 dark:bg-deepBlue rounded-[28px] shadow justify-center flex items-start gap-6`}>
                 {links.map(link => {
                     const isActive = pathname === link.url;
 

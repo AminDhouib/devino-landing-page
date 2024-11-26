@@ -66,7 +66,7 @@ const MethodologyCard = ({
 
     return (
         <>
-            <motion.div className="flex p-5 sm:ml-auto sm:mr-auto bg-opacity-25 flex-col gap-5 rounded-[32px] dark:bg-darkbgDark bg-cream w-fit h-full xl:w-full">
+            <motion.div className="flex p-5 sm:ml-auto sm:mr-auto bg-opacity-25 flex-col gap-5 rounded-[32px] dark:bg-deepBlue bg-cream w-fit h-full xl:w-full">
                 <motion.div className="w-full flex justify-center">
                     <Image alt={methodology.icon} src={methodology.icon} height={"50"} width={"50"} className="m-auto"/>
                 </motion.div>

@@ -80,7 +80,7 @@ const Case = ({
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
       className={`h-fit rounded-lg sm:bg-transparent py-10 w-full mx-auto flex overflow-hidden gap-16 sm:gap-8 p-4 items-center justify-center sm:flex-col ${
-        isEven ? "bg-cream dark:bg-darkbgDark" : "bg-gray-100 dark:bg-darkblue"
+        isEven ? "bg-cream dark:bg-deepBlue" : "bg-gray-100 dark:bg-darkblue"
       }`}
     >
       <div
@@ -111,7 +111,7 @@ const Case = ({
           target="_blank"
           rel="noopener noreferrer"
           className={`text-xl sm:text-lg font-medium mt-4 hover:bg-white p-2 rounded-xl dark:text-gray-400  ${
-              isEven ? "hover:dark:bg-darkblue" : "hover:dark:bg-darkbgDark"
+              isEven ? "hover:dark:bg-darkblue" : "hover:dark:bg-deepBlue"
           }`}
         >
           {info.buttonText}

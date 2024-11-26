@@ -19,7 +19,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#1d1e22] dark:bg-darkbgDark;
+  @apply bg-[#1d1e22] dark:bg-deepBlue;
 }
 
 :root {
