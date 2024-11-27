@@ -25,7 +25,7 @@ export default function GetStarted() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="text-[64px] text-darkblue  md:text-3xl xs:text-2xl lg:text-6xl font-semibold leading-[1.2]"
+          className="text-[64px] text-darkblue dark:text-white md:text-3xl xs:text-2xl lg:text-6xl font-semibold leading-[1.2]"
         >
           Have a job for our software engineers?
         </motion.h1>
@@ -33,7 +33,7 @@ export default function GetStarted() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.1 }}
-          className="text-2xl font-medium py-12"
+          className="text-2xl font-medium py-12 dark:text-gray-400"
         >
           Tell us a few words about your project and we&#39;ll get back to you
           as soon as we can.
@@ -56,7 +56,7 @@ export default function GetStarted() {
               alt={"benefit icon"}
               height={100}
               width={100}
-              className={`h-[20px] w-[12px]`}
+              className={`h-[20px] w-[12px] dark:brightness-[0] dark:invert`}
             />
           </a>
         </motion.div>
@@ -67,7 +67,7 @@ export default function GetStarted() {
         alt="working"
         height={500}
         width={500}
-        className="justify-self-end sm:justify-self-center sm:w-60 self-start"
+        className="justify-self-end sm:justify-self-center sm:w-60 self-start dark:brightness-[0] dark:invert"
       />
     </section>
   );

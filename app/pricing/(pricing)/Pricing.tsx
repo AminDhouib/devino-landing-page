@@ -82,7 +82,7 @@ export default function Pricing() {
         >
             <motion.div className="w-full grid grid-cols-3 lg:grid-cols-2 gap-8 sm:grid-cols-1">
                 {plans.map((plan, key) => (
-                    <   PriceCard
+                    <PriceCard
                         key={key}
                         plan={plan}
                         className={key === plans.length -  2 ? "lg:order-first lg:w-full" : ''}
@@ -117,7 +117,7 @@ const PriceCard = ({
                 initial={{opacity: 0, y: 20}}
                 animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
                 transition={{duration: 0.6, ease: "easeInOut"}}
-                className={`rounded-[26px] ${plan.popular ? 'bg-lightbg text-white shadow-2xl shadow-black' : 'text-lightbg sm:border-2 border-lightbg'} flex flex-col px-[30px] py-[10px] h-[500px] w-[292px]`}
+                className={`rounded-[26px] ${plan.popular ? 'bg-lightbg text-white shadow-2xl shadow-black' : 'text-lightbg dark:text-white sm:border-2 border-lightbg'} flex flex-col px-[30px] py-[10px] h-[500px] w-[292px]`}
             >
                     <motion.div className="flex w-full h-[70px] my-[20px] justify-end">
 
@@ -164,7 +164,7 @@ const PriceCard = ({
 
                     <motion.button
                         disabled={!plan.active}
-                        className={`rounded-[24px] hover:opacity-80 disabled:opacity-60 mt-auto py-[10px] w-full px-[30px] text-[17px] font-bold uppercase ${plan.popular ? 'text-lightbluedark  bg-white' : 'text-white bg-lightbg'}`}
+                        className={`rounded-[24px] hover:opacity-80 disabled:opacity-60 mt-auto py-[10px] w-full px-[30px] text-[17px] font-bold uppercase ${plan.popular ? 'text-lightbluedark  dark:text-darkblue bg-white' : 'text-white bg-lightbg dark:bg-darkblue dark:text-white'}`}
                     >
                         <Link
                             onClick={triggerEvent}

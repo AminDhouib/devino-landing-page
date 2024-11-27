@@ -19,14 +19,14 @@ export default function FreeTrial() {
         alt={"benefit icon"}
         height={100}
         width={100}
-        className={`w-96 h-96 sm:w-44 mx-auto`}
+        className={`w-96 h-96 sm:w-44 mx-auto dark:brightness-[0] dark:invert`}
       />
       <div className="w-5/12 sm:w-full sm:px-6">
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 10 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="col-span-3 text-darkblue text-5xl md:text-3xl lg:text-4xl font-semibold leading-[1.2]"
+          className="col-span-3 text-darkblue dark:text-white text-5xl md:text-3xl lg:text-4xl font-semibold leading-[1.2]"
         >
           Claim your FREE 3-day trial
         </motion.h1>
@@ -34,7 +34,7 @@ export default function FreeTrial() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 10 }}
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.05 }}
-          className="text-xl text-greytext my-6"
+          className="text-xl text-greytext dark:text-gray-400 my-6"
         >
           To let you try before you buy, we can provide the first three days of
           work free of charge.
@@ -43,7 +43,7 @@ export default function FreeTrial() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 10 }}
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.07 }}
-          className="mb-6 flex items-center gap-4 text-lg"
+          className="mb-6 flex items-center gap-4 text-lg dark:text-gray-300"
         >
           <Image
             src={"check-circle-2.svg"}
