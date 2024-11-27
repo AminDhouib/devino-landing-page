@@ -11,11 +11,6 @@ import HotjarInitializer from "~/app/HotjarInitializer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "SaaS Software Agency | Devino",
-//   description: "Pragmatic Software Agency for SaaS",
-// };
-
 export const metadata: Metadata = {
   title: "Devino | SaaS Software Agency",
   description: "We build and scale software. Empowering you to accomplish your goals.",
@@ -33,8 +28,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://devino.ca/devino_banner.png",
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 676,
         alt: "Devino Logo",
       },
     ],
@@ -58,34 +53,15 @@ export const metadata: Metadata = {
     telephone: false,
   },
   keywords: [
-    "SaaS Development",
-    "AI Integration",
-    "Cloud-Based Solutions",
-    "Custom Software Development",
-    "Mobile-First Applications",
-    "Vertical SaaS Solutions",
-    "Generative AI",
-    "Software Scalability",
-    "User-Centric Design",
-    "API Development",
-    "UI/UX Prototyping",
-    "Backend as a Service",
-    "Artificial Intelligence Services",
-    "Machine Learning Applications",
-  ],
-  additionalMetaTags: [
-    {
-      name: "msapplication-TileColor",
-      content: "#2B5797",
-    },
-    {
-      name: "msapplication-tap-highlight",
-      content: "no",
-    },
-    {
-      name: "application-name",
-      content: "Devino",
-    },
+    "SaaS Development Agency Canada",
+    "AI Integration for Business",
+    "Cloud Software Developers",
+    "Custom Mobile Applications",
+    "Enterprise Vertical SaaS",
+    "Generative AI Development",
+    "Scalable API Development",
+    "AI and Machine Learning Software",
+    "Software Design and Prototyping",
   ],
 };
 
