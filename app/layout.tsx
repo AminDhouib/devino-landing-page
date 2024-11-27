@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://devino.ca",
-    title: "Devino",
+    title: "Devino | SaaS Software Agency",
     description: "We build and scale software. Empowering you to accomplish your goals.",
     siteName: "Devino",
     images: [
       {
-        url: "https://devino.ca/brand/full_logo.png",
+        url: "https://devino.ca/devino_banner.png",
         width: 800,
         height: 600,
         alt: "Devino Logo",
@@ -44,17 +44,35 @@ export const metadata: Metadata = {
     title: "Devino | SaaS Software Agency",
     description: "We build and scale software. Empowering you to accomplish your goals.",
     creator: "@devino_solutions",
-    images: ["https://devino.ca/og.svg"],
+    images: ["https://devino.ca/devino_banner.png"],
     site: "@devino_solutions",
   },
-  mobileWebAppCapable: "yes",
-  appleMobileWebAppCapable: "yes",
-  appleMobileWebAppStatusBarStyle: "default",
-  appleMobileWebAppTitle: "Devino",
-  applicationName: "Devino",
+  icons: {
+    icon: [
+      { url: "/brand/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/brand/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      "/brand/favicon.ico",
+    ],
+  },
   formatDetection: {
     telephone: false,
   },
+  keywords: [
+    "SaaS Development",
+    "AI Integration",
+    "Cloud-Based Solutions",
+    "Custom Software Development",
+    "Mobile-First Applications",
+    "Vertical SaaS Solutions",
+    "Generative AI",
+    "Software Scalability",
+    "User-Centric Design",
+    "API Development",
+    "UI/UX Prototyping",
+    "Backend as a Service",
+    "Artificial Intelligence Services",
+    "Machine Learning Applications",
+  ],
   additionalMetaTags: [
     {
       name: "msapplication-TileColor",
@@ -70,7 +88,6 @@ export const metadata: Metadata = {
     },
   ],
 };
-
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
