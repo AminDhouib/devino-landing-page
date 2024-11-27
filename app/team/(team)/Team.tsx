@@ -12,6 +12,7 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { AiOutlineGlobal } from "react-icons/ai";
+import TeamMember from "~/app/team/(team)/TeamMember";
 
 type SocialLink = {
   platform: string;
@@ -109,6 +110,7 @@ const members: IMember[] = [
     socialLinks: [
       { platform: "behance", url: "https://behance.net/maryembouchiba" },
       { platform: "instagram", url: "https://instagram.com/maryembouchiba" },
+      { platform: "website", url: "https://instagram.com/maryembouchiba" },
     ],
   },
 ];
@@ -124,72 +126,11 @@ const platformIcons = {
 };
 
 export default function Team() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [memberData, setMemberData] = useState<IMember | null>(null);
-  const [openId, setOpenId] = useState<number | null>(null);
-
-  const handleMouseEnter = (member: IMember) => {
-    if (memberData?.id === member.id) {
-      handleMouseLeave();
-    } else {
-      setMemberData(member);
-      setOpenId(member.id);
-      setIsOpen(true);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-    setMemberData(null);
-    setOpenId(null);
-  };
-
   return (
-      <section className="py-[2rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto">
+      <section className="py-8 tracking-tighter max-w-[75rem] mx-auto">
         <div className="grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 m-20 sm:m-10 gap-10">
-          {members.map((member) => (
-              <motion.div
-                  key={member.id}
-                  onMouseLeave={handleMouseLeave}
-                  onClick={() => handleMouseEnter(member)}
-                  onMouseEnter={() => handleMouseEnter(member)}
-                  className="relative flex flex-col"
-              >
-                <Member member={member} openId={openId} />
-
-                <AnimatePresence>
-                  {isOpen && memberData?.id === member.id && (
-                      <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "fit-content", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="text-lg border-l-2 border-r-2 border-b-2 text-center p-4 pt-2 bg-white rounded-bl-lg rounded-br-lg shadow-lg z-[1000] absolute left-0 right-0 top-[100%] h-fit w-full overflow-hidden scale-105 dark:bg-deepBlue dark:text-white dark:border-darkblue"
-                      >
-                        <div className="h-[1px] bg-gray-300 w-[50%] mx-auto mt-3"></div>
-                        <div className="flex justify-center gap-2 my-3">
-                          {member.socialLinks?.map((link, index) => {
-                            const Icon = platformIcons[link.platform.toLowerCase() as keyof typeof platformIcons];
-                            return (
-                                Icon && (
-                                    <a
-                                        key={index}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="p-2 rounded-xl dark:bg-opacity-100 bg-darkblue bg-opacity-10 hover:bg-opacity-20 transition-all"
-                                    >
-                                      <Icon className="w-4 h-4 text-darkblue dark:text-white" />
-                                    </a>
-                                )
-                            );
-                          })}
-                        </div>
-                        <p>{member.description}</p>
-                      </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+          {members.map((member, index) => (
+              <TeamMember key={member.id} member={member} index={index}/>
           ))}
         </div>
       </section>
