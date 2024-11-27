@@ -27,7 +27,7 @@ const Member: FC<Props> = ({
     }, [openId]);
     return (
         <motion.div
-            className={`flex flex-col items-center cursor-pointer rounded-lg border-2 transition-all duration-300 ease-in-out ${isOpen && "scale-105 border-b-0 z-0"}`}
+            className={`dark:bg-deepBlue flex flex-col items-center cursor-pointer rounded-lg border-2 transition-all duration-300 ease-in-out dark:border-darkblue ${isOpen && "scale-105 border-b-0 z-0"}`}
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => ableToLeave && setIsOpen(false)}
             onClick={() => (!isOpen || ableToLeave) && setIsOpen(!isOpen)}
@@ -40,8 +40,8 @@ const Member: FC<Props> = ({
                 className={`w-full shadow-lg ${!isOpen && "filter grayscale"}`}
             />
             <motion.div className={`mt-2 text-center p-1 pb-3`}>
-                <h2 className="my-2 font-bold text-2xl sm:text-xl">{member.name}</h2>
-                <span className="text-xl sm:text-lg">{member.role}</span>
+                <h2 className="my-2 font-bold text-2xl sm:text-xl dark:text-white">{member.name}</h2>
+                <span className="text-xl sm:text-lg dark:text-gray-400">{member.role}</span>
             </motion.div>
         </motion.div>
     );

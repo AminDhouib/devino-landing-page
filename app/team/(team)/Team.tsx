@@ -164,9 +164,10 @@ export default function Team() {
                           animate={{ height: "fit-content", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="text-lg border-l-2 border-r-2 border-b-2 text-center p-4 pt-0 bg-white rounded-bl-lg rounded-br-lg shadow-lg z-[1000] absolute left-0 right-0 top-[100%] h-fit w-full overflow-hidden scale-105"
+                          className="text-lg border-l-2 border-r-2 border-b-2 text-center p-4 pt-2 bg-white rounded-bl-lg rounded-br-lg shadow-lg z-[1000] absolute left-0 right-0 top-[100%] h-fit w-full overflow-hidden scale-105 dark:bg-deepBlue dark:text-white dark:border-darkblue"
                       >
-                        <div className="flex justify-center gap-2 my-2">
+                        <div className="h-[1px] bg-gray-300 w-[50%] mx-auto mt-3"></div>
+                        <div className="flex justify-center gap-2 my-3">
                           {member.socialLinks?.map((link, index) => {
                             const Icon = platformIcons[link.platform.toLowerCase() as keyof typeof platformIcons];
                             return (
@@ -176,9 +177,9 @@ export default function Team() {
                                         href={link.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 rounded-xl bg-gray-200 hover:bg-gray-300 transition-all"
+                                        className="p-2 rounded-xl dark:bg-opacity-100 bg-darkblue bg-opacity-10 hover:bg-opacity-20 transition-all"
                                     >
-                                      <Icon className="w-5 h-5" />
+                                      <Icon className="w-4 h-4 text-darkblue dark:text-white" />
                                     </a>
                                 )
                             );
