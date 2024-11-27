@@ -27,7 +27,7 @@ const Member: FC<Props> = ({
     }, [openId]);
     return (
         <motion.div
-            className={`flex flex-col items-center cursor-pointer rounded-lg border-2 ${isOpen && "scale-105 border-b-0"}`}
+            className={`flex flex-col items-center cursor-pointer rounded-lg border-2 transition-all duration-300 ease-in-out ${isOpen && "scale-105 border-b-0 z-0"}`}
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => ableToLeave && setIsOpen(false)}
             onClick={() => (!isOpen || ableToLeave) && setIsOpen(!isOpen)}

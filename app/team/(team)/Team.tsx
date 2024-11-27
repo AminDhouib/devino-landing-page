@@ -153,7 +153,7 @@ export default function Team() {
                   onMouseLeave={handleMouseLeave}
                   onClick={() => handleMouseEnter(member)}
                   onMouseEnter={() => handleMouseEnter(member)}
-                  className="relative flex flex-col hover:scale-105 transition-transform duration-300"
+                  className="relative flex flex-col"
               >
                 <Member member={member} openId={openId} />
 
@@ -164,10 +164,9 @@ export default function Team() {
                           animate={{ height: "fit-content", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="text-lg mt-[135%] border-l-2 border-r-2 border-b-2 text-center p-4 bg-white rounded-bl-lg rounded-br-lg shadow-lg z-50 absolute h-fit w-full overflow-hidden scale-105"
+                          className="text-lg border-l-2 border-r-2 border-b-2 text-center p-4 pt-0 bg-white rounded-bl-lg rounded-br-lg shadow-lg z-[1000] absolute left-0 right-0 top-[100%] h-fit w-full overflow-hidden scale-105"
                       >
-                        <p>{member.description}</p>
-                        <div className="flex justify-center gap-4 mt-4">
+                        <div className="flex justify-center gap-2 my-2">
                           {member.socialLinks?.map((link, index) => {
                             const Icon = platformIcons[link.platform.toLowerCase() as keyof typeof platformIcons];
                             return (
@@ -185,6 +184,7 @@ export default function Team() {
                             );
                           })}
                         </div>
+                        <p>{member.description}</p>
                       </motion.div>
                   )}
                 </AnimatePresence>
