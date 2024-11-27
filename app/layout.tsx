@@ -47,25 +47,6 @@ export const metadata: Metadata = {
     images: ["https://devino.ca/og.svg"],
     site: "@devino_solutions",
   },
-  icons: {
-    icon: [
-      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      "/icons/favicon.ico", // Default favicon
-    ],
-    apple: [
-      "/icons/touch-icon-iphone.png",
-      "/icons/touch-icon-ipad.png",
-      "/icons/touch-icon-iphone-retina.png",
-      "/icons/touch-icon-ipad-retina.png",
-    ],
-    shortcut: "/icons/favicon.ico",
-    mask: {
-      url: "/icons/safari-pinned-tab.svg",
-      color: "#5bbad5",
-    },
-  },
-  manifest: "/manifest.json",
   mobileWebAppCapable: "yes",
   appleMobileWebAppCapable: "yes",
   appleMobileWebAppStatusBarStyle: "default",
@@ -75,10 +56,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   additionalMetaTags: [
-    {
-      name: "msapplication-config",
-      content: "/icons/browserconfig.xml",
-    },
     {
       name: "msapplication-TileColor",
       content: "#2B5797",
