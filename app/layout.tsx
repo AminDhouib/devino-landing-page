@@ -13,6 +13,7 @@ import Hotjar from "@hotjar/browser";
 import AppHeader from "~/app/AppHeader";
 import {ThemeProvider} from "~/app/lib/context/ThemeContext";
 import AnimatedCursor from "react-animated-cursor";
+import StarsBG from "~/app/_ui/StarsBg";
 
 const siteId = 3891462;
 const hotjarVersion = 6;
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `}
         </Script>
         <Header />
+        <StarsBG />
         <AnimatedCursor
             innerSize={8}
             outerSize={35}
