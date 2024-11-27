@@ -32,6 +32,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
     <AppHeader/>
     <ThemeProvider>
+      <AnimatedCursor
+          innerSize={10}
+          outerSize={50}
+          color='250, 204, 21'
+          outerAlpha={0.2}
+          innerScale={0.8}
+          outerScale={1.9}
+          clickables={[
+            'a',
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            'label[for]',
+            'select',
+            'textarea',
+            'button',
+            '.section-label'
+          ]}
+      />
     <body
         className={
           inter.className +
