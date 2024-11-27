@@ -1,39 +1,79 @@
-"use client";
-
-
 import * as gtag from './lib/gtag'
 import { Inter } from "next/font/google";
 import Script from 'next/script'
 import "./globals.css";
 import Header from "./(main)/Header";
 import Footer from "./(main)/Footer";
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 
-import Hotjar from "@hotjar/browser";
-import AppHeader from "~/app/AppHeader";
+
 import {ThemeProvider} from "~/app/lib/context/ThemeContext";
 import AnimatedCursor from "react-animated-cursor";
 import StarsBG from "~/app/_ui/StarsBg";
-
-const siteId = 3891462;
-const hotjarVersion = 6;
+import {Metadata} from "next";
+import HotjarInitializer from "~/app/HotjarInitializer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "SaaS Software Agency | Devino",
-//   description: "Pragmatic Software Agency for SaaS",
-// };
+export const metadata: Metadata = {
+  title: "Devino | SaaS Software Agency",
+  description: "We build and scale software. Empowering you to accomplish your goals.",
+  metadataBase: new URL("https://devino.ca"),
+  alternates: {
+    canonical: "https://devino.ca",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://devino.ca",
+    title: "Devino | SaaS Software Agency",
+    description: "We build and scale software. Empowering you to accomplish your goals.",
+    siteName: "Devino",
+    images: [
+      {
+        url: "https://devino.ca/devino_banner.png",
+        width: 1200,
+        height: 676,
+        alt: "Devino Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Devino | SaaS Software Agency",
+    description: "We build and scale software. Empowering you to accomplish your goals.",
+    creator: "@devino_solutions",
+    images: ["https://devino.ca/devino_banner.png"],
+    site: "@devino_solutions",
+  },
+  icons: {
+    icon: [
+      { url: "/brand/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/brand/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      "/brand/favicon.ico",
+    ],
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  keywords: [
+    "SaaS Development Agency Canada",
+    "AI Integration for Business",
+    "Cloud Software Developers",
+    "Custom Mobile Applications",
+    "Enterprise Vertical SaaS",
+    "Generative AI Development",
+    "Scalable API Development",
+    "AI and Machine Learning Software",
+    "Software Design and Prototyping",
+  ],
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    if (process.env.NODE_ENV === "development") return;
-    Hotjar.init(siteId, hotjarVersion);
-  }, []);
   return (
     <ThemeProvider>
     <html lang="en">
-    <AppHeader/>
+    <HotjarInitializer />
     <body
         className={
           inter.className +
