@@ -14,25 +14,34 @@ type ThemeProviderProps = {
 };
 
 export const ThemeProvider = ({ children }: ThemeProviderProps): JSX.Element => {
-    // Helper to determine the initial theme
     const getInitialTheme = (): Theme => {
+        // Avoid accessing localStorage on the server
+        if (typeof window === 'undefined') return 'light'; // Default to light theme
+
         const storedTheme = localStorage.getItem('theme') as Theme | null;
         if (storedTheme) return storedTheme;
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         return prefersDark ? 'dark' : 'light';
     };
 
-    const [theme, setTheme] = useState<Theme>(getInitialTheme);
+    const [theme, setTheme] = useState<Theme>('light');
+
+    useEffect(() => {
+        // Fetch initial theme on the client
+        const initialTheme = getInitialTheme();
+        setTheme(initialTheme);
+    }, []);
 
     const toggleTheme = () => {
         setTheme((prevTheme) => {
             const newTheme: Theme = prevTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('theme', newTheme);
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('theme', newTheme);
+            }
             return newTheme;
         });
     };
 
-    // Effect to update the `class` on the <html> element
     useEffect(() => {
         if (theme === 'dark') {
             document.documentElement.classList.add('dark');
