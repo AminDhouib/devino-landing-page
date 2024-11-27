@@ -28,6 +28,11 @@
   --ease-out-5: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-3: cubic-bezier(0.25, 0.1, 0.25, 1);
   --icon-fill: #082f49;
+  --cursor-color: #01204C;
+
+}
+.dark:root {
+  --cursor-color: white;
 }
 
 html.dark .theme-toggle {
@@ -65,6 +70,7 @@ html.dark .sun-and-moon > .moon > circle {
     transform: translateX(0);
   }
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .sun-and-moon > .sun {

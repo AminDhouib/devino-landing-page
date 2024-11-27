@@ -12,6 +12,7 @@ import React, { ReactNode, useEffect } from "react";
 import Hotjar from "@hotjar/browser";
 import AppHeader from "~/app/AppHeader";
 import {ThemeProvider} from "~/app/lib/context/ThemeContext";
+import AnimatedCursor from "react-animated-cursor";
 
 const siteId = 3891462;
 const hotjarVersion = 6;
@@ -32,50 +33,41 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
     <AppHeader/>
     <ThemeProvider>
-      <AnimatedCursor
-          innerSize={10}
-          outerSize={50}
-          color='250, 204, 21'
-          outerAlpha={0.2}
-          innerScale={0.8}
-          outerScale={1.9}
-          clickables={[
-            'a',
-            'input[type="text"]',
-            'input[type="email"]',
-            'input[type="number"]',
-            'input[type="submit"]',
-            'input[type="image"]',
-            'label[for]',
-            'select',
-            'textarea',
-            'button',
-            '.section-label'
-          ]}
-      />
     <body
         className={
           inter.className +
           " relative bg-white text-[#1d1e22] dark:bg-darkbg overflow-x-hidden"
         }
       >
-    <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-    />
-    <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${gtag.GA_TRACKING_ID}');
-        `}
-    </Script>
+        <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', '${gtag.GA_TRACKING_ID}');
+            `}
+        </Script>
         <Header />
+        <AnimatedCursor
+            innerSize={8}
+            outerSize={35}
+            innerScale={1}
+            outerScale={2}
+            outerAlpha={0}
+            innerStyle={{
+              backgroundColor: 'var(--cursor-color)'
+            }}
+            outerStyle={{
+              border: '3px solid var(--cursor-color)',
+            }}
+        />
         {children}
         <Footer />
-
       </body>
       </ThemeProvider>
     </html>
