@@ -1,8 +1,8 @@
 import { useState, useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-import * as random from 'maath/random/dist/maath-random.esm'
 import {useTheme} from "~/app/lib/context/ThemeContext";
+import {generateRandomInSphere} from "~/app/lib/generateRandomInSphere";
 
 export default function StarsBG() {
     return (
@@ -10,7 +10,6 @@ export default function StarsBG() {
             <Canvas
                 className="h-full"
                 camera={{ position: [0, 0, 1] }}
-                suspendWhileLoading
             >
                 <Stars />
             </Canvas>
@@ -23,7 +22,7 @@ function Stars(props: any) {
     const {theme, toggleTheme} = useTheme();
     const isDark = theme === "dark";
     const sphere = useMemo(
-        () => random.inSphere(new Float32Array(1500), { radius: 1.5 }),
+        () => generateRandomInSphere(500),
         []
     );
 

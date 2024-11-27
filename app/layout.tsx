@@ -31,9 +31,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     Hotjar.init(siteId, hotjarVersion);
   }, []);
   return (
+    <ThemeProvider>
     <html lang="en">
     <AppHeader/>
-    <ThemeProvider>
     <body
         className={
           inter.className +
@@ -71,8 +71,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <Footer />
       </body>
-      </ThemeProvider>
-    </html>
+      </html>
+    </ThemeProvider>
+
   );
 }
 
