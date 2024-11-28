@@ -35,8 +35,8 @@
 
 .aws-btn {
   --button-default-height: 55px;
-  --button-default-font-size: 16px;
-  --button-default-border-radius: 30px;
+  --button-default-font-size: 17px;
+  --button-default-border-radius: 40px;
   --button-horizontal-padding: 40px;
   --button-raise-level: 5px;
   --button-hover-pressure: 2;
