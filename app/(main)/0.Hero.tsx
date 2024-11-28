@@ -3,16 +3,10 @@
 import {motion, useInView, useScroll} from "framer-motion";
 import L from "next/link";
 import {useRef, useState} from "react";
-import Lottie from "../_ui/Lottie";
 
 const Image = motion(I);
-import underline from "~/public/lottie/63e0e73f39c3d3207a4b5c8f_img-3.json";
-import circle from "~/public/lottie/63e0e73f6d4220061e74f95d_img-2.json";
 import I from "next/image";
-import {Card} from "~/app/pricing/(pricing)/0.Hero";
-import FancyButton from "~/app/_ui/FancyButton";
-import {FaComments} from "react-icons/fa6";
-import {BiChat} from "react-icons/bi";
+
 // import someweirdshape from "~/public/lottie/63e0e809a6b8cb8c0e19d57f_img-1.json";
 
 const Link = motion(L);
@@ -88,7 +82,7 @@ export default function Hero() {
                       <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-lightbg2 dark:bg-darkblue/20 group-hover:h-full ease"></span>
                       <span className="absolute inset-0 w-full h-full duration-300 delay-300 dark:bg-darkblue bg-lightbg2/50 opacity-0 group-hover:opacity-100"></span>
                       <span className="relative flex items-center justify-center space-x-2 transition-colors duration-300 delay-200 group-hover:text-white ease">
-                      <span>Let's Talk</span>
+                      <span>Let&apos;s Talk</span>
                   </span>
           </Link>
       </div>
