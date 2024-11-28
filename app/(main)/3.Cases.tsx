@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Button from "../_ui/Button";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {event} from "~/app/lib/gtag";
+import AwsmButton from "~/app/_ui/AwsmButton";
+import Link from "next/link";
 
 const cases = [
   {
@@ -80,7 +82,7 @@ const Case = ({
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
       className={`h-fit rounded-lg sm:bg-transparent py-10 w-full mx-auto flex overflow-hidden gap-16 sm:gap-8 p-4 items-center justify-center sm:flex-col ${
-        isEven ? "bg-cream" : "bg-gray-100"
+        isEven ? "bg-pastelBlue dark:bg-deepBlue" : "bg-pastelBlue bg-opacity-50 dark:bg-darkblue"
       }`}
     >
       <div
@@ -89,7 +91,7 @@ const Case = ({
         }`}
       >
         <Image
-          className="w-fit h-fit sm:w-3/4 sm:h-3/4"
+          className="w-fit h-fit sm:w-3/4 sm:h-3/4 dark:brightness-[0] dark:invert"
           src={example.image}
           alt={example.title}
           width={400}
@@ -98,23 +100,23 @@ const Case = ({
       </div>
       <div className="w-full sm:w-full flex flex-col justify-center items-center gap-10">
         <div className={`text-left sm:text-center px-4`}>
-          <h1 className="text-black leading-[58px] relative text-3xl sm:text-xl font-[30px] sm:font-[20px] mb-4">
+          <h1 className="text-black dark:text-white leading-[58px] relative text-3xl sm:text-xl font-[30px] sm:font-[20px] mb-4">
             {info.title}
           </h1>
-          <p className="text-xl sm:text-lg font-normal">
+          <p className="text-xl sm:text-lg font-normal dark:text-gray-400">
             {info.description}
           </p>
         </div>
-        <a
+        <Link
             onClick={triggerEvent}
-          href={info.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xl sm:text-lg font-medium mt-4 hover:bg-white p-2 rounded-xl"
-        >
-          {info.buttonText}
-          <span className="ml-2">➔</span>
-        </a>
+            href={info.url}
+            rel="noopener noreferrer"
+            target="_blank">
+          <AwsmButton>
+            {info.buttonText}
+            <span className="ml-2">➔</span>
+          </AwsmButton>
+        </Link>
       </div>
     </motion.div>
   );

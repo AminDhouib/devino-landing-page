@@ -6,8 +6,11 @@ import Header from "./(main)/Header";
 import Footer from "./(main)/Footer";
 import React, { ReactNode } from "react";
 
+import {ThemeProvider} from "~/app/lib/context/ThemeContext";
+import StarsBG from "~/app/_ui/StarsBg";
 import {Metadata} from "next";
 import HotjarInitializer from "~/app/HotjarInitializer";
+import CustomCursor from "~/app/_ui/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,33 +70,37 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-    <HotjarInitializer />
-    <body
-        className={
-          inter.className +
-          " relative bg-white text-[#1d1e22] overflow-x-hidden"
-        }
-      >
-    <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-    />
-    <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <ThemeProvider>
+      <html lang="en">
+      <HotjarInitializer />
+      <body
+          className={
+            inter.className +
+            " relative bg-body text-[#1d1e22] dark:bg-darkbg overflow-x-hidden"
+          }
+        >
+          <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+          />
+          <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+      
+                gtag('config', '${gtag.GA_TRACKING_ID}');
+              `}
+          </Script>
+          <Header />
+          <CustomCursor />
+          {children}
+          <Footer />
+          <StarsBG />
+        </body>
+        </html>
+      </ThemeProvider>
 
-          gtag('config', '${gtag.GA_TRACKING_ID}');
-        `}
-    </Script>
-        <Header />
-        {children}
-        <Footer />
-
-      </body>
-    </html>
   );
 }
 

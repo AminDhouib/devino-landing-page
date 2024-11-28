@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -38,6 +39,8 @@ const config: Config = {
         primaryhover: "#244d89",
         primaryactive: "#20447a",
         dimlightblue: "#ECF9FE",
+        body: "#f1f8fe",
+        pastelBlue: "#dcedfd",
         lightblue: "#7dd5f6",
         lightbluehover: "#71c0dd",
         lightblueactive: "#64aac5",
@@ -45,6 +48,7 @@ const config: Config = {
         darkblue: "#01204C",
         lightbg: "#02122c",
         darkbg: "#020e21",
+        deepBlue: "#031531",
         lightbg2: "#193A6A",
         orange: "#fb8b5c",
         orangehover: "#e27d53",

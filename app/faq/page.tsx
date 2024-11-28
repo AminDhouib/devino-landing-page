@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function FAQ() {
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden z-10">
       <FAQHero />
       <Questions />
       <WorkHero />
