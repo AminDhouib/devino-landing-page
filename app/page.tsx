@@ -9,6 +9,7 @@ import React, {useEffect} from "react";
 import * as gtag from "~/app/lib/gtag";
 import {usePathname} from "next/navigation";
 import AppHeader from "~/app/AppHeader";
+import {ReviewsSection} from "~/app/(main)/ReviewsSection";
 
 export default function Home() {
 
@@ -25,13 +26,15 @@ export default function Home() {
         handleRouteChange(pathname)
     }, [pathname]);
       return (
-        <main className="overflow-hidden">
+        <main className="overflow-hidden z-10">
             <AppHeader/>
             <Hero />
             <Skills/>
             {/*<Video />*/}
             <Methodologies />
             <Services />
+            <ReviewsSection title="What Our Clients Say" source="Google" />
+            <ReviewsSection title="Upwork Reviews" source="Upwork" />
             <Cases />
             <GetStarted />
         </main>

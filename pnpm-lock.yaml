@@ -26,9 +26,6 @@ importers:
       framer-motion:
         specifier: ^11.0.8
         version: 11.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      maath:
-        specifier: ^0.10.8
-        version: 0.10.8(@types/three@0.170.0)(three@0.170.0)
       next:
         specifier: 14.1.2
         version: 14.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

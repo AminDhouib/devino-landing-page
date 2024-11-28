@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
@@ -6,7 +8,7 @@ import {generateRandomInSphere} from "~/app/lib/generateRandomInSphere";
 
 export default function StarsBG() {
     return (
-        <div className="fixed top-0 left-0 right-0 bottom-0 h-screen">
+        <div className="fixed top-0 left-0 right-0 bottom-0 h-screen" style={{ zIndex: -1}}>
             <Canvas
                 className="h-full"
                 camera={{ position: [0, 0, 1] }}

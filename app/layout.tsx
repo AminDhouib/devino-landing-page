@@ -94,7 +94,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `}
         </Script>
         <Header />
-        <StarsBG />
         <AnimatedCursor
             innerSize={8}
             outerSize={35}
@@ -110,6 +109,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         {children}
         <Footer />
+        <StarsBG />
       </body>
       </html>
     </ThemeProvider>
