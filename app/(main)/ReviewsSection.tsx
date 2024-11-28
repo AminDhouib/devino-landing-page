@@ -123,6 +123,7 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                             <Link href={companyLink}>
                                 <Image
                                     src={companyLogo}
+                                    target="_blank"
                                     alt={`${company}`}
                                     height={50}
                                     width={50}
