@@ -1,10 +1,13 @@
 import {ReviewsSection} from "~/app/(main)/ReviewsSection";
 import {motion, useInView} from "framer-motion";
 import React, {useRef} from "react";
+import reviews from "~/app/lib/reviews";
 
 export default function Reviews() {
     const ref = useRef(null);
     const isInView = useInView(ref, { amount: 0.15, once: true });
+    if(reviews.length === 0) return null;
+
     return (
         <div className="mt-[12rem] sm:mt-[5rem] md:px-6">
             <motion.div

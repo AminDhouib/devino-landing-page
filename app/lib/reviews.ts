@@ -15,7 +15,7 @@ export interface Review {
 }
 
 const reviews: Review[] = [
-    {
+ /*   {
         name: "Allison Gaddy",
         profileImage: "/reviews/profiles/dummy-customer.jpg",
         position: "Position",
@@ -75,7 +75,7 @@ const reviews: Review[] = [
         isFeatured: true,
         source: "Google",
         link: "https://g.co/kgs/HGjW3X7"
-    },
+    },*/
 ];
 
 export default reviews;

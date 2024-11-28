@@ -1,8 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import Member from "./Member";
 import {
   FaLinkedin,
   FaGithub,
@@ -19,7 +16,7 @@ type SocialLink = {
   url: string;
 };
 
-type IMember = {
+export type IMember = {
   id: number;
   name: string;
   role: string;
@@ -37,8 +34,7 @@ const members: IMember[] = [
         "As Devino’s visionary founder, Amin’s motto is simple: create value, and it will come back full circle. With a solid foundation in software engineering, Amin leads with passion, connecting ideas and people. In his free time, he’s a motivational speaker, a sports enthusiast, and an advocate for growth through collaboration.",
     picture: "amin",
     socialLinks: [
-      { platform: "linkedin", url: "https://linkedin.com/in/amin-dhouib" },
-      { platform: "github", url: "https://github.com/amindhouib" },
+      { platform: "linkedin", url: "https://www.linkedin.com/in/amin-dhouib/" },
     ],
   },
   {
@@ -48,10 +44,6 @@ const members: IMember[] = [
     description:
         "By day, he’s a full-stack engineer; by night, a gamer and fitness buff. Amine’s drive to conquer challenges and crush deadlines is only matched by his unique flair for innovation.",
     picture: "amine",
-    socialLinks: [
-      { platform: "linkedin", url: "https://linkedin.com/in/medaminekhaili" },
-      { platform: "github", url: "https://github.com/medaminekhaili" },
-    ],
   },
   {
     id: 3,
@@ -60,10 +52,6 @@ const members: IMember[] = [
     description:
         "Aladdin has three ‘wishes’: to code, to design, and to craft unforgettable web experiences. With each project, he works his magic to deliver captivating, seamless digital journeys. When it comes to web wizardry, Aladdin’s spells are second to none.",
     picture: "aladdin",
-    socialLinks: [
-      { platform: "linkedin", url: "https://linkedin.com/in/aladdin-bensalah" },
-      { platform: "github", url: "https://github.com/aladdinbensalah" },
-    ],
   },
   {
     id: 4,
@@ -72,9 +60,6 @@ const members: IMember[] = [
     description:
         "Known for his laser-sharp focus and knack for organization, Jedidiah is the team’s reliability powerhouse. Adaptable and detail-oriented, he’s committed to delivering top-notch results, every time. If precision is key, Jedidiah’s got it covered.",
     picture: "jedidiah",
-    socialLinks: [
-      { platform: "linkedin", url: "https://linkedin.com/in/jedidiah-amaraegbu" },
-    ],
   },
   {
     id: 5,
@@ -83,10 +68,6 @@ const members: IMember[] = [
     description:
         "This cybersecurity expert is our digital guardian, known for discovering critical vulnerabilities and building the popular Bane Python library. With a passion for iron-clad security, Ala ensures that every piece of software we create is as secure as it is powerful.",
     picture: "ala",
-    socialLinks: [
-      { platform: "linkedin", url: "https://linkedin.com/in/ala-bouali" },
-      { platform: "github", url: "https://github.com/alabouali" },
-    ],
   },
   {
     id: 6,
@@ -95,10 +76,6 @@ const members: IMember[] = [
     description:
         "A part-time chess player when he's not looking for bugs, you'll always find him playing chess. As an AI expert, we won't be surprised if he made an AI model to replace his job so he can enjoy playing chess more.",
     picture: "chedli",
-    socialLinks: [
-      { platform: "linkedin", url: "https://linkedin.com/in/chedli-ghorbel" },
-      { platform: "github", url: "https://github.com/chedlighorbel" },
-    ],
   },
   {
     id: 7,
@@ -107,23 +84,8 @@ const members: IMember[] = [
     description:
         "A creative powerhouse, Maryem is a filmmaker, advertising expert, and design virtuoso. With her keen eye for detail, she brings cinematic flair to every project, turning even the simplest concepts into visually captivating stories. For Maryem, creativity knows no bounds.",
     picture: "maryem",
-    socialLinks: [
-      { platform: "behance", url: "https://behance.net/maryembouchiba" },
-      { platform: "instagram", url: "https://instagram.com/maryembouchiba" },
-      { platform: "website", url: "https://instagram.com/maryembouchiba" },
-    ],
   },
 ];
-
-const platformIcons = {
-  linkedin: FaLinkedin,
-  github: FaGithub,
-  behance: FaBehance,
-  instagram: FaInstagram,
-  youtube: FaYoutube,
-  tiktok: FaTiktok,
-  website: AiOutlineGlobal,
-};
 
 export default function Team() {
   return (

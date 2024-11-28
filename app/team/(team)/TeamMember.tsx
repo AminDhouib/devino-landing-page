@@ -10,6 +10,7 @@ import {
     FaTiktok,
 } from "react-icons/fa";
 import { AiOutlineGlobal } from "react-icons/ai";
+import {IMember} from "~/app/team/(team)/Team";
 
 const platformIcons = {
     linkedin: FaLinkedin,
@@ -21,21 +22,7 @@ const platformIcons = {
     website: AiOutlineGlobal,
 };
 
-interface SocialLink {
-    platform: string;
-    url: string;
-}
-
-interface ITeamMember {
-    id: number;
-    name: string;
-    role: string;
-    description: string;
-    picture: string;
-    socialLinks?: SocialLink[];
-}
-
-const TeamMember: FC<{ member: ITeamMember, index: number }> = ({ member, index }) => {
+const TeamMember: FC<{ member: IMember, index: number }> = ({ member, index }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -53,7 +40,7 @@ const TeamMember: FC<{ member: ITeamMember, index: number }> = ({ member, index 
                 alt={`${member.name} picture`}
                 height={366}
                 width={366}
-                className={`w-full shadow-lg ${!isOpen ? "filter grayscale" : ""}`}
+                className={`w-full transition-all shadow-lg ${!isOpen ? "filter grayscale" : ""}`}
             />
             <div className="mt-2 text-center p-1 pb-3">
                 <h2 className="my-2 font-bold text-2xl sm:text-xl dark:text-white">
