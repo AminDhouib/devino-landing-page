@@ -6,12 +6,11 @@ import Header from "./(main)/Header";
 import Footer from "./(main)/Footer";
 import React, { ReactNode } from "react";
 
-
 import {ThemeProvider} from "~/app/lib/context/ThemeContext";
-import AnimatedCursor from "react-animated-cursor";
 import StarsBG from "~/app/_ui/StarsBg";
 import {Metadata} from "next";
 import HotjarInitializer from "~/app/HotjarInitializer";
+import CustomCursor from "~/app/_ui/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -94,19 +93,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `}
         </Script>
         <Header />
-        <AnimatedCursor
-            innerSize={8}
-            outerSize={35}
-            innerScale={1}
-            outerScale={2}
-            outerAlpha={0}
-            innerStyle={{
-              backgroundColor: 'var(--cursor-color)'
-            }}
-            outerStyle={{
-              border: '3px solid var(--cursor-color)',
-            }}
-        />
+        <CustomCursor />
         {children}
         <Footer />
         <StarsBG />

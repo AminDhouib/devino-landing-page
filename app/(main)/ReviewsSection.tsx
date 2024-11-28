@@ -4,20 +4,19 @@ import Image from "next/image";
 import { Review } from "../lib/reviews";
 import reviewsData from "../lib/reviews";
 import React from "react";
+import { FaStar } from "react-icons/fa";
+import Link from "next/link";
 import {
-    motion,
-    useInView,
-    useMotionValue,
-    useSpring,
-    useTransform,
+    motion
 } from "framer-motion";
 
 interface ReviewsSectionProps {
     title: string;
     source?: 'Google' | 'Upwork';
+    truncatedChars?: number;
 }
 
-export function ReviewsSection({ title, source }: ReviewsSectionProps) {
+export function ReviewsSection({ title, source, truncatedChars }: ReviewsSectionProps) {
     // Filter reviews based on isFeatured and source
     const reviews = reviewsData.filter(
         (review) => review.isFeatured && (!source || review.source === source)
@@ -29,29 +28,27 @@ export function ReviewsSection({ title, source }: ReviewsSectionProps) {
             <motion.div className="mb-12 sm:mb-6 w-full text-center text-darkblue dark:text-white text-4xl xs:text-xl sm:text-2xl font-bold">
                 {title}
             </motion.div>
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 gap-6 w-full">
+            <div className="columns-3 w-full p-4 box-border  w-full">
                 {reviews.map((review, index) => (
-                    <ReviewCard key={index} review={review} />
+                    <ReviewCard key={index} review={review} truncatedChars={truncatedChars || 999}/>
                 ))}
             </div>
-            <a
+            <Link
                 href="/reviews"
-                className="mt-8 text-lightblueactive underline hover:text-lightbluehover"
+                className="bg-lightblueactive text-white mt-8 dark:bg-white dark:text-darkblue whitespace-nowrap py-3 px-10 md:px-8 items-center hover:scale-105 uppercase font-mono w-max tracking-wide transition-all duration-300 rounded-[40px] font-semibold text-xl md:text-lg"
             >
                 View all reviews
-            </a>
+            </Link>
         </section>
     );
 }
 
 interface ReviewCardProps {
     review: Review;
+    truncatedChars?: number; // Optional prop for truncating the comment
 }
 
-import Link from "next/link";
-import {FaStar} from "react-icons/fa";
-
-function ReviewCard({ review }: ReviewCardProps) {
+export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
     const {
         name,
         position,
@@ -61,10 +58,29 @@ function ReviewCard({ review }: ReviewCardProps) {
         rating,
         comment,
         companyLink,
+        link, // New property
     } = review;
 
+    // Truncate the comment if truncatedChars is provided
+    const truncatedComment =
+        truncatedChars && comment.length > truncatedChars
+            ? comment.slice(0, truncatedChars) + "..."
+            : comment;
+
     return (
-        <div className="bg-dimlightblue dark:bg-deepBlue rounded-[20px] p-8">
+        <div className="break-inside-avoid relative bg-dimlightblue dark:bg-deepBlue rounded-[20px] mb-3 p-8">
+            {/* Link icon */}
+      {/*      {link && (
+                <Link
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-3 right-3 text-darkblue dark:text-white"
+                >
+                    <FaArrowUpRightFromSquare className="text-xl" />
+                </Link>
+            )}*/}
+
             <div className="flex mb-4">
                 {profileImage ? (
                     <Image
@@ -72,7 +88,7 @@ function ReviewCard({ review }: ReviewCardProps) {
                         alt={`${name}'s profile`}
                         height={50}
                         width={50}
-                        className="h-12 w-12 rounded-2xl object-cover"
+                        className="h-16 w-16 rounded-2xl object-cover"
                     />
                 ) : (
                     <div className="h-16 w-16 rounded-2xl bg-darkblue dark:bg-lightbg2 text-white text-2xl flex items-center justify-center">
@@ -126,14 +142,13 @@ function ReviewCard({ review }: ReviewCardProps) {
                 </div>
             </div>
             <p className="text-lg font-medium lg:text-base dark:text-gray-300">
-                {comment}
+                {truncatedComment}
             </p>
             <div className="flex items-center mt-4 text-deepBlue dark:text-gray-200">
                 {Array.from({ length: rating }).map((_, i) => (
-                    <FaStar />
+                    <FaStar key={i} />
                 ))}
             </div>
         </div>
     );
 }
-

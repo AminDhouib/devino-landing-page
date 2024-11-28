@@ -33,8 +33,7 @@ export default function Home() {
             {/*<Video />*/}
             <Methodologies />
             <Services />
-            <ReviewsSection title="What Our Clients Say" source="Google" />
-            <ReviewsSection title="Upwork Reviews" source="Upwork" />
+            <ReviewsSection title="What Our Clients Say" source="Google" truncatedChars={200} />
             <Cases />
             <GetStarted />
         </main>
