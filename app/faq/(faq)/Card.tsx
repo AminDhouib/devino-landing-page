@@ -7,7 +7,7 @@ interface ICard {
 }
 export default function Card(props: ICard) {
   return (
-    <div className="bg-greybg dark:bg-darkblue rounded-[20px] p-8 lg:mb-6">
+    <div className="bg-pastelBlue dark:bg-darkblue rounded-[20px] p-8 lg:mb-6">
       <Image
         src={props.icon}
         alt={"card icon"}

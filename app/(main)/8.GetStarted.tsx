@@ -5,6 +5,8 @@ import Button from "../_ui/Button";
 import { motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
+import {AwesomeButton} from "react-awesome-button";
+import AwsmButton from "~/app/_ui/AwsmButton";
 type ButtonType = {
   name: string;
   link: string;
@@ -96,13 +98,9 @@ const OptionCard = ({
           <Link
             href={button.link}
           >
-            <motion.div
-                className={`${
-                    isFirst ? "bg-lightblueactive text-white dark:bg-white dark:text-darkblue" : "bg-lightblueactive text-white dark:bg-white dark:text-darkblue"
-                } whitespace-nowrap py-3 px-10 md:px-8 items-center hover:scale-105 uppercase font-mono w-max tracking-wide transition-all duration-300 rounded-[40px] font-semibold text-xl md:text-lg`}
-                whileHover={{scale: 1.1}}>
+            <AwsmButton>
               {button.name}
-            </motion.div>
+            </AwsmButton>
           </Link>
         </div>
         {isFirst && (

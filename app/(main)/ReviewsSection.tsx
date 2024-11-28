@@ -120,10 +120,9 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                 <div className="ml-4 flex flex-col gap-1">
                     {companyLogo && isCompanyImageValid ? (
                         companyLink ? (
-                            <Link href={companyLink}>
+                            <Link href={companyLink} target="_blank">
                                 <Image
                                     src={companyLogo}
-                                    target="_blank"
                                     alt={`${company}`}
                                     height={50}
                                     width={50}

@@ -41,7 +41,7 @@ const TeamMember: FC<{ member: ITeamMember, index: number }> = ({ member, index 
     return (
         <motion.div
             style={{ zIndex: 40 - index }}
-            className={`relative dark:bg-deepBlue dark:border-darkblue flex flex-col items-center cursor-pointer rounded-lg border-2 transition-all duration-300 ease-in-out ${
+            className={`relative bg-white dark:bg-deepBlue dark:border-darkblue flex flex-col items-center cursor-pointer rounded-lg border-2 transition-all duration-300 ease-in-out ${
                 isOpen ? "scale-105 border-b-0" : "scale-100"
             } `}
             onMouseEnter={() => setIsOpen(true)}

@@ -35,6 +35,9 @@ importers:
       react-animated-cursor:
         specifier: ^2.11.2
         version: 2.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-awesome-button:
+        specifier: ^7.0.5
+        version: 7.0.5
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
@@ -238,6 +241,9 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==, tarball: https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz}
     engines: {node: '>=14'}
+
+  '@rcaferati/wac@1.0.0':
+    resolution: {integrity: sha512-7dVbzvcfL9o4UnrCaNeoIs7Ri9Ol+OMfpYYCJJV1dfm+5+pVM6DrvFjPzqifd2ACVABpXmwTQKy9KFxNm/7IdA==, tarball: https://registry.npmjs.org/@rcaferati/wac/-/wac-1.0.0.tgz}
 
   '@react-spring/animated@9.7.5':
     resolution: {integrity: sha512-Tqrwz7pIlsSDITzxoLS3n/v/YCUHQdOIKtOJf4yL6kYVSDTSmVK1LI1Q3M/uu2Sx4X3pIWF3xLUhlsA6SPNTNg==, tarball: https://registry.npmjs.org/@react-spring/animated/-/animated-9.7.5.tgz}
@@ -1492,6 +1498,9 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
 
+  react-awesome-button@7.0.5:
+    resolution: {integrity: sha512-pNABRQsvnbd5rGL7mX9udWa0aPnXtP6hEL90/Cqjc/ERADpOMu3z6zix+AW/NOBp0NQoi9J+hhKoZS2dabs15g==, tarball: https://registry.npmjs.org/react-awesome-button/-/react-awesome-button-7.0.5.tgz}
+
   react-composer@5.0.3:
     resolution: {integrity: sha512-1uWd07EME6XZvMfapwZmc7NgCZqDemcvicRi3wMJzXsQLvZ3L7fTHVyPy1bZdnWXM4iPjYuNE+uJ41MLKeTtnA==, tarball: https://registry.npmjs.org/react-composer/-/react-composer-5.0.3.tgz}
     peerDependencies:
@@ -2081,6 +2090,8 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@rcaferati/wac@1.0.0': {}
 
   '@react-spring/animated@9.7.5(react@18.3.1)':
     dependencies:
@@ -3523,6 +3534,10 @@ snapshots:
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  react-awesome-button@7.0.5:
+    dependencies:
+      '@rcaferati/wac': 1.0.0
 
   react-composer@5.0.3(react@18.3.1):
     dependencies:

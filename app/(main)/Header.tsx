@@ -11,6 +11,7 @@ import {useWindowSize} from "~/app/hooks/useWindowSize";
 import AppHeader from "~/app/AppHeader";
 import ThemeToggle from "~/app/_ui/ThemeToggle";
 import {useTheme} from "~/app/lib/context/ThemeContext";
+import AwsmButton from "~/app/_ui/AwsmButton";
 
 const links = [
     {name: "Home", url: "/"},
@@ -108,15 +109,10 @@ export default function Header() {
             </motion.div>
             <Link
                 href="https://calendly.com/amin-dhouib"
-                className="absolute ml-[80%] xl:ml-[76%] lg:hidden w-fit h-fit px-10 py-3.5 dark:bg-white dark:border-transparent bg-sky-950 rounded-[28px] border border-sky-300 justify-center items-center gap-2.5 inline-flex"
+                className="absolute ml-[80%] xl:ml-[76%] lg:hidden"
                 target="_blank"
             >
-                <motion.div
-                    whileHover={{scale: 1.05}}
-                    className="text-white dark:text-sky-950 text-[18px] font-semibold"
-                >
-                    Let’s talk
-                </motion.div>
+                <AwsmButton>Let&apos;s Talk</AwsmButton>
             </Link>
             <ThemeToggle className="lg:relative lg:ml-auto absolute lg:right-auto -right-4"/>
             <button

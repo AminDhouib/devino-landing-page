@@ -2,10 +2,12 @@
 
 import {motion, useInView, useScroll} from "framer-motion";
 import L from "next/link";
-import {useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 
 const Image = motion(I);
 import I from "next/image";
+import {AwesomeButton} from "react-awesome-button";
+import AwsmButton from "~/app/_ui/AwsmButton";
 
 // import someweirdshape from "~/public/lottie/63e0e809a6b8cb8c0e19d57f_img-1.json";
 
@@ -71,19 +73,16 @@ export default function Hero() {
               Empowering you to <div
               className="hidden sm:flex"></div> accomplish your goals.
           </motion.div>
+
           <Link
               initial={{opacity: 0, y: 20}}
               animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.25}}
               href="https://calendly.com/amin-dhouib"
               target="_blank"
-              className="relative mt-8 px-10 py-3.5 overflow-hidden font-medium text-white bg-darkblue dark:bg-white dark:text-darkblue rounded-full shadow-inner group">
-                  <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-lightbg2 dark:bg-darkblue/20 group-hover:h-full ease"></span>
-                      <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-lightbg2 dark:bg-darkblue/20 group-hover:h-full ease"></span>
-                      <span className="absolute inset-0 w-full h-full duration-300 delay-300 dark:bg-darkblue bg-lightbg2/50 opacity-0 group-hover:opacity-100"></span>
-                      <span className="relative flex items-center justify-center space-x-2 transition-colors duration-300 delay-200 group-hover:text-white ease">
-                      <span>Let&apos;s Talk</span>
-                  </span>
+              className="relative mt-8"
+          >
+              <AwsmButton>Let&apos;s Talk</AwsmButton>
           </Link>
       </div>
   );

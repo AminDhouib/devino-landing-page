@@ -11,7 +11,7 @@ export default function Question(props: IQuestion) {
   return (
     <div
       className={` ${
-        isOpen ? "bg-pastelBlue dark:bg-deepBlue" : "bg-offwhite dark:bg-lightbg"
+        isOpen ? "bg-pastelBlue dark:bg-deepBlue" : "bg-pastelBlue/75 dark:bg-lightbg"
       } w-full p-6 lg:p-4 cursor-pointer rounded-[20px] [&:not(:last-child)]:mb-6`}
       onClick={() => setIsOpen(!isOpen)}
     >

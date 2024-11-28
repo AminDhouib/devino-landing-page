@@ -17,7 +17,7 @@ export interface Review {
 const reviews: Review[] = [
     {
         name: "Allison Gaddy",
-        profileImage: "/reviews/profiles/allisdon.png",
+        profileImage: "/reviews/profiles/dummy-customer.jpg",
         position: "Position",
         company: "Company",
         rating: 5,

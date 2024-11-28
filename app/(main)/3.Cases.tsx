@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Button from "../_ui/Button";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {event} from "~/app/lib/gtag";
+import AwsmButton from "~/app/_ui/AwsmButton";
+import Link from "next/link";
 
 const cases = [
   {
@@ -105,18 +107,16 @@ const Case = ({
             {info.description}
           </p>
         </div>
-        <a
-          onClick={triggerEvent}
-          href={info.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`text-xl sm:text-lg font-medium mt-4 hover:bg-white p-2 rounded-xl dark:text-gray-400  ${
-              isEven ? "hover:dark:bg-darkblue" : "hover:dark:bg-deepBlue"
-          }`}
-        >
-          {info.buttonText}
-          <span className="ml-2">➔</span>
-        </a>
+        <Link
+            onClick={triggerEvent}
+            href={info.url}
+            rel="noopener noreferrer"
+            target="_blank">
+          <AwsmButton>
+            {info.buttonText}
+            <span className="ml-2">➔</span>
+          </AwsmButton>
+        </Link>
       </div>
     </motion.div>
   );
