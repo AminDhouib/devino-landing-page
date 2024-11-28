@@ -71,35 +71,35 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
-    <html lang="en">
-    <HotjarInitializer />
-    <body
-        className={
-          inter.className +
-          " relative bg-white text-[#1d1e22] dark:bg-darkbg overflow-x-hidden"
-        }
-      >
-        <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-    
-              gtag('config', '${gtag.GA_TRACKING_ID}');
-            `}
-        </Script>
-        <Header />
-        <CustomCursor />
-        {children}
-        <Footer />
-        <StarsBG />
-      </body>
-      </html>
-    </ThemeProvider>
+      <html lang="en">
+      <HotjarInitializer />
+      <body
+          className={
+            inter.className +
+            " relative bg-body text-[#1d1e22] dark:bg-darkbg overflow-x-hidden"
+          }
+        >
+          <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+          />
+          <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+      
+                gtag('config', '${gtag.GA_TRACKING_ID}');
+              `}
+          </Script>
+          <Header />
+          <CustomCursor />
+          {children}
+          <Footer />
+          <StarsBG />
+        </body>
+        </html>
+      </ThemeProvider>
 
   );
 }

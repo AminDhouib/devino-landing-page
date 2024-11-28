@@ -45,7 +45,7 @@ function Stars(props: any) {
             >
                 <PointMaterial
                     transparent
-                    color={isDark ? '#6b7280' : '#1c3158'}
+                    color={isDark ? '#6b7280' : '#0e254f'}
                     size={0.002}
                     sizeAttenuation
                     depthWrite={false}

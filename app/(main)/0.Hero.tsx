@@ -10,6 +10,9 @@ import underline from "~/public/lottie/63e0e73f39c3d3207a4b5c8f_img-3.json";
 import circle from "~/public/lottie/63e0e73f6d4220061e74f95d_img-2.json";
 import I from "next/image";
 import {Card} from "~/app/pricing/(pricing)/0.Hero";
+import FancyButton from "~/app/_ui/FancyButton";
+import {FaComments} from "react-icons/fa6";
+import {BiChat} from "react-icons/bi";
 // import someweirdshape from "~/public/lottie/63e0e809a6b8cb8c0e19d57f_img-1.json";
 
 const Link = motion(L);
@@ -75,14 +78,18 @@ export default function Hero() {
               className="hidden sm:flex"></div> accomplish your goals.
           </motion.div>
           <Link
-              href="https://calendly.com/amin-dhouib"
-              className="mt-8 bg-skybg dark:bg-white dark:border-transparent dark:text-skybg rounded-[28px] border border-lightblue text-white px-7 py-3.5 sm:px-5 sm:py-3 md:px-6 md:py-3 inline-flex items-center justify-center text-white text-[22px] sm:text-lg md:text-xl font-semibold "
-              target="_blank"
               initial={{opacity: 0, y: 20}}
               animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 20}}
               transition={{duration: 0.6, ease: "easeInOut", delay: 0.25}}
-          >
-              Let’s talk
+              href="https://calendly.com/amin-dhouib"
+              target="_blank"
+              className="relative mt-8 px-10 py-3.5 overflow-hidden font-medium text-white bg-darkblue dark:bg-white dark:text-darkblue rounded-full shadow-inner group">
+                  <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-lightbg2 dark:bg-darkblue/20 group-hover:h-full ease"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-lightbg2 dark:bg-darkblue/20 group-hover:h-full ease"></span>
+                      <span className="absolute inset-0 w-full h-full duration-300 delay-300 dark:bg-darkblue bg-lightbg2/50 opacity-0 group-hover:opacity-100"></span>
+                      <span className="relative flex items-center justify-center space-x-2 transition-colors duration-300 delay-200 group-hover:text-white ease">
+                      <span>Let's Talk</span>
+                  </span>
           </Link>
       </div>
   );

@@ -9,7 +9,7 @@ import React, {useEffect} from "react";
 import * as gtag from "~/app/lib/gtag";
 import {usePathname} from "next/navigation";
 import AppHeader from "~/app/AppHeader";
-import {ReviewsSection} from "~/app/(main)/ReviewsSection";
+import Reviews from "~/app/(main)/Reviews";
 
 export default function Home() {
 
@@ -33,7 +33,7 @@ export default function Home() {
             {/*<Video />*/}
             <Methodologies />
             <Services />
-            <ReviewsSection title="What Our Clients Say" source="Google" truncatedChars={200} />
+            <Reviews/>
             <Cases />
             <GetStarted />
         </main>

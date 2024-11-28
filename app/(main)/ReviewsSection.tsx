@@ -3,43 +3,63 @@
 import Image from "next/image";
 import { Review } from "../lib/reviews";
 import reviewsData from "../lib/reviews";
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { FaStar } from "react-icons/fa";
 import Link from "next/link";
 import {
-    motion
+    motion, useInView
 } from "framer-motion";
+import {FaArrowUpRightFromSquare} from "react-icons/fa6";
+import {MdOutlineArrowOutward} from "react-icons/md";
 
 interface ReviewsSectionProps {
     title: string;
     source?: 'Google' | 'Upwork';
     truncatedChars?: number;
+    showAllReviewsLink?: boolean;
+    showFeatured?: boolean;
 }
 
-export function ReviewsSection({ title, source, truncatedChars }: ReviewsSectionProps) {
+export function ReviewsSection({ title, source, truncatedChars, showAllReviewsLink = false, showFeatured = false }: ReviewsSectionProps) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { amount: 0.15, once: true });
     // Filter reviews based on isFeatured and source
     const reviews = reviewsData.filter(
-        (review) => review.isFeatured && (!source || review.source === source)
+        (review) =>
+            (!showFeatured || review.isFeatured) &&
+            (!source || review.source === source)
     );
 
+    if (reviews.length === 0) return null;
     return (
 
-        <section className="flex flex-col items-center justify-center mt-[12rem] sm:mt-[5rem] max-w-[min(75rem,96svw)] tracking-tighter mx-auto">
-            <motion.div className="mb-12 sm:mb-6 w-full text-center text-darkblue dark:text-white text-4xl xs:text-xl sm:text-2xl font-bold">
-                {title}
-            </motion.div>
-            <div className="columns-3 w-full p-4 box-border  w-full">
+        <motion.section
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="flex flex-col items-center justify-center max-w-[min(75rem,96svw)] tracking-tighter mx-auto">
+            <div className="flex justify-between items-center mb-12 sm:mb-6 w-full mt-8">
+                <motion.div className="w-full text-darkblue dark:text-white text-3xl xs:text-xl sm:text-2xl font-bold">
+                    {title}
+                </motion.div>
+                {showAllReviewsLink && (
+                    <Link
+                        href="/reviews"
+                        className="text-darkblue dark:text-white whitespace-nowrap transition-all duration-300 text-xl md:text-lg underlined"
+                    >
+                        View all reviews
+                    </Link>
+                )}
+            </div>
+
+            <div
+                className="columns-3 lg:columns-2 md:columns-1 w-full box-border w-full">
                 {reviews.map((review, index) => (
                     <ReviewCard key={index} review={review} truncatedChars={truncatedChars || 999}/>
                 ))}
             </div>
-            <Link
-                href="/reviews"
-                className="bg-lightblueactive text-white mt-8 dark:bg-white dark:text-darkblue whitespace-nowrap py-3 px-10 md:px-8 items-center hover:scale-105 uppercase font-mono w-max tracking-wide transition-all duration-300 rounded-[40px] font-semibold text-xl md:text-lg"
-            >
-                View all reviews
-            </Link>
-        </section>
+        </motion.section>
     );
 }
 
@@ -49,6 +69,9 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
+    const [isImageValid, setIsImageValid] = useState(true);
+    const [isCompanyImageValid, setIsCompanyImageValid] = useState(true);
+
     const {
         name,
         position,
@@ -68,27 +91,26 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
             : comment;
 
     return (
-        <div className="break-inside-avoid relative bg-dimlightblue dark:bg-deepBlue rounded-[20px] mb-3 p-8">
-            {/* Link icon */}
-      {/*      {link && (
+        <div className="break-inside-avoid relative bg-pastelBlue dark:bg-deepBlue rounded-[20px] mb-3 p-8">
+            {link && (
                 <Link
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-3 right-3 text-darkblue dark:text-white"
+                    className="absolute top-3 right-3 text-darkblue dark:text-white transition-transform duration-300 ease-in-out hover:translate-x-2 hover:-translate-y-1 hover:text-blue-500"
                 >
-                    <FaArrowUpRightFromSquare className="text-xl" />
+                    <MdOutlineArrowOutward className="text-3xl"/>
                 </Link>
-            )}*/}
-
+            )}
             <div className="flex mb-4">
-                {profileImage ? (
+                {profileImage && isImageValid ? (
                     <Image
                         src={profileImage}
                         alt={`${name}'s profile`}
                         height={50}
                         width={50}
                         className="h-16 w-16 rounded-2xl object-cover"
+                        onError={() => setIsImageValid(false)}
                     />
                 ) : (
                     <div className="h-16 w-16 rounded-2xl bg-darkblue dark:bg-lightbg2 text-white text-2xl flex items-center justify-center">
@@ -96,24 +118,26 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                     </div>
                 )}
                 <div className="ml-4 flex flex-col gap-1">
-                    {companyLogo ? (
+                    {companyLogo && isCompanyImageValid ? (
                         companyLink ? (
                             <Link href={companyLink}>
                                 <Image
                                     src={companyLogo}
-                                    alt={`${company} logo`}
+                                    alt={`${company}`}
                                     height={50}
                                     width={50}
                                     className="h-6 w-auto grayscale invert dark:brightness-[0] cursor-pointer"
+                                    onError={() => setIsCompanyImageValid(false)}
                                 />
                             </Link>
                         ) : (
                             <Image
                                 src={companyLogo}
-                                alt={`${company} logo`}
+                                alt={`${company}`}
                                 height={50}
                                 width={50}
                                 className="h-5 grayscale brightness-[100] invert dark:brightness-[0]"
+                                onError={() => setIsCompanyImageValid(false)}
                             />
                         )
                     ) : null}
@@ -122,7 +146,7 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                     </h2>
                     <p className="text-darkblue dark:text-gray-400 text-sm">
                         {position}
-                        {!companyLogo ? (
+                        {!companyLogo || !isCompanyImageValid? (
                             companyLink ? (
                                 <>
                                     {" "}
@@ -134,14 +158,14 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                             ) : (
                                 <>
                                     {" "}
-                                    at {company}
+                                    at <span className="font-bold">{company}</span>
                                 </>
                             )
                         ) : null}
                     </p>
                 </div>
             </div>
-            <p className="text-lg font-medium lg:text-base dark:text-gray-300">
+            <p className="lg:text-base dark:text-gray-300">
                 {truncatedComment}
             </p>
             <div className="flex items-center mt-4 text-deepBlue dark:text-gray-200">

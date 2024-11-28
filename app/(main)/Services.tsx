@@ -128,7 +128,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
         animate={{ rotateY: isFlipped ? -180 : 0, perspective: 1000 }}
         transition={{ duration: 0.3 }}
         className={`${
-          isFlipped ? "bg-darkblue dark:bg-deepBlue text-white" : "bg-[#f1f8fe] dark:bg-deepBlue text-darkblue dark:text-white"
+          isFlipped ? "bg-darkblue dark:bg-deepBlue text-white" : "bg-pastelBlue dark:bg-deepBlue text-darkblue dark:text-white"
         } cursor-pointer sm:mr-auto rounded-[32px] transition-colors duration-300 h-full w-full [backface-visibility:hidden] dark:border-0 absolute top-0 left-0 z-10 p-5 flex items-center justify-center flex-col gap-4`}
       >
         <Image

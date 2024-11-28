@@ -1,26 +1,38 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function CustomCursor() {
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
     useEffect(() => {
         if (typeof window !== "undefined") {
-            // Ensure the component runs only in the browser
+            // Check if the device supports touch input
+            const hasTouchSupport =
+                "ontouchstart" in window || navigator.maxTouchPoints > 0;
+            setIsTouchDevice(hasTouchSupport);
         }
     }, []);
 
-    return <AnimatedCursor
-                innerSize={8}
-                outerSize={35}
-                innerScale={1}
-                outerScale={2}
-                outerAlpha={0}
-                innerStyle={{
-                    backgroundColor: 'var(--cursor-color)'
-                }}
-                outerStyle={{
-                    border: '3px solid var(--cursor-color)',
-                }}
-            />;
+    // Do not render the cursor for touch devices
+    if (isTouchDevice) {
+        return null;
+    }
+
+    return (
+        <AnimatedCursor
+            innerSize={8}
+            outerSize={35}
+            innerScale={1}
+            outerScale={2}
+            outerAlpha={0}
+            innerStyle={{
+                backgroundColor: 'var(--cursor-color)',
+            }}
+            outerStyle={{
+                border: '3px solid var(--cursor-color)',
+            }}
+        />
+    );
 }

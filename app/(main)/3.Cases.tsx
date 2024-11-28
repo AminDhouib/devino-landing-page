@@ -80,7 +80,7 @@ const Case = ({
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
       className={`h-fit rounded-lg sm:bg-transparent py-10 w-full mx-auto flex overflow-hidden gap-16 sm:gap-8 p-4 items-center justify-center sm:flex-col ${
-        isEven ? "bg-cream dark:bg-deepBlue" : "bg-gray-100 dark:bg-darkblue"
+        isEven ? "bg-pastelBlue dark:bg-deepBlue" : "bg-pastelBlue bg-opacity-50 dark:bg-darkblue"
       }`}
     >
       <div

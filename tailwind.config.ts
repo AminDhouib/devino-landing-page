@@ -39,6 +39,8 @@ const config: Config = {
         primaryhover: "#244d89",
         primaryactive: "#20447a",
         dimlightblue: "#ECF9FE",
+        body: "#f1f8fe",
+        pastelBlue: "#dcedfd",
         lightblue: "#7dd5f6",
         lightbluehover: "#71c0dd",
         lightblueactive: "#64aac5",
