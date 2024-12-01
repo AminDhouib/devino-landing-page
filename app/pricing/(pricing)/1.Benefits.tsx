@@ -75,7 +75,7 @@ export default function Benefits() {
   return (
     <motion.section
       ref={ref}
-      className="w-full text-center max-w-[min(75rem,96svw)] mx-auto pt-[12rem] sm:pt-[6rem] lg:mt-0 "
+      className="w-full text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto pt-[12rem] sm:pt-[6rem] lg:mt-0 "
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}

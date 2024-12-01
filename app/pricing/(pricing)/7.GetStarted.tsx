@@ -18,7 +18,7 @@ export default function GetStarted() {
   return (
     <section
       ref={ref}
-      className="w-full text-left max-w-[min(75rem,96svw)] sm:max-w-full mx-auto gap-12 py-32 grid sm:grid-cols-1 grid-cols-2"
+      className="w-full text-left max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 sm:max-w-full mx-auto gap-12 py-32 grid sm:grid-cols-1 grid-cols-2"
     >
       <div className="flex flex-col items-start sm:p-6">
         <motion.h1

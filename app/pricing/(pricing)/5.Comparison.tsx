@@ -49,7 +49,7 @@ export default function Comparison() {
   return (
       <section
           ref={ref}
-          className="w-full pt-[12rem] sm:pt-[6rem] sm:w-full flex flex-col items-center text-center max-w-[min(75rem,96svw)] overflow-hidden mx-auto gap-4 py-0"
+          className="w-full pt-[12rem] sm:pt-[6rem] sm:w-full flex flex-col items-center text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 overflow-hidden mx-auto gap-4 py-0"
       >
         <motion.h1
             initial={{ opacity: 0, y: 35 }}
@@ -138,7 +138,7 @@ export default function Comparison() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5 }}
                             key={2}
-                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px]" : index === 0 ? "rounded-tr-[40px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>{characteristic.freelance ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</motion.td>
+                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px]" : index === 0 ? "rounded-tr-[40px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>{characteristic.freelance ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</motion.td>
                     )}
                     {shownIndex === 3 && (
                         <motion.td

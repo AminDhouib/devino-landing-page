@@ -62,7 +62,7 @@ const reviewsR = [
 
 export default function Reviews() {
   return (
-    <section className="grid grid-cols-2 max-w-[min(75rem,96svw)] mx-auto gap-4 pt-[10rem]">
+    <section className="grid grid-cols-2 max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-4 pt-[10rem]">
       <div>
         <h1 className="h-max p-4 text-6xl font-semibold pb-20 leading-[4.25rem]">
           We create <br /> business value <br /> with design

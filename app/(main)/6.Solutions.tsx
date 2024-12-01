@@ -47,7 +47,7 @@ export default function Solutions() {
   return (
     <section
       ref={ref}
-      className="flex sm:px-3 items-center justify-center flex-col text-2xl font-medium pt-[8rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto leading-relaxed"
+      className="flex sm:px-3 items-center justify-center flex-col text-2xl font-medium pt-[8rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto leading-relaxed"
     >
       <motion.h1
         {...animation(0)}

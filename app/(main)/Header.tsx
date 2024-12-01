@@ -127,7 +127,7 @@ export default function Header() {
                         initial={{y: -50, opacity: 0}}
                         animate={{y: 0, opacity: 1}}
                         exit={{y: -50, opacity: 0}}
-                        className="bg-inherit absolute h-[calc(90svh-100%)] pt-11 w-full gap-4 shadow top-full left-0 rounded-xl mt-4 flex flex-col p-4 py-2 uppercase font-medium text-xs tracking-wider overscroll-none overflow-y-scroll"
+                        className="bg-inherit absolute h-[calc(90svh-100%)] pt-11 w-full gap-4 shadow top-full left-0 rounded-xl mt-4 flex flex-col justify-center !pl-4 !pr-4 py-2 uppercase font-medium text-xs tracking-wider overscroll-none overflow-auto"
                     >
                         {links.map((link) => {
                             const isActive = pathname === link.url;
@@ -151,11 +151,11 @@ export default function Header() {
                         <div className="h-full"/>
                         <Link
                             href="https://calendly.com/amin-dhouib"
-                            className="bg-lightbg rounded-[20px] py-4 px-12 flex justify-center items-center dark:bg-white dark:text-sky-950 uppercase text-white font-mono text-sm font-bold mb-4"
+                            className="mb-4"
                             target="_blank"
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            Let{`'`}s Talk
+                            <AwsmButton className="w-full mx-auto">Let&apos;s Talk</AwsmButton>
                         </Link>
                     </motion.div>
                 )}

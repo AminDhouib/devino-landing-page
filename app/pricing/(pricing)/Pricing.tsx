@@ -75,7 +75,7 @@ export default function Pricing() {
     return (
         <motion.section
             ref={ref}
-            className="w-full flex justify-center max-w-[min(75rem,96svw)] mx-auto lg:mt-0 "
+            className="w-full flex justify-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto lg:mt-0 "
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}

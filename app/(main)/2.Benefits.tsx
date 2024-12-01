@@ -29,7 +29,7 @@ export default function Benefits() {
   return (
     <section
       ref={ref}
-      className="w-full grid sm:px-3 grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 text-center max-w-[min(75rem,96svw)] mx-auto lg:mt-0 mt-8 lg:gap-3 gap-8 h-[19rem]"
+      className="w-full grid sm:px-3 grid-cols-4 lg:grid-cols-2 sm:grid-cols-1 text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto lg:mt-0 mt-8 lg:gap-3 gap-8 h-[19rem]"
     >
       {benefits.map((benefit, i) => (
         <motion.div

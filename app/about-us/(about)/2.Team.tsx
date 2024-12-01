@@ -49,7 +49,7 @@ const team = [
 
 export default function Team() {
   return (
-    <section className="flex items-center justify-center flex-col text-2xl font-medium pt-[7rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto w-full">
+    <section className="flex items-center justify-center flex-col text-2xl font-medium pt-[7rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto w-full">
       <div className="flex flex-col gap-16 items-center w-full">
         <h1 className="text-5xl font-bold">Our team</h1>
         <div className="grid grid-cols-5 lg:grid-cols-2 sm:grid-cols-1 gap-2 text-[#1d1e22] w-full p-8">

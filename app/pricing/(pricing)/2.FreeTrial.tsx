@@ -12,7 +12,7 @@ export default function FreeTrial() {
   return (
     <section
       ref={ref}
-      className="w-full mt-24 flex sm:flex-col-reverse items-center justify-between max-w-[min(75rem,96svw)] mx-auto gap-4"
+      className="w-full mt-24 flex sm:flex-col-reverse items-center justify-between max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-4"
     >
       <Image
         src={"/icons/claim-trial-sketch.svg"}

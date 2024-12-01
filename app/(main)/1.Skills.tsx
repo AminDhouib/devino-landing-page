@@ -35,7 +35,7 @@ export default function Skills() {
             key={ts.name + i}
             width={150}
             height={150}
-            className="object-contain px-8 grayscale dark:grayscale-0 dark:brightness-0 dark:invert"
+            className="object-contain px-8 opacity-75 dark:opacity-100 dark:grayscale-0 brightness-0 dark:invert"
           />
         ))}
       </Marquee>
@@ -49,7 +49,7 @@ export default function Skills() {
             key={ts.name + i}
             width={150}
             height={150}
-            className="object-contain px-8 grayscale dark:grayscale-0 dark:brightness-0 dark:invert"
+            className="object-contain px-8  opacity-75 dark:opacity-100  dark:grayscale-0 brightness-0 dark:invert"
           />
         ))}
       </Marquee>
