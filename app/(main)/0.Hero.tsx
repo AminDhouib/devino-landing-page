@@ -19,21 +19,22 @@ const RotateWords = ({words,}: {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        const interval = setTimeout(() => {
             setIndex((prevIndex) => (prevIndex + 1) % words.length);
         }, 2000);
-        return () => clearInterval(interval);
+        return () => clearTimeout(interval);
     }, [words.length]);
 
     return (
         <div className="inline-flex text-left w-full z-10">
             <AnimatePresence mode="popLayout">
                 <motion.p
-                    key={words[index] + Date.now()}
-                    initial={{ y: '100%', opacity: 0 }}
-                    animate={{ y: '0%', opacity: 1 }}
-                    exit={{ y: '-100%', opacity: 0 }}
-                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    key={words[index]}
+                    initial={{ x: "-100%", opacity: 0 }}
+                    animate={{ x: "0%", opacity: 1 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    exit={{ x: '100%', opacity: 0 }}
+
                 >
                     {words[index]}
                 </motion.p>
@@ -74,7 +75,7 @@ export default function Hero() {
               <div className="hidden md:flex mb-5"></div>
                   Beyond{" "}
               <span className="inline-block relative ml-2">
-          <RotateWords words={['Boundaries', 'Horizons']}/>{" "}
+          <RotateWords words={['Horizons', 'Boundaries']}/>{" "}
           <Image
                 height={"32"}
                 width={"300"}
