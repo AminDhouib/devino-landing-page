@@ -27,14 +27,17 @@ const RotateWords = ({words,}: {
 
     return (
         <div className="inline-flex text-left w-full z-10">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence>
                 <motion.p
                     key={words[index]}
-                    initial={{ x: "-100%", opacity: 0 }}
-                    animate={{ x: "0%", opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    exit={{ x: '100%', opacity: 0 }}
-
+                    initial={{ x: "-50%", opacity: 0, scale: 0.8 }}
+                    whileInView={{ x: "0%", opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                        duration: 1.5,
+                        ease: [0.25, 0.8, 0.25, 1]
+                    }}
+                    exit={{ x: "50%", opacity: 0, scale: 0.9 }}
                 >
                     {words[index]}
                 </motion.p>
@@ -75,14 +78,24 @@ export default function Hero() {
               <div className="hidden md:flex mb-5"></div>
                   Beyond{" "}
               <span className="inline-block relative ml-2">
-          <RotateWords words={['Horizons', 'Boundaries']}/>{" "}
-          <Image
-                height={"32"}
-                width={"300"}
-                src="/rectangle.svg"
-                alt="Rectangle"
-                className="-mt-16 sm:-mt-14 sm:-ml-1 -ml-10 h-20 sm:w-32 dark:opacity-80"
-            />
+              <RotateWords words={['Boundaries']}/>{" "}
+              <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                      duration: 1,
+                      delay: 1,
+                      ease: [0.25, 0.8, 0.25, 1]
+                  }}
+              >
+                <Image
+                    height={"32"}
+                    width={"300"}
+                    src="/rectangle.svg"
+                    alt="Rectangle"
+                    className="-mt-16 sm:-mt-14 sm:-ml-1 -ml-10 h-20 sm:w-32 dark:opacity-80"
+                />
+            </motion.div>
         </span>
           <Image
               height={"40"}

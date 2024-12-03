@@ -161,7 +161,6 @@ const PriceCard = ({
                     </motion.div>
                 </motion.div>
                 <motion.div className="flex w-full h-full justify-center py-[10px] content-center">
-
                     <motion.button
                         disabled={!plan.active}
                         className={`rounded-[24px] hover:opacity-80 disabled:opacity-60 mt-auto py-[10px] w-full px-[30px] text-[17px] font-bold uppercase ${plan.popular ? 'text-lightbluedark  dark:text-darkblue bg-white' : 'text-white bg-lightbg dark:bg-darkblue dark:text-white'}`}

@@ -49,7 +49,7 @@ export default function Comparison() {
   return (
       <section
           ref={ref}
-          className="w-full pt-[12rem] sm:pt-[6rem] sm:w-full flex flex-col items-center text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 overflow-hidden mx-auto gap-4 py-0"
+          className="w-full pt-[12rem] sm:pt-[6rem] sm:w-full flex flex-col items-center text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-8 overflow-hidden mx-auto gap-4 py-0"
       >
         <motion.h1
             initial={{ opacity: 0, y: 35 }}
@@ -72,13 +72,13 @@ export default function Comparison() {
             initial={{opacity: 0, y: 35}}
             animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 35}}
             transition={{duration: 0.6, ease: "easeInOut", delay: 0.06}}
-            className="flex w-full px-3"
+            className="flex w-full px-3 sm:px-0 justify-center gap-1.5"
         >
-          <table className="min-w-full bg-transparent">
+          <table className="min-w-full bg-transparent overflow-hidden">
             <thead>
             <tr>
               <th className="py-3 px-4 uppercase font-semibold text-sm"></th>
-              <th className="py-3 px-4 uppercase font-semibold text-center sm:text-xs rounded-t-[40px] text-white bg-darkblue w-56 text-sm">
+              <th className="py-3 px-4 uppercase font-semibold text-center sm:text-xs rounded-t-[40px] sm:rounded-t-[20px] text-white bg-darkblue w-56 text-sm">
                 <div className=" sm:w-fit sm:h-14 m-auto flex text-center">
                   <div className="m-auto dark:text-white">
                     Devino
@@ -112,7 +112,7 @@ export default function Comparison() {
             {characteristics.map((characteristic, index) => (
                 <tr style={{ touchAction: 'none' }}
                     {...bind()} key={index} className={`${index % 2 === 0 ? "bg-gray-100 dark:bg-deepBlue" : "bg-white dark:bg-darkblue"}`}>
-                  <td className={`md:text-xs text-left px-6 sm:px-4 shadow-[rgba(1,1,1,0.2)_2px_2px_2px_2px] ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px] rounded-bl-[40px]" : index === 0 && "rounded-tl-[40px]"}`}>
+                  <td className={`md:text-xs text-left px-6 sm:px-4 shadow-[rgba(1,1,1,0.2)_2px_2px_2px_2px] ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px] rounded-bl-[40px] sm:rounded-bl-[20px]" : index === 0 && "rounded-tl-[40px] sm:rounded-tl-[20px]"}`}>
                     <div className="sm:w-20 dark:text-gray-300">{characteristic.name}</div>
                   </td>
                   <td className={`${index % 2 === 0 ? "bg-lightbg2" : "bg-darkblue"}`}>
@@ -127,7 +127,7 @@ export default function Comparison() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5 }}
                             key={1}
-                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px]" : index === 0 ? "rounded-tr-[40px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>
+                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px] sm:rounded-br-[20px]" : index === 0 ? "rounded-tr-[40px] sm:rounded-tr-[20px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>
                           {characteristic.inHouse ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}
 
                         </motion.td>
@@ -138,7 +138,7 @@ export default function Comparison() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5 }}
                             key={2}
-                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px]" : index === 0 ? "rounded-tr-[40px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>{characteristic.freelance ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</motion.td>
+                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px] sm:rounded-br-[20px]" : index === 0 ? "rounded-tr-[40px] sm:rounded-tr-[20px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>{characteristic.freelance ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</motion.td>
                     )}
                     {shownIndex === 3 && (
                         <motion.td
@@ -146,7 +146,7 @@ export default function Comparison() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.5 }}
                             key={3}
-                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px]" : index === 0 ? "rounded-tr-[40px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>{characteristic.vendor ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</motion.td>
+                            className={`sm:table-cell hidden ${index === characteristics.length - 1 ? "shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] rounded-br-[40px] sm:rounded-br-[20px]" : index === 0 ? "rounded-tr-[40px] sm:rounded-tr-[20px] shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]" : 'shadow-[rgba(1,1,1,0.2)_2px_0px_0px_0px]'}  py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"}`}>{characteristic.vendor ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</motion.td>
                     )}
                   </AnimatePresence>
 
@@ -156,13 +156,13 @@ export default function Comparison() {
                       className={`sm:hidden py-3 px-4 ${index === characteristics.length - 1 && "shadow-[rgba(1,1,1,0.2)_0px_2px_0px_0px]"} `}>{characteristic.freelance ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</td>
 
                   <td
-                      className={`sm:hidden shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] ${index === 0 && 'rounded-tr-[40px]'} ${index === characteristics.length - 1 && 'rounded-br-[40px]'} py-3 px-4 `}>{characteristic.vendor ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</td>
+                      className={`sm:hidden shadow-[rgba(1,1,1,0.2)_2px_2px_0px_0px] ${index === 0 && 'rounded-tr-[40px] sm:rounded-tr-[20px]'} ${index === characteristics.length - 1 && 'rounded-br-[40px] sm:rounded-br-[20px]'} py-3 px-4 `}>{characteristic.vendor ? (<Image width="20" className="mx-auto dark:brightness-[0] dark:invert" height="20" src="/blue-tick.svg" alt="✔"/>) : (<Image className="mx-auto dark:brightness-[0] dark:invert" width="20" height="20"  src="/x_mark.svg" alt="✘"/>)}</td>
                 </tr>
 
             ))}
             <tr>
               <td className="bg-transparent"></td>
-              <td className="rounded-b-[40px] bg-darkblue h-10"></td>
+              <td className="rounded-b-[40px] sm:rounded-b-[20px] bg-darkblue h-10"></td>
               <td className="bg-transparent">
                 <div className="hidden sm:flex justify-center gap-1.5">
                   <Image onClick={() => {
