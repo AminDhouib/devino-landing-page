@@ -101,7 +101,7 @@ export default function Footer() {
     }
     const currentYear = new Date().getFullYear();
   return (
-    <footer className="max-w-[min(75rem,96svw)] mx-auto bg-darkbg dark:bg-lightbg p-[3rem] pb-8 rounded-2xl lg:flex flex-col grid grid-cols-[auto,minmax(0,1fr)] text-white text-sm gap-16 sm:gap-8 font-medium mb-4">
+    <footer className="max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:mx-4 mx-auto bg-darkbg dark:bg-lightbg p-[3rem] pb-8 rounded-2xl lg:flex flex-col grid grid-cols-[auto,minmax(0,1fr)] text-white text-sm gap-16 sm:gap-8 font-medium mb-4">
       <div className="flex flex-col justify-start gap-16 sm:gap-4 text-xs pl-2 pr-8 text-[#5e5f61]">
         <Image
             src="/brand/full_logo.png"

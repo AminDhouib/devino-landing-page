@@ -63,7 +63,7 @@ export default function Services() {
   const isInView = useInView(ref, { amount: 0.15, once: true });
 
   return (
-    <motion.div className="mt-[12rem] sm:mt-[5rem] max-w-[min(75rem,96svw)] w-full flex flex-col mx-auto">
+    <motion.div className="mt-[12rem] sm:mt-[5rem] max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 w-full flex flex-col mx-auto">
       <motion.div className="mb-12 sm:mb-6 w-full text-center text-darkblue dark:text-white text-4xl xs:text-xl sm:text-2xl font-bold">
         Areas Of Expertise
       </motion.div>
@@ -83,7 +83,7 @@ export default function Services() {
             className="xl:w-72 dark:brightness-[0] dark:invert"
           />
         </motion.div>
-        <motion.div className="grid grid-cols-3 lg:grid-cols-2 sm:flex sm:flex-col sm:justify-center items-center justify-center text-center w-2/3 mx-auto gap-8 ">
+        <motion.div className="grid grid-cols-3 lg:grid-cols-2 sm:flex sm:flex-col sm:justify-center items-center justify-center text-center w-2/3 sm:w-full mx-auto gap-8 ">
           {services.map((service, key) => (
             <ServiceCard key={key} service={service} />
           ))}
@@ -122,7 +122,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
       onMouseEnter={startFlip}
       onMouseLeave={endFlip}
       animate={{ perspective: 1000 }}
-      className="relative w-[230px] h-[332px]"
+      className="relative w-[230px] h-[332px] sm:w-full"
     >
       <motion.div
         animate={{ rotateY: isFlipped ? -180 : 0, perspective: 1000 }}

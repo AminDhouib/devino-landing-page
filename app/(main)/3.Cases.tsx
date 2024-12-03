@@ -41,7 +41,10 @@ const cases = [
 
 export default function Cases() {
   return (
-    <section className="w-full flex flex-col items-center justify-center text-center max-w-[min(75rem,96svw)] mx-auto mt-[12rem] sm:mt-[5rem] gap-16 sm:gap-8 ">
+    <section className="w-full flex flex-col items-center justify-center text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto mt-[12rem] sm:mt-[5rem] gap-16 sm:gap-8 ">
+      <motion.div className="w-full text-center text-darkblue dark:text-white text-4xl xs:text-xl sm:text-2xl font-bold">
+        Explore Our In-House Projects
+      </motion.div>
       {cases.map(({ info, example }, i) => {
         const isEven = i % 2 === 0;
 

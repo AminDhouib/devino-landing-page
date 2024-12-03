@@ -27,7 +27,7 @@ const questions: IQuestion[] = [
 
 export default function Questions() {
   return (
-    <section className="py-[2rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto">
+    <section className="py-[2rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto">
       {questions.map((item, key) => (
         <Question key={key} {...item} />
       ))}

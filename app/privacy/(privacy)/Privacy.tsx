@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Privacy() {
   return (
-    <section className="pt-[2rem] pb-[6rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto mb-12 lg:mb-6">
+    <section className="pt-[2rem] pb-[6rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto mb-12 lg:mb-6">
       <div
           className="bg-lightbluehover bg-opacity-10 rounded-[30px] leading-10 text-xl relative px-12 pt-24 pb-40 lg:text-base lg:leading-8 lg:px-6 lg:pt-12 lg:pb-24 ">
         <p className="mb-8 lg:mb-4">

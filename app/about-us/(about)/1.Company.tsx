@@ -72,7 +72,7 @@ export default function Company() {
   const companyRef = useRef(null);
   const isCompanyInView = useInView(companyRef, { amount: 0.5, once: true });
   return (
-    <section className="flex sm:px-3 items-center justify-center flex-col text-2xl font-medium pt-[7rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto">
+    <section className="flex sm:px-3 items-center justify-center flex-col text-2xl font-medium pt-[7rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto">
       <motion.div
         ref={companyRef}
         initial="initial"

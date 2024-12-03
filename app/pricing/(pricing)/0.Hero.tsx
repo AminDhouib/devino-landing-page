@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function Hero() {
     return (
-        <section className="pt-[12rem] md:pt-[8rem] md:pb-[5rem] pb-[14rem] text-darkblue dark:text-white flex items-center justify-center flex-col font-medium tracking-tighter text-center relative text-sm sm:text-xs">
+        <section className="pt-[12rem] md:pt-[8rem] md:pb-[5rem] pb-[14rem] sm:px-6 text-darkblue dark:text-white flex items-center justify-center flex-col font-medium tracking-tighter text-center relative text-sm sm:text-xs">
             <h1 className="text-7xl leading-[91px] text-center font-bold relative md:text-3xl xs:text-2xl lg:text-6xl lg:leading-[72px] md:leading-[2.5rem]">
                 <Image
                     src={"/icons/title.svg"}

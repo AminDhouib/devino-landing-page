@@ -29,7 +29,7 @@ const cards: ICard[] = [
 ];
 export default function Work() {
   return (
-    <section className="pt-[2rem] pb-[6rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto">
+    <section className="pt-[2rem] pb-[6rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto">
       <div className="grid grid-cols-3 lg:grid-cols-1 gap-x-14 relative">
         <Image
           src={"/icons/big-arrow.svg"}

@@ -43,7 +43,7 @@ export default function GetStarted() {
     <motion.section
       {...animation(0, isInView)}
       ref={ref}
-      className="flex w-full h-full mt-[8rem] sm:mt-[5rem] mb-20 lg:flex-col lg:px-8 lg:pb-20 lg:pt-10 max-w-[min(75rem,96svw)] mx-auto gap-8"
+      className="flex w-full h-full mt-[8rem] sm:mt-[5rem] mb-20 lg:flex-col lg:px-8 lg:pb-20 lg:pt-10 max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-8"
     >
       {options.map(({ title, description, button }, i) =>
         i % 2 === 0 ? (

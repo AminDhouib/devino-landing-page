@@ -72,7 +72,7 @@ export default function Cases() {
       initial="initial"
       animate={isInView ? "animate" : "initial"}
       variants={containerAnimation}
-      className="w-full flex flex-col items-center justify-center text-left max-w-[min(75rem,96svw)] mx-auto mt-28 whitespace-pre-wrap sm:text-center"
+      className="w-full flex flex-col items-center justify-center text-left max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto mt-28 whitespace-pre-wrap sm:text-center"
     >
       <motion.p
         variants={variants}

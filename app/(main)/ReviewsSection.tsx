@@ -38,7 +38,7 @@ export function ReviewsSection({ title, source, truncatedChars, showAllReviewsLi
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="flex flex-col items-center justify-center max-w-[min(75rem,96svw)] tracking-tighter mx-auto">
+            className="flex flex-col items-center justify-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 tracking-tighter mx-auto">
             <div className="flex justify-between items-center mb-12 sm:mb-6 w-full mt-8">
                 <motion.div className="w-full text-darkblue dark:text-white text-3xl xs:text-xl sm:text-2xl font-bold">
                     {title}

@@ -41,7 +41,7 @@ export default function Methodologies() {
     return (
         <motion.section
             ref={ref}
-            className="w-full mt-[12rem] sm:mt-[5rem] grid grid-cols-4 lg:grid-cols-2 sm:flex sm:flex-col sm:justify-center lg:px-2 items-center justify-center text-center lg:max-w-auto max-w-[min(75rem,96svw)] mx-auto gap-8 "
+            className="w-full mt-[12rem] sm:mt-[4rem] grid grid-cols-4 lg:grid-cols-2 sm:flex sm:flex-col sm:justify-center lg:px-2 items-center justify-center text-center lg:max-w-auto max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-8 sm:px-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
