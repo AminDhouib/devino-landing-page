@@ -72,7 +72,7 @@ export default function Comparison() {
             initial={{opacity: 0, y: 35}}
             animate={{opacity: isInView ? 1 : 0, y: isInView ? 0 : 35}}
             transition={{duration: 0.6, ease: "easeInOut", delay: 0.06}}
-            className="flex w-full px-3 sm:px-0 justify-center gap-1.5"
+            className="flex w-full px-3 sm:px-0"
         >
           <table className="min-w-full bg-transparent overflow-hidden">
             <thead>
