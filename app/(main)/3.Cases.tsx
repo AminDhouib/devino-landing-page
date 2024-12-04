@@ -103,7 +103,7 @@ const Case = ({
       </div>
       <div className="w-full sm:w-full flex flex-col justify-center items-center gap-10">
         <div className={`text-left sm:text-center px-4`}>
-          <h1 className="text-black dark:text-white leading-[58px] relative text-3xl sm:text-xl font-[30px] sm:font-[20px] mb-4">
+          <h1 className="text-black dark:text-white leading-[58px] relative text-3xl sm:text-xl font-[30px] sm:hidden mb-4">
             {info.title}
           </h1>
           <p className="text-xl sm:text-lg font-normal dark:text-gray-400">

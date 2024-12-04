@@ -23,7 +23,7 @@ const options = [
 to think it over?`,
     description: `Discover our process to see how we work and set clear expectations for your future projects with us.`,
     button: {
-      name: `learn more`,
+      name: `Learn more`,
       link: `https://calendly.com/amin-dhouib`,
     },
   },

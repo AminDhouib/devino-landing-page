@@ -19,8 +19,8 @@ export default function Reviews() {
                 <h2 className="text-4xl xs:text-xl sm:text-2xl font-bold">Why Clients Love Us</h2>
                 <p>Don’t take a word for it. See what our partners have to say about us</p>
             </motion.div>
-            <ReviewsSection title="Google Reviews" source="Google" truncatedChars={200} showFeatured={true} showAllReviewsLink={true}/>
-            <ReviewsSection title="Upwork Reviews" source="Upwork" truncatedChars={150} showFeatured={true} showAllReviewsLink={true}/>
+            <ReviewsSection title="Google Reviews" source="Google"  showFeatured={true} showAllReviewsLink={true}/>
+            <ReviewsSection title="Upwork Reviews" source="Upwork"  showFeatured={true} showAllReviewsLink={true}/>
         </div>
     );
 }

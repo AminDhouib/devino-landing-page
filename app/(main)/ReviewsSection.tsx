@@ -145,23 +145,28 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                         {name}
                     </h2>
                     <p className="text-darkblue dark:text-gray-400 text-sm">
-                        {position}
+                        {!position && !company ? null : (
+                            <>
+                            {position}
                         {!companyLogo || !isCompanyImageValid? (
                             companyLink ? (
-                                <>
-                                    {" "}
-                                    at{" "}
-                                    <Link href={companyLink} className="font-bold">
-                                        {company}
-                                    </Link>
-                                </>
+                            <>
+                        {" "}
+                            at{" "}
+                            <Link href={companyLink} className="font-bold">
+                        {company}
+                            </Link>
+                            </>
                             ) : (
-                                <>
-                                    {" "}
-                                    at <span className="font-bold">{company}</span>
-                                </>
+                            <>
+                        {" "}
+                            at <span className="font-bold">{company}</span>
+                            </>
                             )
-                        ) : null}
+                            ) : null}
+                            </>
+                        )}
+
                     </p>
                 </div>
             </div>

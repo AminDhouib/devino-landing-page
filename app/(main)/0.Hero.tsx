@@ -8,6 +8,7 @@ const Image = motion(I);
 import I from "next/image";
 import AwsmButton from "~/app/_ui/AwsmButton";
 import {TypeAnimation} from "react-type-animation";
+import {useTheme} from "~/app/lib/context/ThemeContext";
 
 // import someweirdshape from "~/public/lottie/63e0e809a6b8cb8c0e19d57f_img-1.json";
 
@@ -50,6 +51,8 @@ const RotateWords = ({words,}: {
 export default function Hero() {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: true });
+    const {theme, toggleTheme} = useTheme();
+    const isDark = theme === "dark";
 
   return (
       <div className="flex flex-col items-center justify-center min-h-screen text-center md:px-8"
@@ -60,6 +63,15 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: "easeInOut", delay: 0.05 }}
               className="text-5xl sm:text-3xl text-darkblue dark:text-white xs:text-2xl font-bold mb-5"
           >
+              <div className="hidden md:flex justify-center">
+                  <Image
+                      src={ !isDark ? "/brand/full_logo_blue.png" : "/brand/full_logo.png"}
+                      alt="logo"
+                      height={56}
+                      width={185}
+                      className="cursor-pointer w-[80wv] mb-12"
+                  />
+              </div>
         <span className="text-lightblueactive inline-block relative ml-2">
         <Image
             height={"40"}

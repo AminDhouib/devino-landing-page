@@ -26,7 +26,7 @@ export default function Hero() {
                     alt={"title square"}
                     height={100}
                     width={100}
-                    className="h-28 w-72 absolute top-[29%] right-[4.5rem] lg:h-24 lg:w-60 lg:right-[3.75rem] md:h-12 md:w-32 md:right-[1.5rem]"
+                    className="h-28 w-72 absolute top-[29%] right-[4.5rem] lg:h-24 lg:w-60 lg:right-[3.75rem] md:h-12 md:w-32 md:right-[1.5rem] sm:h-9 sm:w-28 sm:right-[0.9rem]"
                 />
             </h1>
             <p className="font-semibold text-2xl sm:text-sm md:text-md mt-10 text-darkblue dark:text-gray-400">
