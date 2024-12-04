@@ -18,6 +18,7 @@ const links = [
     {name: "Pricing", url: "/pricing"},
     {name: "Team", url: "/team"},
     {name: "FAQ", url: "/faq"},
+    {name: "Reviews", url: "/reviews"},
 ];
 
 const Link = motion(L);
