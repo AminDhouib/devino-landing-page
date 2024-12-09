@@ -18,7 +18,7 @@ const cons = [
 
 export default function ProsCons() {
   return (
-    <section className="w-full grid grid-cols-2 text-left max-w-[min(75rem,96svw)] mx-auto gap-8 pb-12">
+    <section className="w-full grid grid-cols-2 text-left max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-8 pb-12">
       <div className="flex flex-col gap-8 tracking-wider">
         <h1 className="text-4xl font-bold">Perfect for:</h1>
         <ul className="flex flex-col gap-8">

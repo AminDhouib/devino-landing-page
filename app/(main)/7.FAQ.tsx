@@ -31,7 +31,7 @@ export default function FAQ() {
   return (
     <section
       ref={ref}
-      className="flex items-center justify-center flex-col text-2xl font-medium pt-[4rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto gap-6"
+      className="flex items-center justify-center flex-col text-2xl font-medium pt-[4rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-6"
     >
       <motion.h1
         {...animation(0, isInView)}

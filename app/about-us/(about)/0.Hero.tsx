@@ -34,7 +34,7 @@ export default function Hero() {
   const isIssuesInView = useInView(issuesRef, { amount: 0.5, once: true });
 
   return (
-    <section className="flex items-center justify-center flex-col sm:text-sm text-2xl font-medium sm:pt-[5rem] pt-[12rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto">
+    <section className="flex items-center justify-center flex-col sm:text-sm text-2xl font-medium sm:pt-[5rem] pt-[12rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto">
       <p className="pb-8 sm:pb-4 text-center">
         We are Devino, a pragmatic Software engineering agency
       </p>

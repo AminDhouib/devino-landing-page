@@ -5,6 +5,8 @@ import Button from "../_ui/Button";
 import { motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
+import {AwesomeButton} from "react-awesome-button";
+import AwsmButton from "~/app/_ui/AwsmButton";
 type ButtonType = {
   name: string;
   link: string;
@@ -21,7 +23,7 @@ const options = [
 to think it over?`,
     description: `Discover our process to see how we work and set clear expectations for your future projects with us.`,
     button: {
-      name: `learn more`,
+      name: `Learn more`,
       link: `https://calendly.com/amin-dhouib`,
     },
   },
@@ -41,7 +43,7 @@ export default function GetStarted() {
     <motion.section
       {...animation(0, isInView)}
       ref={ref}
-      className="flex w-full h-full mt-[8rem] sm:mt-[5rem] mb-20 lg:flex-col lg:px-8 lg:pb-20 lg:pt-10 max-w-[min(75rem,96svw)] mx-auto gap-8"
+      className="flex w-full h-full mt-[8rem] sm:mt-[5rem] mb-20 lg:flex-col lg:px-8 lg:pb-20 lg:pt-10 max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-8"
     >
       {options.map(({ title, description, button }, i) =>
         i % 2 === 0 ? (
@@ -81,28 +83,24 @@ const OptionCard = ({
     <motion.div
       key={title}
       className={` ${
-        isFirst ? "bg-dimlightblue" : "bg-white"
+        isFirst ? "bg-pastelBlue dark:bg-deepBlue" : "bg-white dark:bg-darkblue"
       } flex flex-col rounded-[20px] p-12 lg:p-8 ${
         isFirst ? "gap-12" : "gap-4"
       } h-auto ${isFirst ? "w-8/12" : "w-4/12"} lg:w-full `}
     >
-      <h1 className="font-bold text-4xl md:text-2xl sm:text-xl">{title}</h1>
+      <h1 className="font-bold text-4xl md:text-2xl sm:text-xl dark:text-white">{title}</h1>
       <div className="flex justify-between gap-14">
         <div className={isFirst ? "w-5/6 lg:w-4/6 sm:w-full" : ""}>
-          <p className="leading-[2.25rem] font-medium text-2xl mb-12 md:text-lg">
+          <p className="leading-[2.25rem] font-medium text-2xl mb-12 md:text-lg dark:text-gray-400">
             {description}
           </p>
 
           <Link
             href={button.link}
           >
-            <motion.div
-                className={`${
-                    isFirst ? "bg-lightblueactive text-white" : "bg-lightblueactive text-white"
-                } whitespace-nowrap py-3 px-10 md:px-8 items-center hover:scale-105 uppercase font-mono w-max tracking-wide transition-all duration-300 rounded-[40px] font-semibold text-xl md:text-lg`}
-                whileHover={{scale: 1.1}}>
+            <AwsmButton>
               {button.name}
-            </motion.div>
+            </AwsmButton>
           </Link>
         </div>
         {isFirst && (
@@ -111,7 +109,7 @@ const OptionCard = ({
             alt={"arrow icon"}
             height={100}
             width={100}
-            className={`h-full w-36 sm:hidden lg:w-32 md:w-28`}
+            className={`h-full w-36 sm:hidden lg:w-32 md:w-28 dark:brightness-[0] dark:invert`}
           />
         )}
       </div>

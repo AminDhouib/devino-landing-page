@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex items-center justify-center sm:pt-[5rem] pt-[8rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto">
-      <h1 className="font-bold text-5xl md:text-3xl pb-6 relative text-darkblue">
+    <section className="flex items-center justify-center sm:pt-[5rem] pt-[8rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto">
+      <h1 className="font-bold text-5xl md:text-3xl pb-6 relative text-darkblue dark:text-white">
         <Image
           src={"/icons/title.svg"}
           alt={"title icon"}

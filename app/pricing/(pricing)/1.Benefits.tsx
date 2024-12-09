@@ -75,15 +75,15 @@ export default function Benefits() {
   return (
     <motion.section
       ref={ref}
-      className="w-full text-center max-w-[min(75rem,96svw)] mx-auto pt-[12rem] sm:pt-[6rem] lg:mt-0 "
+      className="w-full text-center max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto pt-[12rem] sm:pt-[6rem] lg:mt-0 "
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      <motion.h1 className="col-span-3 text-darkblue pb-20 text-5xl md:text-3xl xs:text-2xl font-semibold tracking-tight">
+      <motion.h1 className="col-span-3 text-darkblue dark:text-white pb-20 text-5xl md:text-3xl xs:text-2xl font-semibold tracking-tight">
         You hire an engineer
         <br />
-        <span className="text-xl sm:text-sm md:text-lg text-greytext">
+        <span className="text-xl sm:text-sm md:text-lg text-greytext dark:text-gray-400 ">
           but get more than expected
         </span>
       </motion.h1>
@@ -142,8 +142,8 @@ const Benefit = ({
         className={`h-[88px] w-[88px]`}
       />
       <div className="text-left">
-        <h3 className="text-xl font-bold">{title}</h3>
-        <p className="mt-4">{description}</p>
+        <h3 className="text-xl font-bold dark:text-white">{title}</h3>
+        <p className="mt-4 dark:text-gray-400">{description}</p>
       </div>
     </motion.div>
   );

@@ -1,3 +1,5 @@
+@import 'react-awesome-button/dist/styles.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1d1e22aa;
+  @apply bg-[#1d1e22aa] dark:bg-lightbg2;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
@@ -19,5 +21,161 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #1d1e22;
+  @apply bg-[#1d1e22] dark:bg-deepBlue;
+}
+
+:root {
+  --ease-elastic-3: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-elastic-4: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --ease-out-5: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-3: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --icon-fill: #082f49;
+  --cursor-color: #fff;
+}
+
+.aws-btn {
+  --button-default-height: 55px;
+  --button-default-font-size: 17px;
+  --button-default-border-radius: 40px;
+  --button-horizontal-padding: 40px;
+  --button-raise-level: 5px;
+  --button-hover-pressure: 2;
+  --transform-speed: .185s;
+  --button-primary-color: #01204c;
+  --button-primary-color-dark: #02122c;
+  --button-primary-color-light: #ffffff;
+  --button-primary-color-hover: #193a6a;
+  --button-primary-border: none;
+  --button-secondary-color: #ffffff;
+  --button-secondary-color-dark: #acb2b9;
+  --button-secondary-color-light: #01204c;
+  --button-secondary-color-hover: #d5dee8;
+  --button-secondary-border: none;
+  --button-anchor-color: #f3c8ad;
+  --button-anchor-color-dark: #734922;
+  --button-anchor-color-light: #4c3016;
+  --button-anchor-color-hover: #f1bfa0;
+  --button-anchor-border: 1px solid #8c633c;
+}
+
+.dark:root {
+  --cursor-color: white;
+}
+
+html.dark .theme-toggle {
+  --icon-fill: white;
+}
+
+.sun-and-moon > :is(.moon, .sun, .sun-beams) {
+  transform-origin: center;
+}
+
+.sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill);
+}
+
+.sun-and-moon > .sun-beams {
+  stroke: var(--icon-fill);
+  stroke-width: 2px;
+}
+
+html.dark .sun-and-moon > .sun {
+  transform: scale(1.75);
+}
+
+html.dark .sun-and-moon > .sun-beams {
+  opacity: 0;
+}
+
+html.dark .sun-and-moon > .moon > circle {
+  transform: translateX(-7px);
+}
+
+@supports (cx: 1) {
+  html.dark .sun-and-moon > .moon > circle {
+    cx: 17;
+    transform: translateX(0);
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .sun-and-moon > .sun {
+    transition: transform 0.5s var(--ease-elastic-3);
+  }
+
+  .sun-and-moon > .sun-beams {
+    transition: transform 0.5s var(--ease-elastic-4), opacity 0.5s var(--ease-3);
+  }
+
+  .sun-and-moon .moon > circle {
+    transition: transform 0.25s var(--ease-out-5);
+  }
+
+  @supports (cx: 1) {
+    .sun-and-moon .moon > circle {
+      transition: cx 0.25s var(--ease-out-5);
+    }
+  }
+
+  html.dark .sun-and-moon > .sun {
+    transition-timing-function: var(--ease-3);
+    transition-duration: 0.25s;
+    transform: scale(1.75);
+  }
+
+  html.dark .sun-and-moon > .sun-beams {
+    transition-duration: 0.15s;
+    transform: rotateZ(-25deg);
+  }
+
+  html.dark .sun-and-moon > .moon > circle {
+    transition-duration: 0.5s;
+    transition-delay: 0.25s;
+  }
+}
+/* Glowing Circle Styling */
+.glowing-circle {
+  @apply rounded-full absolute top-1/2 left-5 lg:left-2;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 70%);
+  animation: glow 3s infinite ease-in-out;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Default Glow Keyframes */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+}
+
+/* Responsive Keyframes for Smaller Shadow */
+@media (max-width: 1024px) {
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 15px 7px rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
+      transform: scale(1);
+    }
+  }
+
+  .glowing-circle {
+    animation: glow 3s infinite ease-in-out;
+  }
 }

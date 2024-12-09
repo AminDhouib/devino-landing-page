@@ -25,7 +25,7 @@ export default function FAQ() {
   return (
     <section
       ref={ref}
-      className="flex sm:px-3 items-center justify-center flex-col text-2xl font-medium pt-[8rem] tracking-tighter max-w-[min(75rem,96svw)] mx-auto gap-6"
+      className="flex sm:px-3 items-center justify-center flex-col text-2xl font-medium pt-[8rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto gap-6"
     >
       <motion.h1
         initial={{ opacity: 0, y: 50 }}
@@ -53,7 +53,7 @@ const QA = ({ question, answer }: { question: string; answer: string }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 10 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
-      className="grid grid-cols-2 sm:grid-cols-1 bg-white sm:h-fit rounded-2xl p-8 gap-32 sm:gap-10 py-14"
+      className="grid grid-cols-2 sm:grid-cols-1 bg-white dark:bg-deepBlue sm:h-fit rounded-2xl p-8 gap-32 sm:gap-10 py-14"
     >
       <h1 className="font-semibold text-7xl md:text-3xl xs:text-2xl lg:text-6xl">
         {question}
