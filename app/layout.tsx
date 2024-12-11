@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
           className={
             inter.className +
-            " relative bg-body text-[#1d1e22] dark:bg-darkbg overflow-x-hidden"
+            " relative bg-body text-[#1d1e22] dark:bg-darkbg overflow-x-hidden transition-colors duration-[0.4s]"
           }
         >
           <Script
