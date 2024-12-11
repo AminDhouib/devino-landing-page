@@ -17,9 +17,9 @@ export default function Reviews() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="mb-12 sm:mb-6 w-full text-center text-darkblue dark:text-white">
                 <h2 className="text-4xl xs:text-xl sm:text-2xl font-bold">Why Clients Love Us</h2>
-                <p>Don’t take a word for it. See what our partners have to say about us</p>
+                <p>Don’t take our word for it. See what our partners have to say about us</p>
             </motion.div>
-            <ReviewsSection title="Google Reviews" source="Google"  showFeatured={true} showAllReviewsLink={true}/>
+            <ReviewsSection title="Our Happy Customers" source="Google"  showFeatured={true} showAllReviewsLink={true}/>
             <ReviewsSection title="Upwork Reviews" source="Upwork"  showFeatured={true} showAllReviewsLink={true}/>
         </div>
     );

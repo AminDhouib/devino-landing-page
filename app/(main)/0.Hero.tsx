@@ -129,7 +129,7 @@ export default function Hero() {
                       'We build and scale software.',
                       500,
                       '',
-                      'Empowering you to accomplish your goals.',
+                      'Unlocking exceptional results.',
                       500,
                   ]}
                   speed={50}

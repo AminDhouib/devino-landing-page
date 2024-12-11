@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import { GrFormClose } from "react-icons/gr";
+import Header from "~/app/(main)/Header";
 import Lottie from "~/app/_ui/Lottie";
 
 import circle from "~/public/lottie/646b74e5d144fc3a5306f282_circle 25.json";
