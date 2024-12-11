@@ -29,9 +29,9 @@ const members: IMember[] = [
   {
     id: 1,
     name: "Amin Dhouib",
-    role: "CEO",
+    role: "CEO & CTO",
     description:
-        "As Devino’s visionary founder, Amin’s motto is simple: create value, and it will come back full circle. With a solid foundation in software engineering, Amin leads with passion, connecting ideas and people. In his free time, he’s a motivational speaker, a sports enthusiast, and an advocate for growth through collaboration.",
+        "Amin’s motto is simple: create value, and it will come back full circle. With a solid foundation in software engineering, Amin leads with passion, connecting ideas and people. In his free time, he’s a motivational speaker, a sports enthusiast, and a etro gaming nerd.",
     picture: "amin",
     socialLinks: [
       { platform: "linkedin", url: "https://www.linkedin.com/in/amin-dhouib/" },
@@ -55,14 +55,6 @@ const members: IMember[] = [
   },
   {
     id: 4,
-    name: "Jedidiah Amaraegbu",
-    role: "Full Stack Software Engineer",
-    description:
-        "Known for his laser-sharp focus and knack for organization, Jedidiah is the team’s reliability powerhouse. Adaptable and detail-oriented, he’s committed to delivering top-notch results, every time. If precision is key, Jedidiah’s got it covered.",
-    picture: "jedidiah",
-  },
-  {
-    id: 5,
     name: "Ala Bouali",
     role: "Cybersecurity Engineer",
     description:
@@ -70,7 +62,7 @@ const members: IMember[] = [
     picture: "ala",
   },
   {
-    id: 6,
+    id: 5,
     name: "Chedli Ghorbel",
     role: "AI & Web Automations Engineer",
     description:
@@ -78,7 +70,7 @@ const members: IMember[] = [
     picture: "chedli",
   },
   {
-    id: 7,
+    id: 6,
     name: "Maryem Bouchiba",
     role: "Marketing & Design Specialist",
     description:
