@@ -22,7 +22,7 @@ interface ReviewsSectionProps {
 
 export function ReviewsSection({ title, source, truncatedChars, showAllReviewsLink = false, showFeatured = false }: ReviewsSectionProps) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { amount: 0.15, once: true });
+    const isInView = useInView(ref, { amount: 0.05, once: true });
     // Filter reviews based on isFeatured and source
     const reviews = reviewsData.filter(
         (review) =>
@@ -124,9 +124,9 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                                 <Image
                                     src={companyLogo}
                                     alt={`${company}`}
-                                    height={50}
-                                    width={50}
-                                    className="h-6 w-auto grayscale invert dark:brightness-[0] cursor-pointer"
+                                    height={100}
+                                    width={200}
+                                    className="h-6 w-auto brightness-0 cursor-pointer dark:grayscale-0 dark:invert"
                                     onError={() => setIsCompanyImageValid(false)}
                                 />
                             </Link>
@@ -134,9 +134,9 @@ export function ReviewCard({ review, truncatedChars }: ReviewCardProps) {
                             <Image
                                 src={companyLogo}
                                 alt={`${company}`}
-                                height={50}
-                                width={50}
-                                className="h-5 grayscale brightness-[100] invert dark:brightness-[0]"
+                                height={100}
+                                width={200}
+                                className="h-5 brightness-0 dark:grayscale-0 dark:invert"
                                 onError={() => setIsCompanyImageValid(false)}
                             />
                         )
