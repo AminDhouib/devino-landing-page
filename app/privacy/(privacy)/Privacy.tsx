@@ -4,7 +4,7 @@ export default function Privacy() {
   return (
     <section className="pt-[2rem] pb-[6rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] sm:px-6 mx-auto mb-12 lg:mb-6">
       <div
-          className="bg-lightbluehover bg-opacity-10 rounded-[30px] leading-10 text-xl relative px-12 pt-24 pb-40 lg:text-base lg:leading-8 lg:px-6 lg:pt-12 lg:pb-24 ">
+          className="bg-lightbluehover dark:bg-darkblue dark:text-white bg-opacity-10 rounded-[30px] leading-10 text-xl relative px-12 pt-24 pb-40 lg:text-base lg:leading-8 lg:px-6 lg:pt-12 lg:pb-24 ">
         <p className="mb-8 lg:mb-4">
           This Privacy Policy provides you with information about how we collect, use, and protect your data when you
           visit our website. This website serves as a digital showcase for our consultancy services at Devino.
@@ -49,7 +49,7 @@ export default function Privacy() {
             alt={"arrow icon"}
             height={100}
             width={100}
-            className={`h-52 w-52 absolute bottom-[-6rem] left-8 lg:h-36 lg:w-36 lg:bottom-[-4rem]`}
+            className={`h-52 w-52 absolute bottom-[-6rem] left-8 lg:h-36 lg:w-36 lg:bottom-[-4rem] dark:brightness-[100]`}
         />
       </div>
     </section>
