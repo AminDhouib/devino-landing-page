@@ -106,7 +106,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
     if (isInView && isMobile)
       setTimeout(() => {
         setIsFlipped(true);
-      }, 600);
+      }, 1300);
     else setIsFlipped(false);
   }, [isInView, isMobile]);
 
