@@ -13,7 +13,7 @@ export default function Card(props: ICard) {
         alt={"card icon"}
         height={100}
         width={100}
-        className={"h-16 w-16 lg:w-12 lg:h-12"}
+        className={"h-16 w-16 lg:w-12 lg:h-12 dark:brightness-[0] dark:invert"}
       />
       <h2 className="text-lightblueactive dark:text-white mt-4 mb-6 font-semibold text-2xl lg:text-lg lg:my-2">
         {props.title}
