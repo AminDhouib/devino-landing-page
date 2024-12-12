@@ -30,8 +30,13 @@ export default function Hero() {
                 />
             </h1>
             <p className="font-semibold text-2xl sm:text-sm md:text-md mt-10 text-darkblue dark:text-gray-400">
-                NO SETUP FEES ! NO PROJECT MANAGEMENT FEES ! <br />
-                NO OPERATIONAL BURDEN !
+                <span className="flex gap-2 flex-col">
+                    <span className="flex gap-3 md:flex-col">
+                       <span>NO SETUP FEES!</span>
+                        <span>NO PROJECT MANAGEMENT FEES!</span>
+                    </span>
+                    <span>NO OPERATIONAL BURDEN!</span>
+                </span>
             </p>
         </section>
     );

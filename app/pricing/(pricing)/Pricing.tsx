@@ -70,7 +70,7 @@ const plans: Plan[] = [
 
 export default function Pricing() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { amount: 0.15, once: true });
+    const isInView = useInView(ref, { amount: 0.09, once: true });
 
     return (
         <motion.section
