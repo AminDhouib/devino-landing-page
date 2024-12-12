@@ -15,7 +15,7 @@ export default function Reviews() {
                       <h2 className="text-6xl font-extrabold mb-2 dark:text-white text-[#01204C]">
                           5/5
                       </h2>
-                      <p className="text-2xl font-light mb-6 dark:text-gray-300 text-[#031531]">
+                      <p className="text-2xl font-light mb-6 dark:text-gray-300 text-[#031531] min-w-[164px]">
                           On Google
                       </p>
                   </div>
@@ -25,14 +25,6 @@ export default function Reviews() {
                       </h2>
                       <p className="text-2xl font-light mb-6 dark:text-gray-300 text-[#031531]">
                           Satisfied Clients
-                      </p>
-                  </div>
-                  <div className="flex flex-col">
-                      <h2 className="text-6xl font-extrabold mb-2 dark:text-white text-[#01204C]">
-                          4.9/5
-                      </h2>
-                      <p className="text-2xl font-light mb-6 dark:text-gray-300 text-[#031531]">
-                          On Upwork
                       </p>
                   </div>
               </div>
