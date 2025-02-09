@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "../_ui/Button";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {event} from "~/app/lib/gtag";
+import { event } from "~/app/lib/gtag";
 import AwsmButton from "~/app/_ui/AwsmButton";
 import Link from "next/link";
 
@@ -13,14 +13,28 @@ const cases = [
     info: {
       title: "uNotes",
       description:
-        "With 200% year-over-year growth, uNotes is a note-sharing system that offers students access to 30,000+ user-uploaded university docs.",
+        "uNotes is a note-sharing system with 5K monthly active users that offers students access to 30,000+ user-uploaded university docs.",
       url: "https://unotes.net/",
       buttonText: "Check it out",
     },
     example: {
       image: "/unotes.png",
-      title: "uNotes brought its initial concept into life",
+      title: "uNotes - Instant Access to 30,000+ Past Papers and Notes",
       url: "https://unotes.net",
+    },
+  },
+  {
+    info: {
+      title: "Shorty",
+      description:
+        "A growing platform with currently currently a 50% month-over-month growth, Shorty is a Youtube and Spotify summary tool that helps users save time and learn faster.",
+      url: "https://aishorty.com/",
+      buttonText: "Check it out",
+    },
+    example: {
+      image: "/shorty.png",
+      title: "Shorty - AI Summarizer for Youtube and Spotify",
+      url: "https://aishorty.com/",
     },
   },
   {
@@ -33,7 +47,8 @@ const cases = [
     },
     example: {
       image: "/upup.png",
-      title: "UPUP Open-source and Free-to-Use",
+      title:
+        "Upup Open-Source React File Upload Component With Built-In Cloud Storage Integrations",
       url: "https://github.com/DevinoSolutions/upup",
     },
   },
@@ -74,10 +89,10 @@ const Case = ({
   const isInView = useInView(ref, { amount: 0.5, once: true });
   const triggerEvent = () => {
     event({
-      action: 'in_house_project',
+      action: "in_house_project",
       value: example.title,
-    })
-  }
+    });
+  };
   return (
     <motion.div
       ref={ref}
@@ -85,7 +100,9 @@ const Case = ({
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
       className={`h-fit rounded-lg sm:bg-transparent py-10 w-full mx-auto flex overflow-hidden gap-16 sm:gap-8 p-4 items-center justify-center sm:flex-col ${
-        isEven ? "bg-pastelBlue dark:bg-deepBlue" : "bg-pastelBlue bg-opacity-50 dark:bg-darkblue"
+        isEven
+          ? "bg-pastelBlue dark:bg-deepBlue"
+          : "bg-pastelBlue bg-opacity-50 dark:bg-darkblue"
       }`}
     >
       <div
@@ -111,10 +128,11 @@ const Case = ({
           </p>
         </div>
         <Link
-            onClick={triggerEvent}
-            href={info.url}
-            rel="noopener noreferrer"
-            target="_blank">
+          onClick={triggerEvent}
+          href={info.url}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <AwsmButton>
             {info.buttonText}
             <span className="ml-2">➔</span>
