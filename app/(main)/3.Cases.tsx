@@ -61,8 +61,8 @@ const cases = [
       buttonText: "Check it out",
     },
     example: {
-      image: "/unotes.png",
-      title: "uNotes - Instant Access to 30,000+ Past Papers and Notes",
+      image: "/caramel.png",
+      title: "Caramel - The Best Way to Save Money on Your Online Shopping",
       url: "https://grabcaramel.com/",
     },
   },
