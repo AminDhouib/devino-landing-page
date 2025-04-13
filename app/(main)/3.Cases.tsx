@@ -52,6 +52,20 @@ const cases = [
       url: "https://github.com/DevinoSolutions/upup",
     },
   },
+  {
+    info: {
+      title: "Caramel",
+      description:
+        "Caramel is the best way to save money on your online shopping. Our browser extension automatically applies the best coupon code at checkout.",
+      url: "https://grabcaramel.com/",
+      buttonText: "Check it out",
+    },
+    example: {
+      image: "/unotes.png",
+      title: "uNotes - Instant Access to 30,000+ Past Papers and Notes",
+      url: "https://grabcaramel.com/",
+    },
+  },
 ];
 
 export default function Cases() {
