@@ -52,6 +52,20 @@ const cases = [
       url: "https://useupup.com?utm_source=devino_landing",
     },
   },
+  {
+    info: {
+      title: "Caramel",
+      description:
+        "Caramel is the best way to save money on your online shopping. Our browser extension automatically applies the best coupon code at checkout.",
+      url: "https://grabcaramel.com/",
+      buttonText: "Check it out",
+    },
+    example: {
+      image: "/caramel.png",
+      title: "Caramel - The Best Way to Save Money on Your Online Shopping",
+      url: "https://grabcaramel.com/",
+    },
+  },
 ];
 
 export default function Cases() {
