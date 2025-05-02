@@ -14,13 +14,13 @@ const cases = [
       title: "uNotes",
       description:
         "uNotes is a note-sharing system with 5K monthly active users that offers students access to 30,000+ user-uploaded university docs.",
-      url: "https://unotes.net/",
+      url: "https://unotes.net?utm_source=devino_landing",
       buttonText: "Check it out",
     },
     example: {
       image: "/unotes.png",
       title: "uNotes - Instant Access to 30,000+ Past Papers and Notes",
-      url: "https://unotes.net",
+      url: "https://unotes.net?utm_source=devino_landing",
     },
   },
   {
@@ -28,13 +28,13 @@ const cases = [
       title: "Shorty",
       description:
         "A growing platform with currently currently a 50% month-over-month growth, Shorty is a Youtube and Spotify summary tool that helps users save time and learn faster.",
-      url: "https://aishorty.com/",
+      url: "https://aishorty.com?utm_source=devino_landing",
       buttonText: "Check it out",
     },
     example: {
       image: "/shorty.png",
       title: "Shorty - AI Summarizer for Youtube and Spotify",
-      url: "https://aishorty.com/",
+      url: "https://aishorty.com?utm_source=devino_landing",
     },
   },
   {
@@ -42,14 +42,14 @@ const cases = [
       title: "Upup",
       description:
         "A versatile NPM component simplifying file uploads for web apps. It's open-source, free, secure, and seamlessly integrates with cloud storage services like Google Drive and OneDrive.",
-      url: "https://github.com/DevinoSolutions/upup",
+      url: "https://useupup.com?utm_source=devino_landing",
       buttonText: "Check it out",
     },
     example: {
       image: "/upup.png",
       title:
         "Upup Open-Source React File Upload Component With Built-In Cloud Storage Integrations",
-      url: "https://github.com/DevinoSolutions/upup",
+      url: "https://useupup.com?utm_source=devino_landing",
     },
   },
 ];
