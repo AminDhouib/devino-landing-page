@@ -75,9 +75,17 @@ export class ApplicationScorer {
         try {
             const prompt = rule.prompt.replace('{{answer}}', answer);
             const completion = await aiClient.chat.completions.create({
-                model: rule.model ?? 'google/gemini-2.0-flash-001',
+                model: rule.model ?? 'gpt-4o',
                 messages: [
-                    { role: 'system', content: 'Return only an integer score from 0‑100.' },
+                    {
+                        role: 'system',
+                        content:
+                            [
+                                'You are a strict evaluator.',
+                                'Output only a single integer from 0 to 100.',
+                                'If the answer is off-topic, generic, or meaningless, output 0.',
+                            ].join(' '),
+                    },
                     { role: 'user', content: prompt },
                 ],
             });
@@ -85,6 +93,8 @@ export class ApplicationScorer {
             const raw = (completion.choices?.[0]?.message?.content ?? '').trim();
             const numeric = Number(raw.match(/\d+/)?.[0] ?? 0);
             const capped = Math.min(rule.maxScore ?? 100, Math.max(0, numeric));
+            console.log('answer', answer)
+            console.log(`AI scoring for "${rule.prompt}" returned: ${capped} (raw: ${raw})`);
             return capped;
         } catch (err) {
             console.error('AI scoring failed', err);

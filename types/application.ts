@@ -72,8 +72,6 @@ export interface ApplicationConfig {
     positionId: string;
     positionTitle: string;
     sections: FormSection[];
-    scoringThreshold: number;
-    autoEmailThreshold: number;
     requiredDocuments: string[];
 }
 

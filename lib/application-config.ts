@@ -14,8 +14,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'ai-data-engineer': {
         positionId: 'ai-data-engineer',
         positionTitle: 'AI/Data Engineer',
-        scoringThreshold: 75,
-        autoEmailThreshold: 85,
         requiredDocuments: ['resume', 'portfolio'],
         sections: [
             {
@@ -162,8 +160,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'full-stack-developer': {
         positionId: 'full-stack-developer',
         positionTitle: 'Full-Stack Developer',
-        scoringThreshold: 70,
-        autoEmailThreshold: 85,
         requiredDocuments: ['resume', 'portfolio'],
         sections: [
             {
@@ -249,8 +245,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'growth-marketer': {
         positionId: 'growth-marketer',
         positionTitle: 'Growth Marketer',
-        scoringThreshold: 65,
-        autoEmailThreshold: 80,
         requiredDocuments: ['resume', 'portfolio'],
         sections: [
             {
@@ -338,8 +332,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'senior-full-stack': {
         positionId: 'senior-full-stack',
         positionTitle: 'Senior Full-Stack Developer',
-        scoringThreshold: 75,
-        autoEmailThreshold: 90,
         requiredDocuments: ['resume', 'portfolio'],
         sections: [
             {
@@ -431,8 +423,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'ui-ux-designer': {
         positionId: 'ui-ux-designer',
         positionTitle: 'UI/UX Designer',
-        scoringThreshold: 65,
-        autoEmailThreshold: 80,
         requiredDocuments: ['resume', 'portfolio'],
         sections: [
             {
@@ -513,8 +503,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'devops-engineer': {
         positionId: 'devops-engineer',
         positionTitle: 'DevOps Engineer',
-        scoringThreshold: 70,
-        autoEmailThreshold: 85,
         requiredDocuments: ['resume'],
         sections: [
             {
@@ -590,8 +578,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'mobile-developer': {
         positionId: 'mobile-developer',
         positionTitle: 'Mobile Developer',
-        scoringThreshold: 60,
-        autoEmailThreshold: 75,
         requiredDocuments: ['resume'],
         sections: [
             {
@@ -665,8 +651,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'project-manager': {
         positionId: 'project-manager',
         positionTitle: 'Project Manager',
-        scoringThreshold: 65,
-        autoEmailThreshold: 80,
         requiredDocuments: ['resume'],
         sections: [
             {
@@ -740,8 +724,6 @@ export const applicationConfigs: Record<string, ApplicationConfig> = {
     'junior-frontend': {
         positionId: 'junior-frontend',
         positionTitle: 'Junior Frontend Developer',
-        scoringThreshold: 55,
-        autoEmailThreshold: 70,
         requiredDocuments: ['resume'],
         sections: [
             {

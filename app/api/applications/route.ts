@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
 
             if (score > parseInt(process.env.HR_EMAIL_THRESHOLD as string, 10)) {
                 await sendEmail({
-                    to: 'aladdin@devino.ca',
+                    to: 'hello@devino.ca',
                     subject: `${score >= 85 ? '🌟 High‑Score' : 'New'} Application: ${config.positionTitle} - ${applicantName}`,
                     html: hrNotificationEmail({
                         applicantName,
