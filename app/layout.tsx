@@ -96,6 +96,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <CustomCursor />
           {children}
           <Footer />
+          <StarsBG />
         </body>
         </html>
       </ThemeProvider>

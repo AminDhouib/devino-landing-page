@@ -96,7 +96,7 @@ export default function ApplicationSuccessModal({
                                     Confirmation Email Sent
                                 </h4>
                                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                                    We've sent a confirmation email to <strong>{result.email}</strong> with your application details.
+                                    We&apos;ve sent a confirmation email to <strong>{result.email}</strong> with your application details.
                                 </p>
                             </div>
                         </div>
