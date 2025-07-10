@@ -27,7 +27,7 @@ const cases = [
     info: {
       title: "Shorty",
       description:
-        "A growing platform with currently currently a 50% month-over-month growth, Shorty is a Youtube and Spotify summary tool that helps users save time and learn faster.",
+        "A growing platform with currently a 50% month-over-month growth, Shorty is a Youtube and Spotify summary tool that helps users save time and learn faster.",
       url: "https://aishorty.com?utm_source=devino_landing",
       buttonText: "Check it out",
     },
