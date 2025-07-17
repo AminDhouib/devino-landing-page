@@ -3,13 +3,13 @@
 
 import { useRef } from "react";
 import { MdError, MdUpload, MdClose, MdDescription } from "react-icons/md";
-import { FormQuestion } from "~/types/application";
+import { Question } from "~/lib/scoring/types"; // Updated import
 import RadioOption from "./RadioOption";
 import CheckboxOption from "./CheckboxOption";
 import FileUpload from "./FileUpload";
 
 interface QuestionFieldProps {
-    question: FormQuestion;
+    question: Question; // Updated type reference
     value: string | string[] | File;
     onChange: (value: string | string[] | File) => void;
     error?: string;
@@ -162,6 +162,48 @@ export default function QuestionField({
         }
     };
 
+    // Enhanced validation display for different weight types
+    const renderValidationInfo = () => {
+        const { validation, weight } = question;
+
+        if (!validation) return null;
+
+        const currentLength = typeof value === 'string' ? value.length : 0;
+
+        return (
+            <div className="text-xs text-gray-500 dark:text-gray-400 space-y-1">
+                {/* Character count for text areas */}
+                {question.type === "textarea" && validation.min && (
+                    <p className={`${currentLength < validation.min ? 'text-orange-500' : 'text-green-500'}`}>
+                        {currentLength} / {validation.min}+ characters
+                        {validation.max && ` (max: ${validation.max})`}
+                    </p>
+                )}
+
+                {/* File validation info */}
+                {question.type === "file" && (
+                    <div>
+                        {validation.fileTypes && (
+                            <p>Accepted formats: {validation.fileTypes.join(', ')}</p>
+                        )}
+                        {validation.maxFileSize && (
+                            <p>Maximum file size: {validation.maxFileSize}MB</p>
+                        )}
+                    </div>
+                )}
+
+
+                {/* Show keyword requirements */}
+                {typeof weight === 'object' && weight.kind === 'keyword' && (
+                    <p className="text-purple-500">
+                        💡 Include relevant technologies: {weight.keywords.slice(0, 3).join(', ')}
+                        {weight.keywords.length > 3 && '...'}
+                    </p>
+                )}
+            </div>
+        );
+    };
+
     return (
         <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -184,11 +226,7 @@ export default function QuestionField({
                 </div>
             )}
 
-            {question.validation?.min && question.type === "textarea" && (
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {typeof value === 'string' ? value.length : 0} / {question.validation.min}+ characters
-                </p>
-            )}
+            {renderValidationInfo()}
         </div>
     );
 }

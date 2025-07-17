@@ -1,9 +1,9 @@
 // components/application/FileUpload.tsx
 import { MdUpload, MdClose, MdDescription } from "react-icons/md";
-import { FormQuestion } from "~/types/application";
+import { Question } from "~/lib/scoring/types";
 
 interface FileUploadProps {
-    question: FormQuestion;
+    question: Question;
     uploadedFile?: File;
     onFileSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onFileRemove: () => void;
