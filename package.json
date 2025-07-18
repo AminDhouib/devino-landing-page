@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npx prisma generate && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "@hotjar/browser": "^1.0.9",
+    "@prisma/client": "^6.12.0",
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "^8.17.10",
     "@use-gesture/react": "^10.3.0",
@@ -19,11 +20,13 @@
     "next": "14.1.2",
     "nodemailer": "^7.0.3",
     "openai": "^5.6.0",
+    "prisma": "^6.12.0",
     "react": "^18.2.0",
     "react-animated-cursor": "^2.11.2",
     "react-awesome-button": "^7.0.5",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
+    "react-hook-form": "^7.60.0",
     "react-icons": "^5.0.1",
     "react-lottie-player": "^1.5.6",
     "react-type-animation": "^3.2.0",
