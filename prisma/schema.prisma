@@ -29,6 +29,7 @@ enum QuestionType {
   DATE
   SCALE
   GRID
+  DISPLAY
 }
 
 enum FormStatus {
