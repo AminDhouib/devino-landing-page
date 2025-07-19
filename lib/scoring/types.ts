@@ -1,15 +1,35 @@
-// lib/scoring/types.ts
+/* eslint-disable */
+// THIS FILE IS AUTO‑GENERATED. Edit with caution.
 
-/** ---------- Question & Form Types ---------- */
+/** -----------------------------------------------------------------
+ * Rich‑text helper — supports plain strings or HTML blocks
+ * ----------------------------------------------------------------- */
+export type RichText =
+    | string
+    | { type: 'html' | 'text'; content: string };
+
+/** -----------------------------------------------------------------
+ * Question & Form Types
+ * ----------------------------------------------------------------- */
 export type QuestionType =
-    | 'text' | 'email' | 'tel' | 'url'
-    | 'select' | 'radio' | 'multiselect'
-    | 'textarea' | 'file' | 'number' | 'date';
+    | 'text'
+    | 'email'
+    | 'tel'
+    | 'url'
+    | 'select'
+    | 'radio'
+    | 'multiselect'
+    | 'textarea'
+    | 'file'
+    | 'number'
+    | 'date'
+    | 'display';            // non‑interactive information block
 
 export interface Question {
     id: string;
     label: string;
-    description?: string;
+    /** Plain string or rich HTML snippet */
+    description?: RichText;
     type: QuestionType;
     placeholder?: string;
     options?: string[];
@@ -17,64 +37,77 @@ export interface Question {
         min?: number;
         max?: number;
         pattern?: string;
+        /** Allowed extensions (e.g. .pdf) – only for file uploads */
         fileTypes?: string[];
-        maxFileSize?: number; // MB
+        /** Maximum file size in MB – only for file uploads */
+        maxFileSize?: number;
     };
     required: boolean;
+    /** Scoring rule (see below) */
     weight: WeightRule;
 }
 
-/** ---------- Weight Rules ---------- */
+/** -----------------------------------------------------------------
+ * Weight / Scoring Rules
+ * ----------------------------------------------------------------- */
 export type WeightRule =
-    | number                // Simple fixed weight
-    | CharCountRule         // Score based on character count
-    | KeywordRule          // Score based on keyword matches
-    | AIRule;              // Score using AI with evaluation criteria
+    | number             // fixed weight
+    | CharCountRule      // score by answer length
+    | KeywordRule        // score by keyword matches
+    | AIRule;            // score via AI model
 
 export interface CharCountRule {
     kind: 'char';
-    value: number;         // Weight in overall score
-    min: number;           // Characters needed for 100%
-    max?: number;          // Optional upper limit
+    value: number;       // weight in overall score
+    min: number;         // length for 100 %
+    max?: number;        // optional upper limit
 }
 
 export interface KeywordRule {
     kind: 'keyword';
-    value: number;         // Weight in overall score
-    keywords: string[];    // Required keywords to match
-    minMatches: number;    // Minimum matches for full score
+    value: number;       // weight in overall score
+    keywords: string[];  // required keywords
+    minMatches: number;  // matches for full score
 }
 
 export interface AIRule {
     kind: 'ai';
-    value: number;         // Weight in overall score
-    criteria: string[];    // Which evaluation criteria to use (references job.evaluationCriteria)
-    cap?: number;          // Optional score cap (default 100)
-    model?: string;        // Optional model override
+    value: number;       // weight in overall score
+    /** Which evaluationCriteria keys to feed the model */
+    criteria: string[];
+    /** Optional maximum raw score (default 100) */
+    cap?: number;
+    /** Optional model override (e.g. 'gpt-4o') */
+    model?: string;
 }
 
-/** ---------- Job Definition ---------- */
+/** -----------------------------------------------------------------
+ * Job Definition
+ * ----------------------------------------------------------------- */
 export interface JobMeta {
     title: string;
     department: string;
     type: 'Full-time' | 'Part-time' | 'Contract';
     level: 'Junior' | 'Mid' | 'Senior' | 'Lead';
     location: string;
-    description: string;
+    /** Long‑form description — supports HTML */
+    description: RichText;
     featured?: boolean;
 }
 
 export interface JobDefinition {
     id: string;
     meta: JobMeta;
-    requirements: string[];           // Job requirements
-    benefits: string[];              // Company benefits
-    skills: string[];                // Required/preferred skills
-    evaluationCriteria: Record<string, string>;  // AI evaluation criteria
-    form: Question[];                // Application form questions
+    requirements: string[];                     // bullet list
+    benefits: string[];                         // bullet list
+    skills: string[];                           // key‑word list
+    evaluationCriteria: Record<string, string>; // AI rubric
+    form: Question[];                           // legacy array
 }
 
-/** ---------- Application Types ---------- */
+/** -----------------------------------------------------------------
+ * Application / Submission
+ * ----------------------------------------------------------------- */
 export interface ApplicationResponse {
     questionId: string;
     value: string | string[] | File;

@@ -17,6 +17,7 @@ export enum QuestionType {
   DATE = 'DATE',
   SCALE = 'SCALE',
   GRID = 'GRID',
+  DISPLAY = 'DISPLAY', // For HTML content display only
 }
 
 export enum FormStatus {
@@ -35,13 +36,19 @@ export enum ApplicationStatus {
   WITHDRAWN = 'WITHDRAWN',
 }
 
+// Rich content type
+export interface RichContent {
+  type: 'html' | 'markdown' | 'text';
+  content: string;
+}
+
 // Form configuration interfaces
 export interface FormQuestionConfig {
   id?: string;
   fieldKey: string;
   fieldType: QuestionType;
   label: string;
-  description?: string;
+  description?: string | RichContent;
   placeholder?: string;
   required?: boolean;
   order?: number;
@@ -74,7 +81,7 @@ export interface FormQuestionConfig {
 export interface FormSectionConfig {
   id?: string;
   title: string;
-  description?: string;
+  description?: string | RichContent;
   order?: number;
   richContent?: {
     type: 'html' | 'markdown' | 'component';
@@ -88,7 +95,7 @@ export interface FormConfig {
   id?: string;
   positionId: string;
   title: string;
-  description?: string;
+  description?: string | RichContent;
   status?: FormStatus;
   sections: FormSectionConfig[];
 }
