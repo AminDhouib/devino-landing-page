@@ -351,6 +351,27 @@ export default function QuestionField({
           </div>
         );
 
+      case QuestionType.DISPLAY:
+        // Display HTML content - no input needed
+        if (field.description && typeof field.description === 'object' && field.description.type === 'html') {
+          return (
+            <div 
+              className="prose prose-sm max-w-none dark:prose-invert"
+              dangerouslySetInnerHTML={{ __html: field.description.content }}
+            />
+          );
+        }
+        // Handle string description or other rich content types
+        const displayContent = typeof field.description === 'string' 
+          ? field.description 
+          : field.description?.content || field.label;
+        
+        return (
+          <div className="text-gray-700 dark:text-gray-300">
+            {displayContent}
+          </div>
+        );
+
       default:
         return (
           <div className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
@@ -369,15 +390,23 @@ export default function QuestionField({
       className="space-y-3"
     >
       <div>
-        <label className="block text-base lg:text-sm font-medium text-gray-900 dark:text-white mb-2">
-          {field.label}
-          {field.required && <span className="text-red-500 ml-1">*</span>}
-        </label>
+        {field.fieldType !== QuestionType.DISPLAY && (
+          <label className="block text-base lg:text-sm font-medium text-gray-900 dark:text-white mb-2">
+            {field.label}
+            {field.required && <span className="text-red-500 ml-1">*</span>}
+          </label>
+        )}
         
-        {field.description && (
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-            {field.description}
-          </p>
+        {field.description && field.fieldType !== QuestionType.DISPLAY && (
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
+            {typeof field.description === 'string' ? (
+              <p>{field.description}</p>
+            ) : field.description?.type === 'html' ? (
+              <div dangerouslySetInnerHTML={{ __html: field.description.content }} />
+            ) : (
+              <p>{typeof field.description === 'object' ? field.description.content : field.description}</p>
+            )}
+          </div>
         )}
         
         {renderField()}

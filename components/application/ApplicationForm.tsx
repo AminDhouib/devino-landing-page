@@ -184,9 +184,15 @@ export default function ApplicationForm({
                   {currentSectionData.title}
                 </h3>
                 {currentSectionData.description && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                    {currentSectionData.description}
-                  </p>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                    {typeof currentSectionData.description === 'string' ? (
+                      <p>{currentSectionData.description}</p>
+                    ) : currentSectionData.description?.type === 'html' ? (
+                      <div dangerouslySetInnerHTML={{ __html: currentSectionData.description.content }} />
+                    ) : (
+                      <p>{typeof currentSectionData.description === 'object' ? currentSectionData.description.content : currentSectionData.description}</p>
+                    )}
+                  </div>
                 )}
                 {currentSectionData.richContent && (
                   <div className="mb-4">

@@ -3,7 +3,6 @@
 
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
-import AwsmButton from '~/app/_ui/AwsmButton';
 
 interface FormNavigationProps {
   currentSection: number;
@@ -42,26 +41,22 @@ export default function FormNavigation({
 
       <div className="flex-1 flex justify-end">
         {isLastSection ? (
-          <AwsmButton>
-            <button
-              onClick={onSubmit}
-              disabled={isSubmitting}
-              className="w-full"
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit Application'}
-            </button>
-          </AwsmButton>
+          <button
+            onClick={onSubmit}
+            disabled={isSubmitting}
+            className="px-6 py-3 bg-[#01204c] hover:bg-[#193a6a] disabled:bg-gray-400 text-white font-medium rounded-full transition-colors disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit Application'}
+          </button>
         ) : (
-          <AwsmButton>
-            <button
-              onClick={onNext}
-              disabled={isSubmitting}
-              className="w-full flex items-center justify-center"
-            >
-              Next
-              <FaArrowRight className="w-4 h-4 ml-2" />
-            </button>
-          </AwsmButton>
+          <button
+            onClick={onNext}
+            disabled={isSubmitting}
+            className="flex items-center justify-center px-6 py-3 bg-[#01204c] hover:bg-[#193a6a] disabled:bg-gray-400 text-white font-medium rounded-full transition-colors disabled:cursor-not-allowed"
+          >
+            Next
+            <FaArrowRight className="w-4 h-4 ml-2" />
+          </button>
         )}
       </div>
     </div>

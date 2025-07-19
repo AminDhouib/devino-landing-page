@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/navigation';
 import {
     MdPeople,
@@ -13,7 +14,8 @@ import {
     MdArrowDownward
 } from 'react-icons/md';
 import { FaArrowRight } from 'react-icons/fa';
-import { jobs, JobWithForm } from "~/data/jobs";
+import { jobs, JobDefinition } from '@/data/jobs';
+import AwsmButton from '@/app/_ui/AwsmButton';
 
 // Filter options
 const locationOptions = [
@@ -45,8 +47,10 @@ interface FilterOption {
 
 export default function OpenPositionsSection() {
     const router = useRouter();
-    const ref = useRef(null);
-    const isInView = useInView(ref, { amount: 0.15, once: true });
+    const { ref, inView: isInView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    });
 
     // Filter states
     const [selectedLocation, setSelectedLocation] = useState("all");
@@ -54,13 +58,13 @@ export default function OpenPositionsSection() {
     const [selectedType, setSelectedType] = useState("all");
 
     // Navigation function
-    const navigateToApply = (job: JobWithForm) => {
+    const navigateToApply = (job: JobDefinition) => {
         router.push(`/careers/${job.id}`);
     };
 
     // Filter jobs based on selected criteria
     const filteredJobs = useMemo(() => {
-        return jobs.filter((job: JobWithForm) => {
+        return jobs.filter(job => {
             const locationMatch = selectedLocation === "all" || job.meta.location === selectedLocation;
             const levelMatch = selectedLevel === "all" || job.meta.level === selectedLevel;
             const typeMatch = selectedType === "all" || job.meta.type === selectedType;
@@ -100,7 +104,7 @@ export default function OpenPositionsSection() {
                 className="mb-8 lg:mb-6"
             >
                 <div className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-xl p-6 lg:p-4 shadow-sm border border-gray-200/50 dark:border-gray-700/50">
-                    <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-3">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-3">
                         <FilterSelect
                             options={locationOptions}
                             value={selectedLocation}
@@ -130,16 +134,18 @@ export default function OpenPositionsSection() {
                         exit={{ opacity: 0, height: 0 }}
                         className="mt-4 text-center"
                     >
-                        <button
-                            className="text-sm px-4 py-2 bg-[#01204c] hover:bg-[#193a6a] text-white rounded-full font-medium transition-colors"
-                            onClick={() => {
-                                setSelectedLocation("all");
-                                setSelectedLevel("all");
-                                setSelectedType("all");
-                            }}
-                        >
-                            Clear All Filters
-                        </button>
+                        <AwsmButton>
+                            <button
+                                className="text-sm px-4 py-2"
+                                onClick={() => {
+                                    setSelectedLocation("all");
+                                    setSelectedLevel("all");
+                                    setSelectedType("all");
+                                }}
+                            >
+                                Clear All Filters
+                            </button>
+                        </AwsmButton>
                     </motion.div>
                 )}
             </motion.div>
@@ -149,11 +155,11 @@ export default function OpenPositionsSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 1 : 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-4 w-full"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-4 w-full"
             >
                 <AnimatePresence mode="wait">
                     {filteredJobs.length > 0 ? (
-                        filteredJobs.map((job: JobWithForm, index: number) => (
+                        filteredJobs.map((job, index) => (
                             <JobCard
                                 key={job.id}
                                 job={job}
@@ -209,11 +215,11 @@ const FilterSelect = ({ options, value, onChange, icon }: {
 );
 
 const JobCard = ({ job, index, isInView, featured = false, onApplyClick }: {
-    job: JobWithForm;
+    job: JobDefinition;
     index: number;
     isInView: boolean;
     featured?: boolean;
-    onApplyClick: (job: JobWithForm) => void;
+    onApplyClick: (job: JobDefinition) => void;
 }) => (
     <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -282,7 +288,7 @@ const JobCard = ({ job, index, isInView, featured = false, onApplyClick }: {
                 {/* Skills Preview */}
                 <div className="w-full">
                     <div className="flex flex-wrap gap-2">
-                        {job.skills.slice(0, 3).map((skill: string, skillIndex: number) => (
+                        {job.skills.slice(0, 3).map((skill, skillIndex) => (
                             <span
                                 key={skillIndex}
                                 className="px-2.5 py-1 bg-white/70 dark:bg-gray-700/70 text-darkblue dark:text-gray-200 rounded-lg text-xs font-medium border border-gray-200/50 dark:border-gray-600/50"
@@ -300,16 +306,18 @@ const JobCard = ({ job, index, isInView, featured = false, onApplyClick }: {
 
                 {/* Apply Button */}
                 <div className="mt-auto pt-4">
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onApplyClick(job);
-                        }}
-                        className="w-full flex items-center justify-center gap-2 py-2 px-4 text-sm font-medium bg-[#01204c] hover:bg-[#193a6a] text-white rounded-full transition-colors"
-                    >
-                        Learn More & Apply
-                        <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
+                    <AwsmButton className="w-full">
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onApplyClick(job);
+                            }}
+                            className="w-full flex items-center justify-center gap-2 py-2 text-sm font-medium"
+                        >
+                            Learn More & Apply
+                            <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+                        </button>
+                    </AwsmButton>
                 </div>
             </motion.div>
         </div>

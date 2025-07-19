@@ -61,14 +61,31 @@ export default function JobApplicationPage() {
                   <h1 className="text-3xl lg:text-4xl font-bold mb-3">
                     {job.meta.title}
                   </h1>
-                  <p className="text-blue-100 text-lg leading-relaxed">
-                    {job.formConfig.description}
-                  </p>
                 </div>
               </div>
 
               {/* Form content */}
               <div className="p-6 lg:p-8">
+                {/* Job Description */}
+                {job.meta.description && (
+                  <div className="mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
+                    {typeof job.meta.description === 'string' ? (
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {job.meta.description}
+                      </p>
+                    ) : job.meta.description.type === 'html' ? (
+                      <div 
+                        className="prose prose-gray dark:prose-invert max-w-none"
+                        dangerouslySetInnerHTML={{ __html: job.meta.description.content }}
+                      />
+                    ) : (
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {job.meta.description.content}
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 <ApplicationForm
                   formConfig={job.formConfig}
                   positionId={job.id}
