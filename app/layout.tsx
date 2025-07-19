@@ -11,6 +11,7 @@ import StarsBG from "~/app/_ui/StarsBg";
 import {Metadata} from "next";
 import HotjarInitializer from "~/app/HotjarInitializer";
 import CustomCursor from "~/app/_ui/CustomCursor";
+import TopProgressBar from "~/components/TopProgressBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -93,6 +94,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               `}
           </Script>
           <Header />
+          <TopProgressBar />
           <CustomCursor />
           {children}
           <Footer />
