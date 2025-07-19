@@ -41,15 +41,20 @@ export async function POST(request: NextRequest) {
 
     if (!applicantEmail || !applicantName) {
       console.log('Missing fields:', { applicantEmail, applicantName, availableFields: Object.keys(responses) });
+      
+      const missingFields = [];
+      if (!applicantEmail) missingFields.push('Email address (contact_email)');
+      if (!applicantName) missingFields.push('Full name (full_name)');
+      
       return NextResponse.json({ 
-        error: 'Missing required applicant information',
-        details: `Email: ${!!applicantEmail}, Name: ${!!applicantName}`,
+        error: `Missing required fields: ${missingFields.join(', ')}`,
+        details: `Please ensure you have filled in all required fields`,
         availableFields: Object.keys(responses)
       }, { status: 400 });
     }
 
     // Get or create job form in database
-    let jobForm = await prisma.jobForm.findFirst({
+    let jobForm: any = await prisma.jobForm.findFirst({
       where: { positionId: positionId },
       include: {
         sections: {
@@ -73,20 +78,26 @@ export async function POST(request: NextRequest) {
         data: {
           positionId: positionId,
           title: formConfig.title,
-          description: formConfig.description,
+          description: typeof formConfig.description === 'string' 
+            ? formConfig.description 
+            : formConfig.description?.content || '',
           status: 'PUBLISHED',
           sections: {
             create: formConfig.sections.map((section, sectionIndex) => ({
               title: section.title,
-              description: section.description,
+              description: typeof section.description === 'string' 
+                ? section.description 
+                : section.description?.content || '',
               order: sectionIndex,
               questions: {
                 create: section.questions.map((question, questionIndex) => ({
                   key: question.fieldKey,
                   label: question.label,
-                  description: question.description,
-                  type: question.fieldType,
-                  required: question.required,
+                  description: typeof question.description === 'string' 
+                    ? question.description 
+                    : question.description?.content || '',
+                  type: question.fieldType as any,
+                  required: question.required || false,
                   order: questionIndex,
                   validation: question.validation || {},
                   weight: question.weight || 1,

@@ -31,7 +31,7 @@ export default function FormNavigation({
           <button
             onClick={onPrevious}
             disabled={isSubmitting}
-            className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center justify-center px-6 py-3 bg-gray-500 hover:bg-gray-600 disabled:bg-gray-400 text-white font-medium rounded-full transition-colors disabled:cursor-not-allowed"
           >
             <FaArrowLeft className="w-4 h-4 mr-2" />
             Previous

@@ -305,6 +305,7 @@ const JobCard = ({ job, index, isInView, featured = false, onApplyClick }: {
                             e.stopPropagation();
                             onApplyClick(job);
                         }}
+                        data-navigation="true"
                         className="w-full flex items-center justify-center gap-2 py-2 px-4 text-sm font-medium bg-[#01204c] hover:bg-[#193a6a] text-white rounded-full transition-colors"
                     >
                         Learn More & Apply

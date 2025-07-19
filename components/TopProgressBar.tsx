@@ -1,4 +1,4 @@
-// components/TopProgressBar.tsx
+﻿// components/TopProgressBar.tsx
 "use client";
 
 import { useEffect } from 'react';
@@ -26,7 +26,7 @@ export default function TopProgressBar() {
     // Complete progress after a short delay
     const timer = setTimeout(() => {
       NProgress.done();
-    }, 100);
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -35,12 +35,13 @@ export default function TopProgressBar() {
   }, [pathname, searchParams]);
 
   useEffect(() => {
-    // Handle link clicks to start progress
+    // Handle link clicks to start progress immediately
     const handleClick = (e: Event) => {
       const target = e.target as HTMLElement;
       const link = target.closest('a');
       
       if (link && link.href && !link.href.startsWith('mailto:') && !link.href.startsWith('tel:')) {
+        // Check if it's an internal link
         const url = new URL(link.href);
         const currentUrl = new URL(window.location.href);
         
@@ -51,10 +52,22 @@ export default function TopProgressBar() {
       }
     };
 
+    // Handle router.push calls by intercepting button clicks that might trigger navigation
+    const handleButtonClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+      const button = target.closest('button');
+      
+      if (button && (button.textContent?.includes('Apply') || button.getAttribute('data-navigation'))) {
+        NProgress.start();
+      }
+    };
+
     document.addEventListener('click', handleClick);
+    document.addEventListener('click', handleButtonClick);
     
     return () => {
       document.removeEventListener('click', handleClick);
+      document.removeEventListener('click', handleButtonClick);
     };
   }, []);
 

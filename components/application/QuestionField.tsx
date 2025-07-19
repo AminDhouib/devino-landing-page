@@ -7,6 +7,8 @@ import { MdCloudUpload, MdClose, MdDescription } from 'react-icons/md';
 import { FormQuestionConfig, QuestionType } from '~/lib/forms/form-types';
 import AnimatedRadio from '~/components/ui/AnimatedRadio';
 import AnimatedCheckbox from '~/components/ui/AnimatedCheckbox';
+import UpupComponent from '~/components/UpupComponent';
+import { FileWithParams } from 'upup-react-file-uploader';
 
 interface QuestionFieldProps {
   field: FormQuestionConfig;
@@ -15,6 +17,8 @@ interface QuestionFieldProps {
   onChange: (value: string | string[] | number | boolean | File) => void;
   onFileUpload?: (file: File | null) => void;
   uploadedFile?: File;
+  onUpupFilesChange?: (files: FileWithParams[]) => void;
+  uploadedFileKey?: string;
 }
 
 export default function QuestionField({
@@ -23,10 +27,13 @@ export default function QuestionField({
   error,
   onChange,
   onFileUpload,
-  uploadedFile
+  uploadedFile,
+  onUpupFilesChange,
+  uploadedFileKey
 }: QuestionFieldProps) {
 
   const [dragOver, setDragOver] = useState(false);
+  const [upupFiles, setUpupFiles] = useState<FileWithParams[]>([]);
 
   const handleFileChange = (file: File | null) => {
     if (onFileUpload) {
@@ -234,57 +241,60 @@ export default function QuestionField({
       case QuestionType.FILE:
         return (
           <div className="space-y-4">
-            <div
-              className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
-                dragOver
-                  ? 'border-lightblueactive bg-lightblueactive/10'
-                  : error
-                  ? 'border-red-300 bg-red-50'
-                  : 'border-gray-300 dark:border-gray-600 hover:border-lightblueactive'
-              }`}
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-              onDrop={handleDrop}
-            >
-              <MdCloudUpload className="mx-auto h-10 w-10 text-gray-400" />
-              <div className="mt-3">
-                <label className="cursor-pointer">
-                  <span className="mt-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Drop files here or click to upload
-                  </span>
-                  <input
-                    type="file"
-                    className="hidden"
-                    accept={field.validation?.fileTypes?.join(',')}
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      handleFileChange(file || null);
-                    }}
-                    required={field.required}
-                  />
-                </label>
-                {field.validation?.fileTypes && (
-                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                    Allowed: {field.validation.fileTypes.join(', ')}
-                    {field.validation?.maxFileSize && ` (Max ${field.validation.maxFileSize}MB)`}
-                  </p>
-                )}
-              </div>
-            </div>
+            <UpupComponent
+              isDocument={true}
+              isProcessing={false}
+              finalFiles={[]}
+              rejectedFiles={[]}
+              setFiles={(files: FileWithParams[]) => {
+                setUpupFiles(files);
+                if (onUpupFilesChange) {
+                  onUpupFilesChange(files);
+                }
+                // For now, store the file id as the value
+                if (files.length > 0) {
+                  onChange(files[0].id);
+                }
+              }}
+              onFileRemove={(file: FileWithParams) => {
+                const updatedFiles = upupFiles.filter(f => f.id !== file.id);
+                setUpupFiles(updatedFiles);
+                if (onUpupFilesChange) {
+                  onUpupFilesChange(updatedFiles);
+                }
+                if (updatedFiles.length === 0) {
+                  onChange('');
+                }
+              }}
+              doneUploading={(files: FileWithParams[]) => {
+                setUpupFiles(files);
+                if (onUpupFilesChange) {
+                  onUpupFilesChange(files);
+                }
+                // Store the file identifier
+                if (files.length > 0) {
+                  onChange(files[0].id);
+                }
+              }}
+            />
             
-            {uploadedFile && (
+            {uploadedFileKey && (
               <div className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                 <div className="flex items-center space-x-2">
                   <MdDescription className="h-5 w-5 text-green-600" />
                   <span className="text-sm text-green-700 dark:text-green-300">
-                    {uploadedFile.name}
-                  </span>
-                  <span className="text-xs text-green-600 dark:text-green-400">
-                    ({Math.round(uploadedFile.size / 1024)} KB)
+                    File uploaded: {uploadedFileKey}
                   </span>
                 </div>
                 <button
-                  onClick={() => handleFileChange(null)}
+                  type="button"
+                  onClick={() => {
+                    setUpupFiles([]);
+                    onChange('');
+                    if (onUpupFilesChange) {
+                      onUpupFilesChange([]);
+                    }
+                  }}
                   className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-200"
                 >
                   <MdClose className="h-4 w-4" />

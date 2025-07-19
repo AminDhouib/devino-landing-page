@@ -1,0 +1,17 @@
+{
+  "images": {
+    "extensions": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"],
+    "mimeTypes": ["image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml"],
+    "maxSize": 5242880
+  },
+  "documents": {
+    "extensions": [".pdf", ".doc", ".docx", ".txt", ".rtf"],
+    "mimeTypes": ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "text/plain", "application/rtf"],
+    "maxSize": 10485760
+  },
+  "resume": {
+    "extensions": [".pdf", ".doc", ".docx"],
+    "mimeTypes": ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
+    "maxSize": 10485760
+  }
+}

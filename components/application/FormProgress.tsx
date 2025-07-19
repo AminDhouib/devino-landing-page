@@ -35,9 +35,7 @@ export default function FormProgress({
           {hasSavedData && (
             <div className="flex items-center gap-1 text-green-600 dark:text-green-400">
               <MdSave className="w-3 h-3" />
-              <span className="text-xs">
-                {lastSaved ? `Saved ${lastSaved.toLocaleTimeString()}` : 'Draft saved'}
-              </span>
+              <span className="text-xs">Draft saved</span>
             </div>
           )}
           

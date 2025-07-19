@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import AppHeader from "~/app/AppHeader";
 import ApplicationForm from "~/components/application/ApplicationForm";
 import { jobs } from "~/data/jobs";
+import { toast } from 'react-toastify';
 
 export default function JobApplicationPage() {
   const params = useParams();
@@ -24,10 +25,46 @@ export default function JobApplicationPage() {
     setIsSubmitting(true);
     
     try {
-      // The form component already handles the API call
+      // Debug: Log the data being submitted
+      console.log('Submitting form data:', data);
+      console.log('Available fields:', Object.keys(data));
+      console.log('Required fields check:', {
+        hasEmail: !!data.contact_email,
+        hasName: !!data.full_name,
+        email: data.contact_email,
+        name: data.full_name
+      });
+      
+      // Prepare form data for submission
+      const formData = new FormData();
+      formData.append('positionId', positionId);
+      formData.append('responses', JSON.stringify(data));
+      formData.append('formName', `${positionId}-application`);
+      
+      // Add files
+      Object.entries(files).forEach(([key, file]) => {
+        formData.append(`file_${key}`, file);
+      });
+
+      // Call the API
+      const response = await fetch('/api/applications/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Submission failed');
+      }
+
+      const result = await response.json();
+      console.log('Application submitted successfully:', result);
+      
+      toast.success('🎉 Application submitted successfully! We\'ll be in touch soon.');
       setSubmitSuccess(true);
     } catch (error) {
       console.error('Application submission failed:', error);
+      toast.error(`❌ Submission failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setIsSubmitting(false);
     }

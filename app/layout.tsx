@@ -4,7 +4,7 @@ import Script from 'next/script'
 import "./globals.css";
 import Header from "./(main)/Header";
 import Footer from "./(main)/Footer";
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense } from "react";
 
 import {ThemeProvider} from "~/app/lib/context/ThemeContext";
 import StarsBG from "~/app/_ui/StarsBg";
@@ -12,6 +12,8 @@ import {Metadata} from "next";
 import HotjarInitializer from "~/app/HotjarInitializer";
 import CustomCursor from "~/app/_ui/CustomCursor";
 import TopProgressBar from "~/components/TopProgressBar";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -94,11 +96,25 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               `}
           </Script>
           <Header />
-          <TopProgressBar />
+          <Suspense fallback={null}>
+            <TopProgressBar />
+          </Suspense>
           <CustomCursor />
           {children}
           <Footer />
           <StarsBG />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </body>
         </html>
       </ThemeProvider>
