@@ -62,8 +62,8 @@ export const jobs: JobWithForm[] = [
             description: 'Please complete all sections below.',
             sections: [
                 {
-                    title: 'Meet The Founder!',
-                    description: '',
+                    title: 'Meet The Founder & Referral Program!',
+                    description: 'Get to know us and earn rewards for great referrals!',
                     order: 0,
                     questions: [
                         {
@@ -79,7 +79,7 @@ export const jobs: JobWithForm[] = [
                                             <iframe 
                                                 width="100%" 
                                                 height="315" 
-                                                src="https://www.youtube.com/embed/2CvyafUM6CM" 
+                                                src="https://www.youtube.com/embed/2CvyafUM6CM?rel=0" 
                                                 title="Meet the Founder - Amin Dhouib" 
                                                 frameborder="0" 
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -219,7 +219,7 @@ export const jobs: JobWithForm[] = [
                                 `
                             } as RichContent,
                             required: false,
-                            order: 0
+                            order: 1
                         },
                         {
                             fieldKey: 'referral_bonus_display',
@@ -228,7 +228,7 @@ export const jobs: JobWithForm[] = [
                             description: {
                                 type: 'html',
                                 content: `
-                                    <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 1.5rem; border-radius: 12px; margin: 1rem 0; border-left: 4px solid #f59e0b;">
+                                    <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; border-left: 4px solid #f59e0b;">
                                         <h3 style="color: #92400e; margin: 0 0 1rem 0; font-size: 1.25rem;">💸 WIN A 1000 TND BONUS FOR A SUCCESSFUL REFERRAL!! 💸</h3>
                                         <p style="margin: 0.5rem 0; color: #78350f;">We are also looking for:</p>
                                         <ul style="margin: 1rem 0; padding-left: 1.5rem; color: #78350f;">
@@ -242,14 +242,14 @@ export const jobs: JobWithForm[] = [
                                 `
                             } as RichContent,
                             required: false,
-                            order: 1
+                            order: 2
                         },
                         {
                             fieldKey: 'referral_names',
                             fieldType: QuestionType.TEXTAREA,
                             label: 'Enter the full name of the people you referred including their contact information. (Optional)',
                             required: false,
-                            order: 2
+                            order: 3
                         },
                         {
                             fieldKey: 'referral_linkedin_display',
@@ -267,12 +267,12 @@ export const jobs: JobWithForm[] = [
                                 `
                             } as RichContent,
                             required: false,
-                            order: 3
+                            order: 4
                         }
                     ]
                 },
                 {
-                    title: 'Contact and Basic Info (Section 1 of 3)',
+                    title: 'Contact and Basic Info (Section 2 of 4)',
                     description: '',
                     order: 1,
                     questions: [
@@ -352,7 +352,7 @@ export const jobs: JobWithForm[] = [
                     ]
                 },
                 {
-                    title: 'Skillset (Section 2 of 3)',
+                    title: 'Skillset (Section 3 of 4)',
                     description: 'Rate 1‑10 for each skill.',
                     order: 2,
                     questions: [
@@ -403,7 +403,7 @@ export const jobs: JobWithForm[] = [
                     ]
                 },
                 {
-                    title: 'Final Questions (Section 3 of 3)',
+                    title: 'Final Questions (Section 4 of 4)',
                     description: 'Let me get to know you well!',
                     order: 3,
                     questions: [
