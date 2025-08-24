@@ -121,7 +121,7 @@ export default function Hero() {
         className="text-skybg text-3xl dark:text-gray-400 sm:text-lg font-semibold"
       >
         <TypeAnimation
-          sequence={["It works!", 500, "", "It really works!!", 500]}
+          sequence={["It works! Yay!", 500, "", "It really works!!", 500]}
           speed={50}
           deletionSpeed={60}
           repeat={Infinity}
