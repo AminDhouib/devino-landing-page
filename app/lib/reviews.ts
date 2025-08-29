@@ -8,7 +8,7 @@ export interface Review {
   comment: string;
   companyLink?: string;
   isFeatured?: boolean;
-  source: "Google" | "Upwork";
+  source: "Google" | "Upwork" | "Contra";
   link?: string;
 }
 
@@ -17,6 +17,21 @@ const googleReviewsLink =
 const linkedinRecommendations =
   "https://www.linkedin.com/in/amin-dhouib/details/recommendations/";
 const reviews: Review[] = [
+  {
+    name: "Zarrah",
+    position: "Founder & CEO",
+    company: "Syncara",
+    companyLink: "https://syncara.ca",
+    profileImage: "/reviews/profiles/zarrah.png",
+    companyLogo: "/reviews/companies/syncara.png",
+    rating: 5,
+    comment:
+      "I’ve talked to devs who see projects as quick cash grabs. Amin & his team are different - they’re collaborative, strategic, and actually care about the long-term. If you need someone to help build AND grow, I highly recommend this team!",
+    isFeatured: true,
+    source: "Google",
+    link:
+      "https://contra.com/p/2WcRg2Lv-syncara-healthcare-solutions-for-canadians?justPublished=false&justUpdated=true&referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=amin",
+  },
   {
     name: "Allison Gaddy",
     position: "Founding Partner & CEO",

@@ -9,6 +9,7 @@ export default function Reviews() {
           className="pt-[2rem] pb-[6rem] tracking-tighter max-w-[min(75rem,96svw)] sm:max-w-[100%] mx-auto mb-12 lg:mb-6">
           <ReviewsSection title="Our Happy Customers" source="Google"/>
           <ReviewsSection title="Upwork Reviews" source="Upwork"/>
+          <ReviewsSection title="Contra Reviews" source={"Contra" as any}/>
           <div className="mt-12 md:mx-6 p-10 rounded-xl shadow-sm  text-center transition-colors duration-300 dark:bg-gradient-to-r dark:from-[#02122c] dark:via-[#031531] dark:to-[#01204C] bg-gradient-to-r from-[#dcedfd] to-[#eef6ff]">
               <div className="flex gap-20 md:gap-12 md:flex-col items-center justify-center">
                   <Link

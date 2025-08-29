@@ -14,7 +14,7 @@ import {MdOutlineArrowOutward} from "react-icons/md";
 
 interface ReviewsSectionProps {
     title: string;
-    source?: 'Google' | 'Upwork';
+    source?: 'Google' | 'Upwork' | 'Contra';
     truncatedChars?: number;
     showAllReviewsLink?: boolean;
     showFeatured?: boolean;
