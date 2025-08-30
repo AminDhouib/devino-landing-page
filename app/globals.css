@@ -179,3 +179,17 @@ html.dark .sun-and-moon > .moon > circle {
     animation: glow 3s infinite ease-in-out;
   }
 }
+
+/* NProgress Styles - Custom colors to match AwsmButton */
+#nprogress .bar {
+  background: #01204c !important;
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #01204c, 0 0 5px #01204c !important;
+}
+
+#nprogress .spinner {
+  display: none !important;
+}

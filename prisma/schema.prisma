@@ -1,0 +1,185 @@
+// This is your Prisma schema file.
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//////////////////////////////////////////////////////
+// ENUMS
+//////////////////////////////////////////////////////
+
+enum QuestionType {
+  TEXT
+  EMAIL
+  URL
+  TEXTAREA
+  NUMBER
+  SELECT
+  MULTISELECT
+  RADIO
+  CHECKBOX
+  BOOLEAN
+  FILE
+  DATE
+  SCALE
+  GRID
+  DISPLAY
+}
+
+enum FormStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ApplicationStatus {
+  PENDING
+  UNDER_REVIEW
+  SHORTLISTED
+  INTERVIEWED
+  REJECTED
+  HIRED
+  WITHDRAWN
+}
+
+//////////////////////////////////////////////////////
+// CORE MODELS
+//////////////////////////////////////////////////////
+
+// Job position forms
+model JobForm {
+  id           String            @id @default(uuid())
+  positionId   String            @unique // "ai-engineer", "full-stack-dev"
+  title        String            // "AI Engineer Application"
+  description  String?
+  status       FormStatus        @default(DRAFT)
+  
+  sections     FormSection[]
+  applications JobApplication[]
+  
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  
+  @@map("job_forms")
+}
+
+model FormSection {
+  id          String        @id @default(uuid())
+  formId      String
+  form        JobForm       @relation(fields: [formId], references: [id], onDelete: Cascade)
+  
+  title       String        // "Personal Information", "Experience"
+  description String?
+  order       Int
+  
+  questions   FormQuestion[]
+  
+  @@map("form_sections")
+  @@index([formId, order])
+}
+
+model FormQuestion {
+  id          String        @id @default(uuid())
+  sectionId   String
+  section     FormSection   @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  
+  key         String        // "firstName", "yearsExperience"
+  type        QuestionType
+  label       String
+  description String?
+  placeholder String?
+  required    Boolean       @default(false)
+  order       Int
+  
+  // Validation & options stored as JSON
+  validation  Json?         // { "min": 2, "max": 50, "fileTypes": [".pdf"] }
+  options     String[]      // For select/radio/checkbox
+  
+  // Scoring configuration
+  weight      Float?        // Weight in overall score
+  scoring     Json?         // { "type": "ai", "prompt": "...", "keywords": [...] }
+  
+  answers     FormAnswer[]
+  
+  @@map("form_questions")
+  @@unique([sectionId, key])
+  @@index([sectionId, order])
+}
+
+//////////////////////////////////////////////////////
+// SUBMISSIONS
+//////////////////////////////////////////////////////
+
+// Job applications
+model JobApplication {
+  id              String            @id @default(uuid())
+  formId          String
+  form            JobForm           @relation(fields: [formId], references: [id])
+  
+  // Applicant info
+  email           String
+  name            String?
+  
+  // Application metadata
+  status          ApplicationStatus @default(PENDING)
+  score           Float?            // 0-100
+  aiAnalysis      Json?
+  
+  // Responses
+  answers         FormAnswer[]
+  files           ApplicationFile[]
+  
+  // Review
+  reviewNotes     String?
+  reviewedBy      String?
+  reviewedAt      DateTime?
+  
+  submittedAt     DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  
+  @@map("job_applications")
+  @@index([formId, status])
+  @@index([email])
+  @@index([submittedAt])
+}
+
+model FormAnswer {
+  id            String         @id @default(uuid())
+  applicationId String
+  application   JobApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  questionId    String
+  question      FormQuestion   @relation(fields: [questionId], references: [id])
+  
+  // Flexible value storage
+  value         Json           // Stores any type of answer
+  score         Float?         // Individual question score
+  
+  createdAt     DateTime       @default(now())
+  
+  @@map("form_answers")
+  @@unique([applicationId, questionId])
+}
+
+model ApplicationFile {
+  id            String         @id @default(uuid())
+  applicationId String
+  application   JobApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  questionKey   String         // Which question this file answers
+  originalName  String
+  fileName      String         // Stored filename
+  filePath      String
+  mimeType      String
+  fileSize      Int            // bytes
+  
+  uploadedAt    DateTime       @default(now())
+  
+  @@map("application_files")
+  @@index([applicationId, questionKey])
+}
