@@ -8,7 +8,7 @@ export interface Review {
   comment: string;
   companyLink?: string;
   isFeatured?: boolean;
-  source: "Google" | "Upwork";
+  source: "Google" | "Upwork" | "Contra";
   link?: string;
 }
 
@@ -51,18 +51,20 @@ const reviews: Review[] = [
     source: "Google",
     link: googleReviewsLink,
   },
-  {
-    name: "Trevor Arashiro",
-    profileImage: "/reviews/profiles/trevor.png",
-    position: "CTO/Founder",
-    company: "Plutos App",
-    companyLink: "https://apps.apple.com/in/app/plutos-data",
-    companyLogo: "/reviews/companies/plutos.png",
+    {
+    name: "Zarrah",
+    position: "Founder & CEO",
+    company: "Syncara",
+    companyLink: "https://syncara.ca",
+    profileImage: "/reviews/profiles/zarrah.png",
+    companyLogo: "/reviews/companies/syncara.png",
     rating: 5,
     comment:
-      "Great quality work, good communication, very clever SWE and is capable of handling complex tasks with minimal directive.",
-    isFeatured: false,
+      "I’ve talked to devs who see projects as quick cash grabs. Amin & his team are different - they’re collaborative, strategic, and actually care about the long-term. If you need someone to help build AND grow, I highly recommend this team!",
+    isFeatured: true,
     source: "Google",
+    link:
+      "https://contra.com/p/2WcRg2Lv-syncara-healthcare-solutions-for-canadians?justPublished=false&justUpdated=true&referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=amin",
   },
   {
     name: "Samira Ismail",
@@ -140,6 +142,19 @@ const reviews: Review[] = [
       "The first thing you'll notice about Amin is his positive energy! He is excited and ready to jump in and get things done, learn or just energize the team. He quickly created good relationships with everyone on the team and was active in trying to help everyone be able to use his code to improve their work, results and experience. Secondly, you'll notice how hard of a worker he is. He is willing to put in the time and effort to get up to speed. You won't see him ducking out early, rather he will stick around until the work he said he would do is done.",
     source: "Google",
     link: linkedinRecommendations,
+  },
+  {
+    name: "Trevor Arashiro",
+    profileImage: "/reviews/profiles/trevor.png",
+    position: "CTO/Founder",
+    company: "Plutos App",
+    companyLink: "https://apps.apple.com/in/app/plutos-data",
+    companyLogo: "/reviews/companies/plutos.png",
+    rating: 5,
+    comment:
+      "Great quality work, good communication, very clever SWE and is capable of handling complex tasks with minimal directive.",
+    isFeatured: false,
+    source: "Google",
   },
   {
     name: "Will Evers",

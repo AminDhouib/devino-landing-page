@@ -27,7 +27,7 @@ const cases = [
     info: {
       title: "Shorty",
       description:
-        "A growing platform with currently currently a 50% month-over-month growth, Shorty is a Youtube and Spotify summary tool that helps users save time and learn faster.",
+        "A growing platform with currently a 50% month-over-month growth, Shorty is a Youtube and Spotify summary tool that helps users save time and learn faster.",
       url: "https://aishorty.com?utm_source=devino_landing",
       buttonText: "Check it out",
     },
@@ -64,6 +64,20 @@ const cases = [
       image: "/caramel.png",
       title: "Caramel - The Best Way to Save Money on Your Online Shopping",
       url: "https://grabcaramel.com?utm_source=devino_landing",
+    },
+  },
+  {
+    info: {
+      title: "GetItDone",
+      description:
+        "All your daily check-ins, task updates and time tracking in one place so you can skip stand-ups and stop tool-hopping.",
+      url: "https://nowgetitdone.com?utm_source=devino_landing",
+      buttonText: "Check it out",
+    },
+    example: {
+      image: "/getitdone.png",
+      title: "GetItDone – One Dashboard for Daily Progress and Planning",
+      url: "https://nowgetitdone.com?utm_source=devino_landing",
     },
   },
 ];

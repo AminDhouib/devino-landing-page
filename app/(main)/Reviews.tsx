@@ -21,6 +21,7 @@ export default function Reviews() {
             </motion.div>
             <ReviewsSection title="Our Happy Customers" source="Google"  showFeatured={true} showAllReviewsLink={true}/>
             <ReviewsSection title="Upwork Reviews" source="Upwork"  showFeatured={true} showAllReviewsLink={true}/>
+            <ReviewsSection title="Contra Reviews" source={"Contra" as any} showFeatured={true} showAllReviewsLink={true}/>
         </div>
     );
 }

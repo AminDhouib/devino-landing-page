@@ -5,6 +5,15 @@ const nextConfig = {
     // Google Forms that need a “name” pre-fill.
     const jobs = [
       {
+        source: "/careers/ai-data-engineer",
+        form: "https://docs.google.com/forms/d/e/1FAIpQLSd_NEeeyJrdbZK0r4ml8hRdZcJyHa5bXnq--a7uqIJO1ApmIg/viewform",
+      },
+      // "duplicate" of ai-data-engineer above
+      {
+        source: "/careers/data-engineer",
+        form: "https://docs.google.com/forms/d/e/1FAIpQLSd_NEeeyJrdbZK0r4ml8hRdZcJyHa5bXnq--a7uqIJO1ApmIg/viewform",
+      },
+      {
         source: "/careers/full-stack",
         form: "https://docs.google.com/forms/d/e/1FAIpQLSdXiOSO0Vk_60z9VrMJRdipF8T7tdmsvKPDFTRwxE5mbN1pWw/viewform",
       },
